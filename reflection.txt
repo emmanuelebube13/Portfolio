@@ -1,0 +1,5 @@
+1. The changes I made between my wireframe and the build were mainly in the hero section.
+
+2. I made these adjustments after evaluating the screen sizes and realizing that the content would be too condensed in one area, making it hard for users to absorb the information. After observing other websites, I decided to use a more flexible layout to ensure responsiveness across different devices. This was something I hadn’t fully considered during the wireframing stage. The decision was driven by the need to enhance accessibility and provide a consistent user experience, regardless of the device being used.
+
+3. This process taught me a lot, especially when working with CSS for responsiveness. I gained valuable insights into creating more adaptable and user-friendly designs.
