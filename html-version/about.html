@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="About Mbachu Emmanuel - Data Analyst passionate about turning complex datasets into clear, compelling stories." />
+  <title>About | Mbachu Emmanuel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <!-- Logo -->
+      <a href="index.html" class="logo" aria-label="Home">
+        <div class="logo-badge">ME</div>
+        <span class="logo-name">Mbachu Emmanuel</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html#projects"   class="nav-link">Projects</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+        <a href="index.html#skills"     class="nav-link">Skills</a>
+        <a href="index.html#contact"    class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right: Resume + Hamburger -->
+      <div class="header-right">
+        <button class="btn btn-orange resume-btn" data-resume-trigger aria-label="View Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+          View Resume
+        </button>
+
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu">
+          <span id="hamburger-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
+        <a href="index.html#projects"   class="mobile-nav-link">Projects</a>
+        <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+        <a href="index.html#skills"     class="mobile-nav-link">Skills</a>
+        <a href="index.html#contact"    class="mobile-nav-link">Contact</a>
+        <button class="mobile-resume-btn" data-resume-trigger>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+          View Resume
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============================================================
+       MAIN CONTENT
+       ============================================================ -->
+  <main>
+    <!-- About Banner -->
+    <section class="about-banner">
+      <div class="container about-banner-inner animate-fade-in-up">
+        <h1 class="about-title">About Me</h1>
+      </div>
+    </section>
+
+    <!-- About Content -->
+    <div class="container about-content animate-fade-in-up-delay-1">
+      <div class="about-layout">
+        <!-- Photo -->
+        <div class="about-photo-wrapper">
+          <div class="about-photo">
+            <img
+              src="images/emmanuel-profile.jpg"
+              alt="Mbachu Emmanuel"
+              style="width:100%; height:100%; object-fit:cover;"
+              onerror="this.style.display='none'; this.parentElement.querySelector('svg').style.display='block';"
+            />
+            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" style="display:none; opacity:0.3; color:var(--muted-foreground);"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg>
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="about-text">
+          <p class="about-paragraph">
+            I am a data professional passionate about turning complex datasets
+            into clear, compelling stories. My work spans data science, machine
+            learning, and web development, with a focus on building tools that
+            make information accessible and actionable.
+          </p>
+          <p class="about-paragraph">
+            With a strong foundation in statistical analysis and modern
+            development frameworks, I enjoy bridging the gap between raw data
+            and meaningful insights. Whether it is building predictive models,
+            crafting interactive dashboards, or designing full-stack
+            applications, I bring curiosity and rigor to every project.
+          </p>
+          <p class="about-paragraph">
+            Outside of work, I am drawn to creative coding, generative art,
+            and exploring the intersection of technology and visual
+            storytelling. I am always looking for new ways to learn, create,
+            and collaborate.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <div class="footer-logo-badge">ME</div>
+            <div>
+              <p class="footer-logo-name">Mbachu Emmanuel</p>
+              <p class="footer-logo-title">Data Analyst</p>
+            </div>
+          </a>
+          <p class="footer-tagline">
+            Analytical and research-driven Data Analyst with hands-on experience in applied research,
+            big data analytics, and data visualization. Transforming complex data into actionable insights.
+          </p>
+          <div class="footer-contact-list">
+            <a href="mailto:emmanuelebubembachu@gmail.com" class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              emmanuelebubembachu@gmail.com
+            </a>
+            <a href="tel:+19029196106" class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.07 3.4 2 2 0 0 1 3.05 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg>
+              (902) 919-6106
+            </a>
+            <span class="footer-contact-item" style="cursor:default;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Halifax, NS, Canada
+            </span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="footer-col-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#projects"   class="footer-link">Projects</a></li>
+            <li><a href="index.html#experience" class="footer-link">Experience</a></li>
+            <li><a href="index.html#skills"     class="footer-link">Skills</a></li>
+            <li><a href="index.html#contact"    class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Connect -->
+        <div>
+          <h3 class="footer-col-title">Connect</h3>
+          <div class="footer-social">
+            <a href="https://github.com/emmanuelebube13" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/emmanuelmbachu/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+          <a href="resume.pdf" download="Mbachu_Emmanuel_Resume.pdf" class="footer-resume-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Download Resume
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span id="copyright-year"></span> Mbachu Emmanuel. All rights reserved.</p>
+        <div class="footer-social-icons">
+          <a href="https://github.com/emmanuelebube13" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/emmanuelmbachu/" target="_blank" rel="noopener noreferrer" class="footer-social-icon-btn" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       RESUME MODAL
+       ============================================================ -->
+  <div id="resume-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="resume-modal-title">Resume - Mbachu Emmanuel</h2>
+        <div class="modal-header-actions">
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="modal-action-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Open in New Tab
+          </a>
+          <a href="resume.pdf" download="Mbachu_Emmanuel_Resume.pdf" class="modal-action-dl">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Download
+          </a>
+          <button id="resume-modal-close" class="modal-close-btn" aria-label="Close resume modal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe src="resume.pdf" title="Resume - Mbachu Emmanuel" class="modal-iframe"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
