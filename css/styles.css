@@ -2,21 +2,21 @@
 CSS VARIABLES
 ============================================================ */
 :root {
-  --background: #F4F4F5;
+  --background: #D3D3D3;
   --foreground: #09090B;
   --card: #FFFFFF;
   --card-foreground: #09090B;
-  --secondary: #E4E4E7;
+  --secondary: #E0E0E0;
   --secondary-foreground: #09090B;
-  --muted: #D4D4D8;
-  --muted-foreground: #71717A;
+  --muted: #C0C0C0;
+  --muted-foreground: #606060;
   --orange: #F97316;
   --orange-foreground: #FAFAFA;
   --orange-muted: #EA580C;
-  --charcoal: #3F3F46;
-  --charcoal-light: #52525B;
-  --border: #D4D4D8;
-  --input: #E4E4E7;
+  --charcoal: #404040;
+  --charcoal-light: #505050;
+  --border: #B0B0B0;
+  --input: #E0E0E0;
   --ring: #F97316;
   --radius: 0.5rem;
 }
@@ -39,6 +39,9 @@ html {
 
 body {
   background-color: var(--background);
+  background-image: url("https://img.freepik.com/free-photo/marble-stone-texture-background_632498-949.jpg?semt=ais_hybrid");
+  background-repeat: repeat;
+  background-size: auto;
   color: var(--foreground);
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
@@ -222,7 +225,7 @@ HEADER
   z-index: 50;
   width: 100%;
   border-bottom: 1px solid var(--border);
-  background-color: rgba(244, 244, 245, 0.8);
+  background-color: rgba(211, 211, 211, 0.8);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -739,7 +742,7 @@ PROJECTS SECTION
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(113, 113, 122, 0.3);
+  color: rgba(60, 60, 60, 0.3);
 }
 
 .project-thumb-gradient {
@@ -1375,7 +1378,7 @@ CONTACT SECTION
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: rgba(161, 161, 161, 0.6);
+  color: rgba(96, 96, 96, 0.6);
 }
 
 .form-input:focus,
@@ -1807,7 +1810,7 @@ MODALS
 .modal-body {
   flex: 1;
   overflow: auto;
-  background-color: var(--charcoal);
+  background-color: var(--secondary);
   padding: 0.5rem;
 }
 
@@ -1889,7 +1892,7 @@ MODALS
 .skill-project-item {
   border-radius: 0.5rem;
   border: 1px solid var(--border);
-  background-color: rgba(228, 228, 231, 0.5);
+  background-color: rgba(224, 224, 224, 0.5);
   padding: 0.75rem;
   transition: border-color 0.2s;
 }
