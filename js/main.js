@@ -10,6 +10,7 @@ const projects = [
     skills: ["Python", "XGBoost", "Pandas", "Docker", "PostgreSQL"],
     githubUrl: "https://github.com/emmanuelebube13/scalable-brain",
     liveUrl: "https://scalable-brain.vercel.app",
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
   },
   {
     title: "BettorsOracle",
@@ -18,6 +19,7 @@ const projects = [
     slug: "bettors-oracle",
     skills: ["Python", "Machine Learning", "Scikit-learn", "Data Analysis"],
     githubUrl: "https://github.com/emmanuelebube13/BettorsOracle",
+    imageUrl: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
   },
   {
     title: "Stock Screener",
@@ -27,6 +29,7 @@ const projects = [
     skills: ["Python", "Streamlit", "yFinance", "Data Visualization"],
     githubUrl: "https://github.com/emmanuelebube13/stockScreener",
     liveUrl: "https://stockman.streamlit.app/",
+    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
   },
   {
     title: "Honey Price Predictor",
@@ -35,6 +38,7 @@ const projects = [
     slug: "honey-price-predictor",
     skills: ["R", "Caret", "glmnet", "Cross-Validation"],
     githubUrl: "https://github.com/emmanuelebube13/Honey_Price_Predictor",
+    imageUrl: "https://images.unsplash.com/photo-1599599810694-b5ac1ea7ac61?w=600&h=400&fit=crop",
   },
   {
     title: "Canny Clean",
@@ -44,6 +48,7 @@ const projects = [
     skills: ["HTML", "CSS", "JavaScript", "Responsive Design"],
     githubUrl: "https://github.com/emmanuelebube13/canny-clean",
     liveUrl: "https://emmanuelebube13.github.io/canny-clean/",
+    imageUrl: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
   },
   {
     title: "Data Science Ecosystem",
@@ -52,6 +57,52 @@ const projects = [
     slug: "data-science-ecosystem",
     skills: ["Python", "Jupyter", "Pandas", "NumPy", "R"],
     githubUrl: "https://github.com/emmanuelebube13/DataScienceEcosystem",
+    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Ethical Algorithm - Loan Analysis",
+    subtitle: "Algorithmic Bias & Fairness Case Study",
+    category: "Data Analytics",
+    slug: "ethical-algorithm-loan-analysis",
+    skills: ["Python", "Bias Analysis", "Data Ethics", "Case Study"],
+    githubUrl: "https://github.com/emmanuelebube13/ethical-algorithm-loan-analysis",
+    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Biobin Cleaning Quote System",
+    subtitle: "Interactive Web App for Service Pricing",
+    category: "Web Development",
+    slug: "biobinquotes",
+    skills: ["Python", "Web Application", "Pricing Engine"],
+    githubUrl: "https://github.com/emmanuelebube13/BIOBINQUOTES",
+    imageUrl: "https://images.unsplash.com/photo-1553531088-f59c1a3fd546?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Smart Dashboard",
+    subtitle: "Interactive Analytics Dashboard",
+    category: "Data Analytics",
+    slug: "smart-dashboard",
+    skills: ["JavaScript", "Data Visualization", "Dashboard Design"],
+    githubUrl: "https://github.com/emmanuelebube13/smart-dashboard",
+    imageUrl: "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=400&fit=crop",
+  },
+  {
+    title: "EV Charging Station System",
+    subtitle: "Electric Vehicle Infrastructure Management",
+    category: "Data Analytics",
+    slug: "ev-charging-station",
+    skills: ["Python", "System Design", "Data Management"],
+    githubUrl: "https://github.com/emmanuelebube13/EvChargingStation",
+    imageUrl: "https://images.unsplash.com/photo-1615886287437-f121b6d8a850?w=600&h=400&fit=crop",
+  },
+  {
+    title: "NSCC Wellness Platform",
+    subtitle: "Student Wellness & Engagement Tool",
+    category: "Web Development",
+    slug: "nscc-wellness",
+    skills: ["HTML", "CSS", "JavaScript", "Community Impact"],
+    githubUrl: "https://github.com/emmanuelebube13/nsccwellness",
+    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
   },
 ];
 
@@ -59,6 +110,7 @@ const categories = [
   "All Categories",
   "Machine Learning",
   "Data Science",
+  "Data Analytics",
   "Web Development",
   "Quantitative Finance",
 ];
@@ -458,10 +510,19 @@ function createProjectCard(project) {
     ? `<div class="project-skills">${project.skills.slice(0, 4).map(s => `<span class="skill-badge">${s}</span>`).join("")}</div>`
     : "";
 
+  const imageHTML = project.imageUrl ? `
+    <img src="${project.imageUrl}" alt="${project.title}" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+    <div class="project-placeholder" style="display:none;">
+      ${icons.image}
+    </div>` : `
+    <div class="project-placeholder">
+      ${icons.image}
+    </div>`;
+
   article.innerHTML = `
     <div class="project-thumb">
+      ${imageHTML}
       <div class="project-thumb-gradient"></div>
-      ${icons.image}
     </div>
     <div class="project-body">
       <h3 class="project-title">${project.title}</h3>
