@@ -759,14 +759,23 @@ function initContactForm() {
     submitBtn.disabled = true;
     submitBtn.innerHTML = spinner;
 
-    // Simulate submission (replace with real API call)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Send form using EmailJS
+      await emailjs.sendForm(
+        'service_ne3ev1n',       // Service ID
+        'template_bif3rub',      // Template ID
+        form 
+      );
 
-    form.reset();
-    submitBtn.disabled = false;
-    submitBtn.innerHTML = original;
-
-    showToast("Message sent!", "Thanks for reaching out. I'll get back to you soon.");
+      form.reset();
+      showToast("Message sent!", "Thanks for reaching out. I'll get back to you soon.");
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      showToast("Oops! Something went wrong", "Please try again later or contact me directly.");
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = original;
+    }
   });
 }
 
