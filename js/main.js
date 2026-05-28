@@ -117,6 +117,17 @@ const categories = [
 
 const experiences = [
   {
+    title: "Utility Data Analyst",
+    company: "Detect Technologies Inc",
+    location: "Dartmouth",
+    dates: "May 2026 - Present",
+    responsibilities: [
+      "Analyze utility infrastructure and operational data to identify trends, optimize resource allocation, and support preventative maintenance initiatives.",
+      "Facilitated the development of internal AI and computer vision models by performing high-level data curation and feature identification, directly improving the accuracy of automated infrastructure analysis.",
+      "Collaborated extensively with cross-functional teams to conduct joint analyses, ensuring accurate interpretation of structural data and cohesive, data-driven decision-making.",
+    ],
+  },
+  {
     title: "Data Analyst",
     company: "NewRoots (Applied Research)",
     location: "Halifax, NS",
