@@ -309,7 +309,7 @@ function initCareerFlow() {
       .attr("d", d3.sankeyLinkHorizontal())
       .attr("stroke", (d) => GRAPH_COLORS[d.source.type] || "#8a9ba8")
       .attr("stroke-width", (d) => Math.max(1, d.width || 0))
-      .attr("stroke-opacity", 0.28);
+      .attr("stroke-opacity", 0.42);
 
     const nodeSel = svg
       .append("g")
@@ -345,7 +345,7 @@ function initCareerFlow() {
     function focus(d, event) {
       const neighbors = adjacency.get(d.id) || new Set([d.id]);
       linkSel.attr("stroke-opacity", (l) =>
-        l.source.id === d.id || l.target.id === d.id ? 0.75 : 0.05
+        l.source.id === d.id || l.target.id === d.id ? 0.88 : 0.08
       );
       nodeSel.attr("opacity", (n) => (neighbors.has(n.id) ? 1 : 0.22));
       if (tooltip) {
@@ -360,7 +360,7 @@ function initCareerFlow() {
     }
 
     function blur() {
-      linkSel.attr("stroke-opacity", 0.28);
+      linkSel.attr("stroke-opacity", 0.42);
       nodeSel.attr("opacity", 1);
       if (tooltip) tooltip.style.display = "none";
     }
@@ -374,7 +374,9 @@ function initCareerFlow() {
   }
 
   render();
-  if (fallback) fallback.setAttribute("hidden", "");
+  // The summary stays in the DOM as the diagram's text equivalent; it is
+  // collapsed rather than removed.
+  if (fallback) fallback.classList.add("is-collapsed");
 
   let t;
   window.addEventListener("resize", () => {
@@ -393,6 +395,16 @@ function initSkillTopology() {
 
   if (typeof d3 === "undefined" || typeof d3.forceSimulation === "undefined") {
     console.warn("skill-topology: d3 unavailable, keeping written summary");
+    return;
+  }
+
+  // Dragging and tap-to-isolate do not work well on a phone, and 37 nodes in
+  // a narrow viewport are unreadable. Keep the grouped list there instead.
+  if (window.innerWidth < 700) {
+    const note = document.getElementById("topology-mobile-note");
+    if (note) note.removeAttribute("hidden");
+    const reset = document.getElementById("topology-reset");
+    if (reset) reset.setAttribute("hidden", "");
     return;
   }
 
@@ -585,7 +597,7 @@ function initSkillTopology() {
     simulation.alpha(0.5).restart();
   });
 
-  if (fallback) fallback.setAttribute("hidden", "");
+  if (fallback) fallback.classList.add("is-collapsed");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
