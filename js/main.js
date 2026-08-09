@@ -882,6 +882,94 @@ function initBackToTop() {
 }
 
 /* ============================================================
+   DIRECTORY DOCK
+   With the top nav removed, the directory is the navigation — so it has
+   to stay reachable past the hero. Once the in-page card scrolls away, a
+   compact launcher docks to the edge and expands into the same tree.
+   ============================================================ */
+function initDirectoryDock() {
+  if (document.getElementById("dir-dock")) return;
+
+  const dock = document.createElement("div");
+  dock.id = "dir-dock";
+  dock.className = "dir-dock";
+  dock.innerHTML = `
+    <button class="dir-dock-toggle" type="button" aria-expanded="false" aria-controls="dir-dock-panel">
+      ${treeIcons.folder}
+      <span class="dir-dock-label">Directory</span>
+    </button>
+    <div class="dir-dock-panel" id="dir-dock-panel" hidden>
+      <div class="dir-dock-head">
+        <span class="dir-path">~/mbachu-emmanuel</span>
+        <button class="dir-dock-close" type="button" aria-label="Close directory">${icons.x}</button>
+      </div>
+      <div class="dir-tree" id="dir-dock-tree"></div>
+    </div>`;
+  document.body.appendChild(dock);
+
+  // Second, independent render of the same tree (ids stay unique).
+  const treeHost = dock.querySelector("#dir-dock-tree");
+  treeHost.innerHTML = `<nav class="tree-root" aria-label="Site directory">
+    <ul class="tree-sublist">${buildTreeNodes(siteTree, 0)}</ul>
+  </nav>`;
+  treeHost.querySelectorAll(".tree-folder").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const group = document.getElementById(btn.getAttribute("aria-controls"));
+      const open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      if (group) group.classList.toggle("open", !open);
+    });
+  });
+
+  const toggle = dock.querySelector(".dir-dock-toggle");
+  const panel = dock.querySelector(".dir-dock-panel");
+  const closeBtn = dock.querySelector(".dir-dock-close");
+
+  function setOpen(open) {
+    toggle.setAttribute("aria-expanded", String(open));
+    panel.toggleAttribute("hidden", !open);
+    dock.classList.toggle("is-open", open);
+  }
+
+  toggle.addEventListener("click", () => setOpen(panel.hasAttribute("hidden")));
+  if (closeBtn) closeBtn.addEventListener("click", () => { setOpen(false); toggle.focus(); });
+
+  // Navigating should not leave the panel hanging open over the content.
+  treeHost.addEventListener("click", (e) => {
+    if (e.target.closest(".tree-file")) setOpen(false);
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !panel.hasAttribute("hidden")) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!dock.contains(e.target) && !panel.hasAttribute("hidden")) setOpen(false);
+  });
+
+  // The dock only earns its place once the in-page card is gone. On pages
+  // without one (about, case studies) it is available immediately.
+  const heroCard = document.querySelector(".hero-grid .dir-card");
+
+  function sync() {
+    let show = true;
+    if (heroCard) {
+      const r = heroCard.getBoundingClientRect();
+      show = r.bottom < 72;
+    }
+    dock.classList.toggle("show", show);
+    if (!show && !panel.hasAttribute("hidden")) setOpen(false);
+  }
+
+  window.addEventListener("scroll", sync, { passive: true });
+  window.addEventListener("resize", sync);
+  sync();
+}
+
+/* ============================================================
    GRAPH TEXT EQUIVALENTS
    Each diagram keeps a written summary. It collapses once the graph
    renders, but stays reachable rather than being removed.
@@ -1371,6 +1459,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initOrcaCarousel();
   initBackToTop();
   initGraphFallbackToggles();
+  initDirectoryDock();
   initSiteTree();
   initHeader();
   initResumeModal();

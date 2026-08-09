@@ -2454,3 +2454,159 @@ the skill chips up across the row as well.
 @media (max-width: 639px) {
   .project-subtitle { min-height: 0; }
 }
+
+/* ============================================================
+DIRECTORY DOCK
+The directory is the site navigation now that the top nav row is gone,
+so it follows you down the page: a compact launcher that expands into
+the full tree, and shrinks back out of the way when closed.
+============================================================ */
+.dir-dock {
+  position: fixed;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%) translateX(120%);
+  z-index: 55;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.3, 1), opacity 0.28s ease, visibility 0.28s;
+}
+
+.dir-dock.show {
+  transform: translateY(-50%) translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.dir-dock-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 9999px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 600;
+  box-shadow: 0 10px 26px -10px rgba(12, 45, 72, 0.45);
+  transition: border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.dir-dock-toggle svg {
+  color: var(--orange);
+  flex-shrink: 0;
+}
+
+.dir-dock-toggle:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+  transform: translateX(-3px);
+}
+
+.dir-dock-toggle:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+.dir-dock.is-open .dir-dock-toggle {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.dir-dock-panel {
+  width: 16.5rem;
+  max-height: min(70vh, 32rem);
+  overflow-y: auto;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 18px 40px -16px rgba(12, 45, 72, 0.5);
+  animation: dockIn 0.24s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+@keyframes dockIn {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dir-dock-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.6rem 0.75rem;
+  background-color: #f3f5f8;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+}
+
+.dir-dock-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 0.35rem;
+  color: var(--muted-foreground);
+  flex-shrink: 0;
+}
+
+.dir-dock-close svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+.dir-dock-close:hover {
+  background-color: var(--secondary);
+  color: var(--foreground);
+}
+
+.dir-dock-close:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 1px;
+}
+
+/* Keep clear of the back-to-top control */
+@media (max-width: 900px) {
+  .dir-dock {
+    top: auto;
+    bottom: 1rem;
+    right: 4.5rem;
+    transform: translateX(120%);
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
+
+  .dir-dock.show {
+    transform: translateX(0);
+  }
+
+  .dir-dock-panel {
+    width: min(17rem, calc(100vw - 6rem));
+    max-height: 60vh;
+  }
+
+  .dir-dock-label {
+    display: none;
+  }
+
+  .dir-dock-toggle {
+    padding: 0.65rem;
+  }
+}
+
+@media print {
+  .dir-dock { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dir-dock { transition: opacity 0.01ms; }
+  .dir-dock-panel { animation: none; }
+  .dir-dock-toggle:hover { transform: none; }
+}
