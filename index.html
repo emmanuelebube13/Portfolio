@@ -14,13 +14,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   
   <!-- EmailJS SDK -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script type="text/javascript">
-    (function() {
-      emailjs.init({
-        publicKey: "Z5BCakKp7_mm3HR0H",
-      });
-    })();
+    // The SDK is deferred, so initialise once it has parsed.
+    window.addEventListener("DOMContentLoaded", function () {
+      if (window.emailjs) emailjs.init({ publicKey: "Z5BCakKp7_mm3HR0H" });
+    });
   </script>
   
   <link rel="stylesheet" href="css/styles.css" />
@@ -160,7 +159,10 @@
         </div>
 
         <div class="dir-foot">
-          <span class="dir-foot-key">↑↓</span> to move &middot; <span class="dir-foot-key">↵</span> to open
+          <span class="dir-foot-keys">
+            <span class="dir-foot-key">↑↓</span> to move &middot; <span class="dir-foot-key">↵</span> to open
+          </span>
+          <span class="dir-foot-touch">Tap a folder to expand</span>
         </div>
       </aside>
 
@@ -185,6 +187,9 @@
         <div style="display:flex; flex-direction:column; gap:3rem;">
           <div id="category-filter" class="category-filter" role="group" aria-label="Filter projects by category"></div>
           <div id="projects-grid" class="projects-grid"></div>
+          <div id="projects-more" class="projects-more" hidden>
+            <button type="button" class="btn btn-outline projects-more-btn" aria-controls="projects-grid" aria-expanded="false"></button>
+          </div>
           <div id="no-projects" class="no-projects" style="display:none;">
             <p>No projects found in this category.</p>
           </div>
@@ -294,6 +299,11 @@
               <li><span class="graph-key" style="background:#1baf7a"></span>Tool</li>
             </ul>
           </div>
+
+          <p class="graph-mobile-note" id="career-flow-mobile-note" hidden>
+            The diagram needs a wider screen to be followed end to end, so the
+            same roles, domains and tools are written out below.
+          </p>
 
           <p class="graph-scroll-hint" aria-hidden="true">Swipe the diagram sideways to follow a path &rarr;</p>
 

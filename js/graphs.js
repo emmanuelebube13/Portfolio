@@ -215,6 +215,18 @@ function initCareerFlow() {
     return;
   }
 
+  // Below this the sankey shows less than half of itself; the written
+  // summary communicates more than a diagram you have to drag.
+  if (window.innerWidth < 700) {
+    const note = document.getElementById("career-flow-mobile-note");
+    if (note) note.removeAttribute("hidden");
+    const hint = document.querySelector(".graph-scroll-hint");
+    if (hint) hint.setAttribute("hidden", "");
+    const scroll = document.querySelector("#career-flow .graph-scroll");
+    if (scroll) scroll.setAttribute("hidden", "");
+    return;
+  }
+
   const HEIGHT = 620;
   const MIN_WIDTH = 760;
   const CHAR_W = 6.4;
@@ -365,12 +377,30 @@ function initCareerFlow() {
       if (tooltip) tooltip.style.display = "none";
     }
 
+    let tapped = null;
+
     nodeSel
-      .on("mouseenter", (event, d) => focus(d, event))
-      .on("mousemove", (event) => positionTooltip(event))
-      .on("mouseleave", blur)
+      .on("mouseenter", (event, d) => { if (tapped === null) focus(d, event); })
+      .on("mousemove", (event) => { if (tapped === null) positionTooltip(event); })
+      .on("mouseleave", () => { if (tapped === null) blur(); })
       .on("focus", (event, d) => focus(d, null))
-      .on("blur", blur);
+      .on("blur", () => { if (tapped === null) blur(); })
+      // Touch selects and holds; a second tap or a tap away clears it.
+      .on("click", (event, d) => {
+        event.stopPropagation();
+        if (tapped === d.id) {
+          tapped = null;
+          blur();
+        } else {
+          tapped = d.id;
+          focus(d, event);
+        }
+      });
+
+    svg.on("click", () => {
+      tapped = null;
+      blur();
+    });
   }
 
   render();

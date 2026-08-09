@@ -1364,13 +1364,22 @@ CONTACT SECTION
 ============================================================ */
 .contact-grid {
   display: grid;
+  /* minmax(0,…) not the implicit `auto`: an auto track floors at min-content,
+     and the nowrap email address makes min-content wider than a 320px phone. */
+  grid-template-columns: minmax(0, 1fr);
   gap: 3rem;
 }
 
 @media (min-width: 1024px) {
   .contact-grid {
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   }
+}
+
+.contact-info,
+.contact-form,
+.contact-cards {
+  min-width: 0;
 }
 
 .contact-info {
@@ -2392,7 +2401,14 @@ MOBILE FIXES
 @media (max-width: 400px) {
   .contact-card {
     gap: 0.75rem;
-    padding: 1rem;
+    padding: 0.9rem;
+  }
+
+  /* The icon is decorative and the card already carries a text label
+     ("Email" / "Phone" / "Location"). Dropping it here buys the 60px the
+     address needs to stay on one readable line instead of ellipsing. */
+  .contact-card-icon {
+    display: none;
   }
 }
 
@@ -2609,4 +2625,197 @@ the full tree, and shrinks back out of the way when closed.
   .dir-dock { transition: opacity 0.01ms; }
   .dir-dock-panel { animation: none; }
   .dir-dock-toggle:hover { transform: none; }
+}
+
+/* ============================================================
+FOCUS VISIBILITY
+The global reset sets `outline: none` on *, which removed the focus ring
+from almost everything. Restore it once, globally, so keyboard users are
+not navigating blind. --ring is darkened here because #F97316 measures
+2.80:1 on white — below the 3:1 minimum for a focus indicator.
+============================================================ */
+:root {
+  --ring: #C2410C;          /* 5.18:1 on white */
+  --orange-text: #9a3412;   /* 7.31:1 on white — orange used as text */
+}
+
+*:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 0.2rem;
+}
+
+.btn:focus-visible,
+.form-submit:focus-visible,
+.project-link:focus-visible,
+.footer-link:focus-visible,
+.footer-social-link:focus-visible,
+.footer-resume-btn:focus-visible,
+.exp-case-link:focus-visible,
+.logo:focus-visible,
+.hamburger-btn:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+ORANGE AS TEXT
+#F97316 is 2.80:1 on white — fine as a fill, unreadable as body text.
+Anywhere it carries words on a light surface, use the darker step.
+============================================================ */
+.exp-card-company,
+.info-card-sub,
+.project-link.case,
+.project-link.live,
+.exp-case-link,
+.hero-subtitle {
+  color: var(--orange-text);
+}
+
+.project-link.case:hover,
+.project-link.live:hover,
+.exp-case-link:hover {
+  color: #7c2d12;
+}
+
+/* Small greys that measured below 4.5:1 */
+.tree-note { color: #667180; }          /* was #8a939d — 3.12:1 */
+.dir-foot  { color: #5b636d; }          /* was #6b7580 — 4.48:1 */
+
+/* ============================================================
+TOUCH TARGETS
+Measured at 390px: carousel dots 7px, tree rows 27px, project links
+19px, chips 17-34px. Anything a finger has to hit gets ~44px on touch.
+============================================================ */
+@media (max-width: 900px) {
+  /* Keep the dot small but give it a finger-sized hit area */
+  .orca-dot {
+    position: relative;
+  }
+
+  .orca-dot::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+  }
+
+  .orca-dots { gap: 0.85rem; }
+
+  .orca-nav {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  .tree-folder,
+  .tree-file {
+    padding-block: 0.72rem;
+  }
+
+  /* Hover underline is dead on touch — mark file rows permanently */
+  .tree-file .tree-name {
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.22);
+    text-underline-offset: 2px;
+  }
+
+  .dir-dock-toggle {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+
+  /* The dock is the primary navigation now — it needs a name on screen */
+  .dir-dock-label {
+    display: inline !important;
+    font-size: 0.6875rem;
+  }
+
+  .modal-close-btn,
+  .skill-modal .modal-close-btn {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .project-link {
+    padding-block: 0.6rem;
+    min-height: 2.75rem;
+  }
+
+  .project-links { gap: 1.25rem; }
+
+  .filter-btn,
+  .skill-tag,
+  .form-submit,
+  .btn {
+    min-height: 2.75rem;
+  }
+
+  .footer-link,
+  .footer-social-link,
+  .footer-contact-item {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+  }
+}
+
+/* ============================================================
+MOBILE VERTICAL RHYTHM
+.section carried 96px of padding at every width down to 320px, which is
+~230-280px of dead space between sections on a phone.
+============================================================ */
+@media (max-width: 640px) {
+  .section {
+    padding-block: 3rem;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Timeline bullets were squeezed to a 25-character column at 320px */
+@media (max-width: 400px) {
+  .timeline {
+    padding-left: 1.25rem;
+    margin-left: 0.5rem;
+  }
+
+  .exp-card {
+    padding: 1rem;
+  }
+}
+
+/* Contact values bottomed out at 11.2px on a 320px screen */
+.hero-meta-item {
+  font-size: clamp(0.8125rem, 3.3vw, 0.9rem);
+}
+
+.footer-contact-item,
+.contact-card-value {
+  font-size: clamp(0.8125rem, 3.1vw, 0.875rem);
+}
+
+/* `hidden` is a UA `display:none`, which loses to .project-card's
+   display:flex — so state it explicitly. */
+[hidden] {
+  display: none !important;
+}
+
+/* "Show all projects" control */
+.projects-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.75rem;
+}
+
+.projects-more-btn {
+  width: 100%;
+  max-width: 22rem;
+  justify-content: center;
 }

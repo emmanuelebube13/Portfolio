@@ -546,16 +546,19 @@ let selectedSkill = null;
 const orcaPhotos = [
   {
     src: "photos/orcastogether.jpeg",
+    badge: "photos/badge/orcastogether-96.jpg",
     alt: "A pod of orcas moving together below the surface",
     caption: "A pod moves as one, and still thinks for itself",
   },
   {
     src: "photos/lovelyorcas.jpg",
+    badge: "photos/badge/lovelyorcas-96.jpg",
     alt: "An orca beneath a dense ball of herring it has helped corral",
     caption: "Carousel feeding — a technique the pod learns, then teaches",
   },
   {
     src: "photos/oneforallorcas.avif",
+    badge: "photos/badge/oneforallorcas-96.jpg",
     alt: "A single orca approaching a large bait ball of fish",
     caption: "One works the ball the whole pod built",
   },
@@ -573,7 +576,8 @@ function initOrcaBadges() {
 
     const layers = orcaPhotos.map((photo, i) => {
       const img = document.createElement("img");
-      img.src = photo.src;
+      // 96px crop — the badge renders at ~40px; originals are up to 3072px
+      img.src = photo.badge || photo.src;
       img.alt = "";
       img.setAttribute("aria-hidden", "true");
       img.loading = "lazy";
@@ -674,8 +678,12 @@ function initOrcaCarousel() {
     }
   }
 
+  const noHover = window.matchMedia && window.matchMedia("(hover: none)").matches;
+
   function start() {
-    if (prefersReducedMotionSite()) return;
+    // On touch there is no hover to pause on, so a photo that changes
+    // under the reader's thumb is just noise.
+    if (prefersReducedMotionSite() || noHover) return;
     stop();
     timer = setInterval(() => show(index + 1), 7000);
   }
@@ -894,7 +902,7 @@ function initDirectoryDock() {
   dock.id = "dir-dock";
   dock.className = "dir-dock";
   dock.innerHTML = `
-    <button class="dir-dock-toggle" type="button" aria-expanded="false" aria-controls="dir-dock-panel">
+    <button class="dir-dock-toggle" type="button" aria-label="Site directory" aria-expanded="false" aria-controls="dir-dock-panel">
       ${treeIcons.folder}
       <span class="dir-dock-label">Directory</span>
     </button>
@@ -978,6 +986,12 @@ function initGraphFallbackToggles() {
   document.querySelectorAll(".graph-fallback-toggle").forEach((btn) => {
     const panel = document.getElementById(btn.getAttribute("data-fallback"));
     if (!panel) return;
+    // Below the graph breakpoints the summary is shown outright, so a
+    // disclosure button for it would toggle nothing.
+    if (!panel.classList.contains("is-collapsed")) {
+      btn.hidden = true;
+      return;
+    }
     btn.addEventListener("click", () => {
       const open = panel.classList.toggle("is-open");
       btn.setAttribute("aria-expanded", String(open));
@@ -995,21 +1009,43 @@ function initHeader() {
   const hamburgerIcon = document.getElementById("hamburger-icon");
 
   if (hamburger && mobileNav) {
-    hamburger.addEventListener("click", () => {
-      mobileMenuOpen = !mobileMenuOpen;
-      mobileNav.classList.toggle("open", mobileMenuOpen);
-      hamburgerIcon.innerHTML = mobileMenuOpen ? icons.x : icons.menu;
-      hamburger.setAttribute("aria-label", mobileMenuOpen ? "Close menu" : "Open menu");
+    function setMenu(open) {
+      mobileMenuOpen = open;
+      mobileNav.classList.toggle("open", open);
+      hamburgerIcon.innerHTML = open ? icons.x : icons.menu;
+      hamburger.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      hamburger.setAttribute("aria-expanded", String(open));
+    }
+
+    hamburger.setAttribute("aria-expanded", "false");
+    hamburger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      setMenu(!mobileMenuOpen);
     });
 
-    // Close mobile menu when a link is clicked
+    // Close when a link is chosen
     mobileNav.querySelectorAll("a, button").forEach((el) => {
-      el.addEventListener("click", () => {
-        mobileMenuOpen = false;
-        mobileNav.classList.remove("open");
-        hamburgerIcon.innerHTML = icons.menu;
-      });
+      el.addEventListener("click", () => setMenu(false));
     });
+
+    // The menu covers a third of a phone screen, so every ordinary
+    // dismissal gesture has to work: tap away, scroll, or Escape.
+    document.addEventListener("click", (e) => {
+      if (mobileMenuOpen && !mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+        setMenu(false);
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenuOpen) {
+        setMenu(false);
+        hamburger.focus();
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      if (mobileMenuOpen) setMenu(false);
+    }, { passive: true });
   }
 
   // Highlight active nav link based on scroll
@@ -1029,6 +1065,21 @@ function initHeader() {
   }, { passive: true });
 }
 
+/* Everything outside an open dialog must leave the tab order, or keyboard
+   and screen-reader users wander into content hidden behind the overlay. */
+function setPageInert(on, except) {
+  [...document.body.children].forEach((el) => {
+    if (el === except || el.id === "back-to-top" || el.id === "dir-dock") return;
+    if (on) {
+      el.setAttribute("inert", "");
+      el.setAttribute("aria-hidden", "true");
+    } else {
+      el.removeAttribute("inert");
+      el.removeAttribute("aria-hidden");
+    }
+  });
+}
+
 /* ============================================================
    RESUME MODAL
    ============================================================ */
@@ -1037,16 +1088,38 @@ function initResumeModal() {
   const triggers = document.querySelectorAll("[data-resume-trigger]");
   const closeBtn = document.getElementById("resume-modal-close");
 
-  function openModal() {
+  let lastTrigger = null;
+
+  function openModal(e) {
+    lastTrigger = e && e.currentTarget ? e.currentTarget : null;
     overlay.classList.add("open");
     document.body.style.overflow = "hidden";
+    setPageInert(true, overlay);
+    // Without this the dialog opens with focus still on the page behind it.
+    const first = overlay.querySelector(".modal-close-btn");
+    if (first) first.focus();
   }
   function closeModal() {
+    if (!overlay.classList.contains("open")) return;
     overlay.classList.remove("open");
     document.body.style.overflow = "";
+    setPageInert(false, overlay);
+    if (lastTrigger) lastTrigger.focus();
   }
 
-  triggers.forEach((btn) => btn.addEventListener("click", openModal));
+  const smallScreen = () => window.matchMedia("(max-width: 767px)").matches;
+
+  triggers.forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      if (smallScreen()) {
+        // iOS Safari will not render a PDF in an iframe, and Android
+        // Chrome usually shows a download shim instead.
+        window.open("resume.pdf", "_blank", "noopener");
+        return;
+      }
+      openModal(e);
+    })
+  );
   if (closeBtn) closeBtn.addEventListener("click", closeModal);
 
   // Close on overlay click
@@ -1087,7 +1160,59 @@ function renderProjects() {
       const card = createProjectCard(project);
       grid.appendChild(card);
     });
+    applyProjectLimit(filtered.length);
   }
+}
+
+/* On a phone the full grid is ~9.6 screens of near-identical cards, so it
+   starts trimmed. Nothing is removed — the rest is one tap away, and the
+   limit lifts entirely once there is room for a multi-column grid. */
+const PROJECT_LIMIT_MOBILE = 6;
+let projectsExpanded = false;
+
+function applyProjectLimit(total) {
+  const grid = document.getElementById("projects-grid");
+  const moreWrap = document.getElementById("projects-more");
+  if (!grid || !moreWrap) return;
+
+  const narrow = window.matchMedia("(max-width: 639px)").matches;
+  const cards = [...grid.children];
+  const limited = narrow && !projectsExpanded && total > PROJECT_LIMIT_MOBILE;
+
+  cards.forEach((c, i) => {
+    c.hidden = limited && i >= PROJECT_LIMIT_MOBILE;
+  });
+
+  if (!narrow || total <= PROJECT_LIMIT_MOBILE) {
+    moreWrap.hidden = true;
+    return;
+  }
+
+  moreWrap.hidden = false;
+  const btn = moreWrap.querySelector("button");
+  const remaining = total - PROJECT_LIMIT_MOBILE;
+  btn.textContent = projectsExpanded
+    ? "Show fewer projects"
+    : `Show all ${total} projects (${remaining} more)`;
+  btn.setAttribute("aria-expanded", String(projectsExpanded));
+}
+
+function initProjectsMore() {
+  const moreWrap = document.getElementById("projects-more");
+  if (!moreWrap) return;
+  const btn = moreWrap.querySelector("button");
+  btn.addEventListener("click", () => {
+    projectsExpanded = !projectsExpanded;
+    renderProjects();
+    if (!projectsExpanded) {
+      document.getElementById("projects").scrollIntoView({ block: "start" });
+    }
+  });
+  let t;
+  window.addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(renderProjects, 180);
+  });
 }
 
 function createProjectCard(project) {
@@ -1114,8 +1239,14 @@ function createProjectCard(project) {
     ? `<div class="project-skills">${project.skills.slice(0, 4).map(s => `<span class="skill-badge">${s}</span>`).join("")}</div>`
     : "";
 
+  // Thumbnails are decorative stock, so alt is empty (the title is right
+  // below it). auto=format lets Unsplash negotiate AVIF/WebP, ~22% smaller.
+  const thumbSrc = project.imageUrl && project.imageUrl.includes("images.unsplash.com")
+    ? project.imageUrl + "&auto=format&q=60"
+    : project.imageUrl;
+
   const imageHTML = project.imageUrl ? `
-    <img src="${project.imageUrl}" alt="${project.title}" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+    <img src="${thumbSrc}" alt="" loading="lazy" decoding="async" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
     <div class="project-placeholder" style="display:none;">
       ${icons.image}
     </div>` : `
@@ -1280,7 +1411,7 @@ function renderSkills() {
     btn.addEventListener("click", () => {
       const skillName = btn.getAttribute("data-skill");
       const skill = skills.find((s) => s.name === skillName);
-      if (skill) openSkillModal(skill);
+      if (skill) openSkillModal(skill, btn);
     });
   });
 }
@@ -1288,8 +1419,11 @@ function renderSkills() {
 /* ============================================================
    SKILL MODAL
    ============================================================ */
-function openSkillModal(skill) {
+let skillModalTrigger = null;
+
+function openSkillModal(skill, trigger) {
   selectedSkill = skill;
+  skillModalTrigger = trigger || null;
   const overlay = document.getElementById("skill-modal-overlay");
   const title = document.getElementById("skill-modal-title");
   const body = document.getElementById("skill-modal-body");
@@ -1332,12 +1466,19 @@ function openSkillModal(skill) {
 
   overlay.classList.add("open");
   document.body.style.overflow = "hidden";
+  setPageInert(true, overlay);
+  const close = document.getElementById("skill-modal-close");
+  if (close) close.focus();
 }
 
 function closeSkillModal() {
   const overlay = document.getElementById("skill-modal-overlay");
-  if (overlay) overlay.classList.remove("open");
+  if (!overlay || !overlay.classList.contains("open")) return;
+  overlay.classList.remove("open");
   document.body.style.overflow = "";
+  setPageInert(false, overlay);
+  if (skillModalTrigger) skillModalTrigger.focus();
+  skillModalTrigger = null;
   selectedSkill = null;
 }
 
@@ -1458,6 +1599,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initOrcaBadges();
   initOrcaCarousel();
   initBackToTop();
+  initProjectsMore();
   initGraphFallbackToggles();
   initDirectoryDock();
   initSiteTree();
