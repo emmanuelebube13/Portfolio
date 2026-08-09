@@ -970,3 +970,31 @@
   .dir-foot-keys { display: none; }
   .dir-foot-touch { display: inline; }
 }
+
+/* ============================================================
+   GRAPH SECTIONS FOLDED ON PHONES
+   ============================================================ */
+.graph-fold-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 2.75rem;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.6rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--foreground);
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+}
+
+.graph-card-foldable {
+  display: none;
+}
+
+.graph-card-foldable.is-expanded {
+  display: block;
+}

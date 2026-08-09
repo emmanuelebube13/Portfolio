@@ -1080,3 +1080,40 @@
 @media (max-width: 640px) {
   .map-stepper { padding-inline: 1rem; }
 }
+
+/* ============================================================
+   CASE STUDY HERO ON PHONES
+   Four short stat cards stacked one per row cost ~250px before the first
+   section. Two-up, and the synthetic-data notice tightened — it stays
+   fully visible, since it is an honesty disclosure, just less tall.
+   ============================================================ */
+@media (max-width: 639px) {
+  .stat-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .stat-tile {
+    padding: 0.85rem 0.9rem;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-label { font-size: 0.6875rem; }
+  .stat-foot  { font-size: 0.6875rem; }
+
+  .provenance {
+    padding: 0.9rem 1rem;
+    gap: 0.7rem;
+  }
+
+  .provenance-text { font-size: 0.8125rem; }
+
+  .case-hero { padding-block: 2.5rem 1.5rem; }
+  .case-lede { font-size: 0.9375rem; }
+
+  .method-grid { gap: 0.75rem; }
+  .method-card { padding: 1rem 1.05rem; }
+}
