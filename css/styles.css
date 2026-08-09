@@ -929,6 +929,46 @@ PROJECTS SECTION
   color: var(--orange-muted);
 }
 
+/* Case study link — the primary action on research cards */
+.project-link.case {
+  color: var(--orange);
+  font-weight: 600;
+}
+
+.project-link.case:hover {
+  color: var(--orange-muted);
+}
+
+/* Case study link inside an experience timeline card */
+.exp-case-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--orange);
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.exp-case-link svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.exp-case-link:hover {
+  color: var(--orange-muted);
+  gap: 0.6rem;
+}
+
+.exp-case-arrow {
+  transition: transform 0.2s ease;
+}
+
+.exp-case-link:hover .exp-case-arrow {
+  transform: translateX(2px);
+}
+
 .project-link svg {
   width: 1rem;
   height: 1rem;
@@ -2129,4 +2169,86 @@ UTILITIES
 .toast-msg {
   color: var(--muted-foreground);
   margin-top: 0.25rem;
+}
+/* ============================================================
+REDUCED MOTION
+Honour the OS setting site-wide: keep transitions perceptible but
+near-instant, and stop anything that loops or travels.
+============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    transform: none;
+    opacity: 1;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ============================================================
+ORCA BADGE
+The ME monogram rides on a slowly rotating orca photo. Images are
+decorative; the monogram carries the meaning, so it keeps a scrim
+behind it and stays legible over any frame.
+============================================================ */
+.orca-badge {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding: 0;
+}
+
+.orca-badge-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+  z-index: 0;
+}
+
+.orca-badge-img.active {
+  opacity: 1;
+}
+
+/* Scrim: keeps the monogram readable whichever photo is showing */
+.orca-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, rgba(10, 30, 48, 0.34), rgba(6, 20, 34, 0.62));
+  z-index: 1;
+}
+
+.orca-badge-mono {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.55);
+}
+
+.logo:hover .orca-badge {
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orca-badge-img {
+    transition: none;
+  }
 }

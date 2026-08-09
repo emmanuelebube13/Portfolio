@@ -1,0 +1,822 @@
+/* ============================================================
+   HOME PAGE
+   Three-rail hero (orca panel · hero · site directory) plus the
+   two d3 graph sections. Layered on top of styles.css.
+   ============================================================ */
+
+/* ============================================================
+   HERO GRID
+   ============================================================ */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 1100px) {
+  .hero-grid {
+    grid-template-columns: minmax(16rem, 19rem) minmax(0, 1fr) minmax(14.5rem, 17rem);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* The rails read better with a little more room than the 72rem container */
+  .hero-grid > .hero {
+    min-height: 78vh;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero-grid {
+    margin-inline: -5rem;
+    gap: 2.5rem;
+  }
+}
+
+/* Sticky rails on tall screens so they stay with you through the hero */
+@media (min-width: 1100px) {
+  .orca-panel,
+  .dir-card {
+    position: sticky;
+    top: 5rem;
+  }
+}
+
+/* ============================================================
+   ORCA PANEL
+   ============================================================ */
+.orca-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-block: 2rem;
+  scroll-margin-top: 5rem;
+}
+
+/* --- Frame --- */
+.orca-frame {
+  position: relative;
+  margin: 0;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background:
+    linear-gradient(150deg, #e8f2fb 0%, #f4f9fd 45%, #e3eef9 100%);
+  border: 1px solid rgba(12, 45, 72, 0.14);
+  box-shadow:
+    0 20px 44px -24px rgba(9, 42, 68, 0.5),
+    0 2px 6px -2px rgba(9, 42, 68, 0.12);
+}
+
+/* Hairline inner rule, like a mat board inside a picture frame */
+.orca-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0.25rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+}
+
+.orca-frame-inner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.7rem;
+  aspect-ratio: 738 / 414;
+  background-color: #0d3350;
+}
+
+/* Slow light sweep — surface caustics, kept faint */
+.orca-frame-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.16) 45%,
+    rgba(255, 255, 255, 0.05) 55%,
+    transparent 70%
+  );
+  background-size: 260% 100%;
+  animation: orcaSheen 9s ease-in-out infinite;
+}
+
+@keyframes orcaSheen {
+  0%, 100% { background-position: 130% 0; }
+  50%      { background-position: -30% 0; }
+}
+
+/* --- Carousel --- */
+.orca-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.orca-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.03);
+  transition: opacity 0.7s ease, transform 1.2s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.orca-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.orca-frame:hover .orca-slide.is-active {
+  transform: scale(1.05);
+}
+
+.orca-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.88);
+  color: #0d3350;
+  box-shadow: 0 2px 8px rgba(9, 42, 68, 0.28);
+  /* Visible at rest so the control is discoverable, not hover-only */
+  opacity: 0.72;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+  z-index: 3;
+}
+
+.orca-nav-prev { left: 0.5rem; }
+.orca-nav-next { right: 0.5rem; }
+
+.orca-frame:hover .orca-nav,
+.orca-frame:focus-within .orca-nav {
+  opacity: 1;
+}
+
+.orca-nav:hover { background-color: #ffffff; }
+
+.orca-nav:focus-visible {
+  opacity: 1;
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.orca-frame-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.7rem;
+  padding-inline: 0.15rem;
+}
+
+.orca-caption {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+  font-style: italic;
+  min-width: 0;
+}
+
+.orca-dots {
+  display: flex;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.orca-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background-color: #c3cdd6;
+  transition: background-color 0.2s ease, width 0.2s ease;
+  padding: 0;
+}
+
+.orca-dot.is-active {
+  width: 18px;
+  background-color: var(--orange);
+}
+
+.orca-dot:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* --- Teaser copy (short on purpose) --- */
+.orca-tease {
+  padding-inline: 0.15rem;
+}
+
+.orca-eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #9a3412;
+}
+
+.orca-eyebrow-dash { color: #c8a48c; }
+
+.orca-eyebrow-name {
+  color: var(--foreground);
+  letter-spacing: 0.06em;
+}
+
+.orca-hook {
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+}
+
+.orca-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #9a3412;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.orca-more:hover {
+  color: var(--orange-muted);
+  gap: 0.6rem;
+}
+
+.orca-more:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 0.2rem;
+}
+
+/* ============================================================
+   ORCA NOTE SECTION (the long version, lower down the page)
+   ============================================================ */
+.orca-note {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.orca-note-lead {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  color: var(--foreground);
+}
+
+.orca-note-text {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.orca-quote {
+  position: relative;
+  padding: 1.25rem 1.3rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: 0.5rem;
+}
+
+.orca-quote p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+
+.orca-quote cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-style: normal;
+}
+
+.orca-quote cite a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #9a3412;
+  transition: color 0.2s ease, gap 0.2s ease;
+}
+
+.orca-quote cite a:hover {
+  color: var(--orange-muted);
+  gap: 0.45rem;
+}
+
+@media (max-width: 860px) {
+  .orca-note { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+}
+
+/* ============================================================
+   SITE DIRECTORY CARD
+   ============================================================ */
+.dir-card {
+  display: flex;
+  flex-direction: column;
+  margin-block: 2rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 14px 34px -22px rgba(12, 45, 72, 0.45);
+}
+
+.dir-head {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.7rem 0.9rem;
+  background-color: #f3f5f8;
+  border-bottom: 1px solid var(--border);
+}
+
+.dir-dots {
+  display: flex;
+  gap: 0.3rem;
+  flex-shrink: 0;
+}
+
+.dir-dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: #cdd4dc;
+}
+
+.dir-dots i:first-child { background-color: #f0a3a2; }
+.dir-dots i:nth-child(2) { background-color: #f6ce8c; }
+.dir-dots i:nth-child(3) { background-color: #a8dcb4; }
+
+.dir-path {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.6875rem;
+  color: #4a5560;
+  letter-spacing: 0.01em;
+}
+
+.dir-intro {
+  padding: 0.75rem 0.95rem 0.35rem;
+}
+
+.dir-intro p {
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+}
+
+.dir-tree {
+  padding: 0.35rem 0.5rem 0.6rem;
+}
+
+/* Static fallback list, replaced by the interactive tree */
+.tree-root-static {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.25rem 0.45rem;
+}
+
+.tree-root-static a {
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+
+.tree-root-static a:hover {
+  color: var(--orange);
+}
+
+/* --- The tree itself --- */
+.tree-item {
+  position: relative;
+}
+
+.tree-folder,
+.tree-file {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.35rem 0.5rem;
+  padding-left: calc(0.45rem + var(--depth, 0) * 0.85rem);
+  border-radius: 0.35rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
+  color: var(--muted-foreground);
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.tree-folder:hover,
+.tree-file:hover {
+  background-color: #f4f6f9;
+  color: var(--foreground);
+}
+
+.tree-folder:focus-visible,
+.tree-file:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: -2px;
+}
+
+.tree-file:hover .tree-name {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.tree-chevron {
+  display: flex;
+  color: #98a2ad;
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.tree-folder[aria-expanded="true"] .tree-chevron {
+  transform: rotate(90deg);
+}
+
+.tree-icon {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.tree-icon.folder { color: var(--orange); }
+.tree-icon.file   { color: #98a2ad; }
+
+/* Files sit one notch further in than their folder's chevron */
+.tree-file .tree-icon.file {
+  margin-left: 0.75rem;
+}
+
+.tree-name {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  letter-spacing: -0.01em;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-folder .tree-name {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.tree-note {
+  margin-left: auto;
+  padding-left: 0.4rem;
+  font-size: 0.625rem;
+  color: #8a939d;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.tree-ext {
+  display: flex;
+  color: #98a2ad;
+  flex-shrink: 0;
+}
+
+/* Collapsible group — the grid-rows trick animates to the content's own
+   height. It requires exactly one child, which is why the markup wraps
+   each sublist in this element. */
+.tree-group {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.26s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+
+.tree-group > .tree-sublist {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.tree-group.open {
+  grid-template-rows: 1fr;
+}
+
+.dir-foot {
+  margin-top: auto;
+  padding: 0.6rem 0.95rem;
+  border-top: 1px solid var(--border);
+  background-color: #f9fafb;
+  font-size: 0.6875rem;
+  color: #6b7580;
+}
+
+.dir-foot-key {
+  display: inline-block;
+  padding: 0.05rem 0.3rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background-color: var(--card);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.625rem;
+  color: var(--muted-foreground);
+}
+
+/* ============================================================
+   GRAPH CARDS (career flow · skill topology)
+   ============================================================ */
+.graph-card {
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.graph-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  padding: 1.1rem 1.35rem;
+  border-bottom: 1px solid #e1e0d9;
+}
+
+.graph-title {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.graph-sub {
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.graph-head-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.graph-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.graph-legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.graph-key {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.graph-reset {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  padding: 0.35rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  background-color: var(--secondary);
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.graph-reset:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.graph-reset:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.graph-scroll {
+  overflow-x: auto;
+  padding: 1rem 1.1rem;
+}
+
+.graph-body {
+  padding: 0.5rem;
+}
+
+.career-flow-inner {
+  position: relative;
+  min-width: 760px;
+  height: 620px;
+}
+
+.topology-svg {
+  display: block;
+  width: 100%;
+  height: 640px;
+}
+
+.graph-foot {
+  padding: 0 1.35rem 1.25rem;
+}
+
+.graph-note {
+  font-size: 0.8125rem;
+  line-height: 1.65;
+  color: var(--muted-foreground);
+  max-width: 76ch;
+}
+
+.graph-fallback {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--secondary);
+}
+
+.graph-fallback p {
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.graph-fallback p + p {
+  margin-top: 0.4rem;
+}
+
+.graph-fallback strong {
+  color: var(--foreground);
+}
+
+/* --- Sankey marks --- */
+.cf-node {
+  cursor: pointer;
+  transition: opacity 0.14s ease;
+}
+
+.cf-node:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.cf-node text {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 11.5px;
+  pointer-events: none;
+}
+
+.cf-link {
+  fill: none;
+  transition: stroke-opacity 0.14s ease;
+}
+
+.cf-tooltip {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  pointer-events: none;
+  max-width: 17rem;
+  padding: 0.5rem 0.65rem;
+  background-color: #ffffff;
+  border: 1px solid rgba(11, 11, 11, 0.1);
+  border-radius: 0.4rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.cf-tip-name {
+  display: block;
+  font-weight: 600;
+  color: #0b0b0b;
+}
+
+.cf-tip-dim {
+  display: block;
+  color: #898781;
+  font-size: 0.6875rem;
+}
+
+@media (max-width: 620px) {
+  .cf-tool-label { display: none; }
+}
+
+/* --- Force graph marks --- */
+.topo-node {
+  cursor: grab;
+}
+
+.topo-node:active {
+  cursor: grabbing;
+}
+
+.topo-node:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.topo-node text {
+  font-family: 'Inter', system-ui, sans-serif;
+  transition: opacity 0.15s ease;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 1099px) {
+  /* Stacked order: who this is, then the personality, then the map of the
+     site. The source order puts the rails first for the desktop layout. */
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-grid > .hero { order: 1; min-height: auto; padding-block: 2rem 3rem; }
+  .orca-panel        { order: 2; }
+  .dir-card          { order: 3; }
+
+  .orca-panel {
+    max-width: 34rem;
+    margin-inline: auto;
+    padding-block: 1rem 0;
+  }
+
+  .dir-card {
+    max-width: 34rem;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  /* The bouncing arrow belongs to a full-height hero only */
+  .hero-grid > .hero .scroll-indicator { display: none; }
+}
+
+@media (max-width: 640px) {
+  .graph-head { padding: 0.9rem 1rem; }
+  .graph-foot { padding: 0 1rem 1rem; }
+  .graph-scroll { padding: 0.75rem 0.6rem; }
+  .topology-svg { height: 520px; }
+}
+
+/* ============================================================
+   MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .orca-frame-sheen { animation: none; }
+  .orca-slide { transition: none; transform: none; }
+  .orca-frame:hover .orca-slide.is-active { transform: none; }
+  .tree-group { transition: none; }
+  .tree-chevron { transition: none; }
+}
+
+/* Current-role block, sits between the tree and the key hints */
+.dir-status {
+  padding: 0.85rem 0.95rem;
+  border-top: 1px solid var(--border);
+  background: linear-gradient(180deg, #fff 0%, #fbfcfd 100%);
+}
+
+.dir-status-label {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #9a3412;
+}
+
+.dir-status-role {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.dir-status-org {
+  margin-top: 0.1rem;
+  font-size: 0.6875rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}

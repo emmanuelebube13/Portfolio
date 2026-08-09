@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Case study: how a multi-institution research study was cleaned, analyzed, verified and mapped. Method walkthrough with interactive demos running on synthetic data." />
+  <meta property="og:title" content="Multi-Institution Research Study | Mbachu Emmanuel" />
+  <meta property="og:description" content="A method walkthrough — reproducible cleaning, automated figure verification, tiered outputs and geospatial apps. All demos run on synthetic data." />
+  <meta property="og:type" content="article" />
+  <title>Research Study Case Study | Mbachu Emmanuel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/case-study.css" />
+</head>
+<body>
+
+  <!-- ============================================================
+       HEADER
+       ============================================================ -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Home">
+        <div class="logo-badge" data-orca-badge>ME</div>
+        <span class="logo-name">Mbachu Emmanuel</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html#projects"   class="nav-link">Projects</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+        <a href="index.html#skills"     class="nav-link">Skills</a>
+        <a href="index.html#contact"    class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-right">
+        <button class="btn btn-orange resume-btn" data-resume-trigger aria-label="View Resume">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+          View Resume
+        </button>
+
+        <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu">
+          <span id="hamburger-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+      <div class="mobile-nav-inner">
+        <a href="index.html#projects"   class="mobile-nav-link">Projects</a>
+        <a href="index.html#experience" class="mobile-nav-link">Experience</a>
+        <a href="index.html#skills"     class="mobile-nav-link">Skills</a>
+        <a href="index.html#contact"    class="mobile-nav-link">Contact</a>
+        <button class="mobile-resume-btn" data-resume-trigger>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+          View Resume
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <div class="container">
+      <section class="case-hero animate-fade-in-up">
+        <a href="index.html#projects" class="case-back">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          All projects
+        </a>
+
+        <p class="case-eyebrow">Case study &middot; Applied research</p>
+        <h1 class="case-title">A multi-institution research study, built to be checkable</h1>
+        <p class="case-role">
+          <strong>Data Analyst</strong> &middot; Together Design Lab, Toronto Metropolitan University &middot; Dec 2025 &ndash; Present
+        </p>
+
+        <p class="case-lede">
+          A wide survey instrument, several partner institutions, four rounds of analysis, and a
+          reporting deadline. The interesting problem was not the statistics &mdash; it was making sure
+          that every number reaching a reader could be traced back to source data, and that the
+          people who own the work could keep running it after I stopped touching it.
+        </p>
+
+        <!-- Provenance contract -->
+        <div class="provenance">
+          <span class="provenance-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <div>
+            <p class="provenance-title">No study data appears on this page</p>
+            <p class="provenance-text">
+              Every figure, map point, table row and quoted value below is <strong>synthetic</strong> &mdash;
+              generated in your browser from a fixed seed when the page loads. There are no survey
+              responses, no institution identities, no findings, and no network calls fetching any.
+              What is being shown is the <em>method</em>: how the work was structured, not what it
+              concluded. The geography is an invented region, not a real place.
+            </p>
+          </div>
+        </div>
+
+        <!-- Structural facts about the engagement (not findings) -->
+        <div class="stat-row">
+          <div class="stat-tile">
+            <p class="stat-label">Survey instrument</p>
+            <p class="stat-value"><span data-count-to="274">274</span></p>
+            <p class="stat-foot">columns inventoried before analysis began</p>
+          </div>
+          <div class="stat-tile">
+            <p class="stat-label">Analysis rounds</p>
+            <p class="stat-value"><span data-count-to="4">4</span></p>
+            <p class="stat-foot">each reviewed with supervisors and partners</p>
+          </div>
+          <div class="stat-tile">
+            <p class="stat-label">Output tiers</p>
+            <p class="stat-value"><span data-count-to="2">2</span></p>
+            <p class="stat-foot">one code path, two access levels</p>
+          </div>
+          <div class="stat-tile">
+            <p class="stat-label">Unverified figures published</p>
+            <p class="stat-value">0</p>
+            <p class="stat-foot">enforced by the build, not by memory</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+         01 — PIPELINE
+         ============================================================ -->
+    <div class="container">
+      <section class="case-section reveal" id="pipeline">
+        <div class="case-section-head">
+          <p class="case-section-num">01 &middot; Shape of the work</p>
+          <h2 class="case-section-title">Six stages, each one auditable</h2>
+          <p class="case-section-text">
+            The pipeline was built so that any figure in the final report can be walked backwards
+            to the untouched export. Select a stage to see what happens there and what it hands
+            to the next one.
+          </p>
+        </div>
+
+        <div class="pipeline">
+          <div class="pipe-track" id="pipeline-track" role="tablist" aria-label="Pipeline stages"></div>
+          <div class="pipe-detail" id="pipeline-detail" role="tabpanel" tabindex="0"></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+         02 — CLEANING LEDGER
+         ============================================================ -->
+    <div class="container">
+      <section class="case-section reveal" id="cleaning">
+        <div class="case-section-head">
+          <p class="case-section-num">02 &middot; Cleaning</p>
+          <h2 class="case-section-title">Cleaning as a record, not an edit</h2>
+          <p class="case-section-text">
+            Nothing is changed in place. Every issue found becomes a row in a ledger &mdash; what was
+            found, which rule caught it, what was done about it. The cleaned dataset is that ledger
+            replayed over the raw export, which means the cleaning itself can be reviewed, argued
+            with, and re-run.
+          </p>
+        </div>
+
+        <div class="viz-card">
+          <div class="viz-head">
+            <div>
+              <p class="viz-title">Issues by class</p>
+              <p class="viz-sub">Illustrative counts &mdash; not from any real dataset</p>
+            </div>
+            <div class="viz-head-right">
+              <span class="synth-badge">Synthetic</span>
+              <div class="viz-toolbar">
+                <div class="viz-toggle" id="ledger-toggle" role="group" aria-label="Select stage">
+                  <button data-mode="intake" class="active" aria-pressed="true">At intake</button>
+                  <button data-mode="remaining" aria-pressed="false">After cleaning</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="viz-body">
+            <div id="ledger-chart"></div>
+          </div>
+          <div class="viz-foot">
+            <p class="viz-note" id="ledger-caption"></p>
+            <button class="viz-linkbtn" id="ledger-table-btn" aria-expanded="false" aria-controls="ledger-table" style="margin-top:0.75rem;">Show data table</button>
+          </div>
+          <div class="viz-table-wrap" id="ledger-table"></div>
+        </div>
+
+        <div class="method-grid" style="margin-top:1.25rem;">
+          <div class="method-card">
+            <div class="method-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 15h6"/></svg>
+            </div>
+            <h3 class="method-title">Missing stays missing</h3>
+            <p class="method-text">
+              The one class that does not go to zero is genuinely absent data. Quietly imputing it
+              would make the dataset look cleaner than it is, so it is carried forward as missing
+              and handled explicitly wherever it matters.
+            </p>
+          </div>
+          <div class="method-card">
+            <div class="method-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            </div>
+            <h3 class="method-title">Re-runnable from scratch</h3>
+            <p class="method-text">
+              A new export drops in and the whole pipeline replays. That mattered across four
+              rounds &mdash; each round was a re-run, not a fresh round of manual work with fresh
+              opportunities to slip.
+            </p>
+          </div>
+          <div class="method-card">
+            <div class="method-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            </div>
+            <h3 class="method-title">Findable decisions</h3>
+            <p class="method-text">
+              When a reviewer asks why a value looks the way it does, the answer is a ledger lookup
+              rather than an archaeology exercise through someone's spreadsheet history.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+         03 — GEOSPATIAL
+         ============================================================ -->
+    <div class="container">
+      <section class="case-section reveal" id="mapping">
+        <div class="case-section-head">
+          <p class="case-section-num">03 &middot; Geospatial</p>
+          <h2 class="case-section-title">Maps the team can maintain without me</h2>
+          <p class="case-section-text">
+            Several findings had a geographic dimension, so they became interactive maps
+            (Leaflet, Folium, Plotly and ArcGIS depending on the output). The binding constraint
+            was not cartography &mdash; it was that non-technical staff had to be able to refresh the
+            data and republish after the engagement ended. Inputs are plain spreadsheets; the
+            rebuild is one command.
+          </p>
+        </div>
+
+        <div class="viz-card">
+          <div class="viz-head">
+            <div>
+              <p class="viz-title">Respondent geography &mdash; interactive demo</p>
+              <p class="viz-sub">Invented region, generated points. Hover, or focus the map and use arrow keys.</p>
+            </div>
+            <div class="viz-head-right">
+              <span class="synth-badge">Synthetic</span>
+              <div class="viz-toolbar">
+                <div class="viz-toggle" id="map-toggle" role="group" aria-label="Select measure">
+                  <button data-measure="commute" class="active" aria-pressed="true">Commute time</button>
+                  <button data-measure="share" aria-pressed="false">Housing cost share</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="map-legend" id="map-legend"></div>
+
+          <div class="viz-body">
+            <div class="map-wrap" id="map-demo">
+              <div class="map-tooltip" id="map-tooltip" role="status" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <div class="viz-foot">
+            <p class="viz-note" id="map-note"></p>
+            <button class="viz-linkbtn" id="map-table-btn" aria-expanded="false" aria-controls="map-table" style="margin-top:0.75rem;">Show data table</button>
+          </div>
+          <div class="viz-table-wrap" id="map-table"></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+         04 — VERIFICATION
+         ============================================================ -->
+    <div class="container">
+      <section class="case-section reveal" id="verification">
+        <div class="case-section-head">
+          <p class="case-section-num">04 &middot; Verification</p>
+          <h2 class="case-section-title">The part I would build again first</h2>
+          <p class="case-section-text">
+            Reports go through many hands, and numbers drift &mdash; a figure gets updated in the text
+            but not the appendix, or a chart is regenerated from a stale extract. So the harness
+            reads the finished report, finds every number in it, and recomputes each one
+            independently from source data. Anything that does not reconcile fails the build.
+          </p>
+        </div>
+
+        <div class="viz-card">
+          <div class="viz-head">
+            <div>
+              <p class="viz-title">Verification run</p>
+              <p class="viz-sub">Invented figure list &mdash; one entry is rigged to fail, on purpose</p>
+            </div>
+            <div class="viz-head-right">
+              <span class="synth-badge">Synthetic</span>
+              <button class="btn btn-orange btn-sm" id="verify-run">Run verification</button>
+            </div>
+          </div>
+          <div class="viz-body">
+            <ul class="verify-list" id="verify-list"></ul>
+            <div class="verify-summary" id="verify-summary"></div>
+          </div>
+          <div class="viz-foot">
+            <p class="viz-note">
+              A harness that can only ever pass proves nothing, so this demo includes a figure that
+              does not reconcile. In the real pipeline that is a hard stop: the report does not
+              publish until the discrepancy is explained or the number is fixed.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+         05 — TIERED OUTPUTS
+         ============================================================ -->
+    <div class="container">
+      <section class="case-section reveal" id="tiers">
+        <div class="case-section-head">
+          <p class="case-section-num">05 &middot; Access tiers</p>
+          <h2 class="case-section-title">Two audiences, one code path</h2>
+          <p class="case-section-text">
+            Partner institutions had different data-sharing constraints, so the same analysis had
+            to produce outputs at two access levels. The trap here is maintaining two documents by
+            hand until they disagree. Instead both tiers are generated from one pipeline with a
+            different suppression threshold, so they cannot drift.
+          </p>
+        </div>
+
+        <div class="viz-card">
+          <div class="viz-head">
+            <div>
+              <p class="viz-title">Same analysis, two tiers</p>
+              <p class="viz-sub">Invented region bands and values</p>
+            </div>
+            <div class="viz-head-right">
+              <span class="synth-badge">Synthetic</span>
+              <div class="viz-toolbar">
+                <div class="viz-toggle" id="tier-toggle" role="group" aria-label="Select access tier">
+                  <button data-tier="wide" class="active" aria-pressed="true">Aggregate tier</button>
+                  <button data-tier="partner" aria-pressed="false">Partner tier</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="viz-table-wrap open" id="tier-table" style="padding-top:1.25rem;"></div>
+          <div class="viz-foot">
+            <p class="viz-note" id="tier-note"></p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- ============================================================
+         06 — STACK & TAKEAWAY
+         ============================================================ -->
+    <div class="container">
+      <section class="case-section reveal" id="stack">
+        <div class="case-section-head">
+          <p class="case-section-num">06 &middot; Tools</p>
+          <h2 class="case-section-title">What it was built with</h2>
+        </div>
+
+        <div class="stack-chips">
+          <span class="stack-chip">Python</span>
+          <span class="stack-chip">Pandas</span>
+          <span class="stack-chip">NumPy</span>
+          <span class="stack-chip">Leaflet</span>
+          <span class="stack-chip">Folium</span>
+          <span class="stack-chip">Plotly</span>
+          <span class="stack-chip">ArcGIS</span>
+          <span class="stack-chip">SQL</span>
+          <span class="stack-chip">Automated testing</span>
+          <span class="stack-chip">Stakeholder reporting</span>
+        </div>
+
+        <div class="method-grid" style="margin-top:2rem;">
+          <div class="method-card">
+            <div class="method-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="m17 5-5-3-5 3"/><path d="m17 19-5 3-5-3"/></svg>
+            </div>
+            <h3 class="method-title">Coordination was half the job</h3>
+            <p class="method-text">
+              Four rounds, academic supervisors, and partner institutions with different needs. The
+              analytical plan had to survive contact with feedback, which meant designing for
+              revision from the start rather than treating each round as a surprise.
+            </p>
+          </div>
+          <div class="method-card">
+            <div class="method-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="method-title">Handover was a requirement</h3>
+            <p class="method-text">
+              Tools that only I can run are a liability to the team that inherits them. Spreadsheet
+              inputs and one-command rebuilds were a deliberate constraint, accepted at some cost
+              to elegance.
+            </p>
+          </div>
+          <div class="method-card">
+            <div class="method-icon" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            <h3 class="method-title">Trust is built, not asserted</h3>
+            <p class="method-text">
+              "I checked it" does not scale across four rounds and multiple reviewers. Automating
+              the check is what let the team move quickly without quietly accumulating risk in the
+              numbers.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="container">
+      <div class="case-nav">
+        <a href="case-newroots.html" class="case-nav-card">
+          <p class="case-nav-label">Next case study</p>
+          <p class="case-nav-title">Housing &amp; property management research</p>
+          <p class="case-nav-sub">NewRoots &mdash; integrating qualitative and quantitative evidence</p>
+        </a>
+        <a href="index.html#projects" class="case-nav-card">
+          <p class="case-nav-label">Back to</p>
+          <p class="case-nav-title">All projects</p>
+          <p class="case-nav-sub">Machine learning, analytics, quantitative finance and web</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="footer-logo">
+            <div class="footer-logo-badge" data-orca-badge>ME</div>
+            <div>
+              <p class="footer-logo-name">Emmanuel Mbachu</p>
+              <p class="footer-logo-title">Data Analyst</p>
+            </div>
+          </a>
+          <p class="footer-tagline">Transforming complex data into actionable, evidence-based insights.</p>
+          <div class="footer-contact-list">
+            <a href="mailto:emmanuelebubembachu@gmail.com" class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              emmanuelebubembachu@gmail.com
+            </a>
+            <a href="tel:+19029196106" class="footer-contact-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.07 3.4 2 2 0 0 1 3.05 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg>
+              (902) 919-6106
+            </a>
+            <span class="footer-contact-item" style="cursor:default;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Halifax, NS, Canada
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#projects"   class="footer-link">Projects</a></li>
+            <li><a href="index.html#experience" class="footer-link">Experience</a></li>
+            <li><a href="index.html#skills"     class="footer-link">Skills</a></li>
+            <li><a href="index.html#contact"    class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-col-title">Connect</h3>
+          <div class="footer-social">
+            <a href="https://github.com/emmanuelebube13" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              GitHub
+            </a>
+            <a href="https://linkedin.com/in/emmanuelmbachu/" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              LinkedIn
+            </a>
+          </div>
+          <a href="resume.pdf" download="Mbachu_Emmanuel_Resume.pdf" class="footer-resume-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Download Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">&copy; <span id="copyright-year"></span> Emmanuel Mbachu. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       RESUME MODAL
+       ============================================================ -->
+  <div id="resume-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title" id="resume-modal-title">Resume - Mbachu Emmanuel</h2>
+        <div class="modal-header-actions">
+          <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="modal-action-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Open in New Tab
+          </a>
+          <a href="resume.pdf" download="Mbachu_Emmanuel_Resume.pdf" class="modal-action-dl">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            Download
+          </a>
+          <button id="resume-modal-close" class="modal-close-btn" aria-label="Close resume modal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body">
+        <iframe src="resume.pdf" title="Resume - Mbachu Emmanuel" class="modal-iframe"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/case-studies.js"></script>
+</body>
+</html>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mbachu Emmanuel - Data Analyst. Analytical and research-driven Data Analyst with hands-on experience in applied research, big data analytics, and data visualization." />
-  <meta name="keywords" content="Data Analyst, Python, R, SQL, Machine Learning, Power BI, Tableau, Halifax" />
+  <meta name="description" content="Mbachu Emmanuel - Data Analyst. Analytical and research-driven Data Analyst with hands-on experience in applied research, big data analytics, geospatial mapping, and data visualization." />
+  <meta name="keywords" content="Data Analyst, Python, R, SQL, Apache Spark, Machine Learning, Power BI, Tableau, ArcGIS, Geospatial, AWS, Azure, Halifax" />
   <meta property="og:title" content="Mbachu Emmanuel | Data Analyst" />
   <meta property="og:description" content="Transforming complex data into actionable insights for evidence-based decision-making." />
   <meta property="og:type" content="website" />
@@ -24,6 +24,7 @@
   </script>
   
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
@@ -34,7 +35,7 @@
     <div class="container header-inner">
       <!-- Logo -->
       <a href="index.html" class="logo" aria-label="Home">
-        <div class="logo-badge">ME</div>
+        <div class="logo-badge" data-orca-badge>ME</div>
         <span class="logo-name">Mbachu Emmanuel</span>
       </a>
 
@@ -83,7 +84,56 @@
     <div class="container">
 
       <!-- HERO SECTION -->
-      <section class="hero animate-fade-in-up" aria-label="Introduction">
+      <div class="hero-grid animate-fade-in-up">
+
+      <!-- ========== LEFT RAIL: ORCA TEASER ==========
+           Deliberately short. The full note lives in #orca further down,
+           so the first screen has one thing to read, not three. -->
+      <aside class="orca-panel" aria-labelledby="orca-eyebrow">
+        <figure class="orca-frame">
+          <div class="orca-frame-inner">
+            <div class="orca-slides" id="orca-slides" aria-live="polite">
+              <!-- Slides injected by initOrcaCarousel(); this one is the no-JS state -->
+              <img class="orca-slide is-active" src="photos/orcastogether.jpeg"
+                   alt="A pod of orcas moving together below the surface"
+                   width="738" height="414" />
+            </div>
+            <span class="orca-frame-sheen" aria-hidden="true"></span>
+
+            <button class="orca-nav orca-nav-prev" id="orca-prev" type="button" aria-label="Previous photo" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="orca-nav orca-nav-next" id="orca-next" type="button" aria-label="Next photo" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+
+          <div class="orca-frame-bar">
+            <figcaption class="orca-caption" id="orca-caption">
+              A pod moves as one, and still thinks for itself
+            </figcaption>
+            <div class="orca-dots" id="orca-dots" role="tablist" aria-label="Choose photo"></div>
+          </div>
+        </figure>
+
+        <div class="orca-tease">
+          <p class="orca-eyebrow" id="orca-eyebrow">
+            Spirit animal <span class="orca-eyebrow-dash" aria-hidden="true">&mdash;</span>
+            <span class="orca-eyebrow-name">Orcas</span>
+          </p>
+          <p class="orca-hook">
+            A pod learns fast, adapts to whatever water it is in, and passes what works
+            on to the next generation.
+          </p>
+          <a class="orca-more" href="#orca">
+            Why that shapes how I work
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+      </aside>
+
+      <!-- ========== CENTRE: HERO ========== -->
+      <section class="hero" aria-label="Introduction">
         <!-- Profile Photo -->
         <div class="profile-photo-wrapper">
           <div class="profile-photo">
@@ -99,11 +149,11 @@
         <!-- Hero Text -->
         <div class="hero-content">
           <h1 class="hero-title">Emmanuel Mbachu</h1>
-          <p class="hero-subtitle">Utility Data Analyst</p>
+          <p class="hero-subtitle">Data Analyst</p>
           <p class="hero-description">
             Analytical and research-driven Data Analyst with hands-on experience in applied research,
-            big data analytics, and data visualization. Transforming complex data into actionable insights
-            for evidence-based decision-making.
+            big data analytics, geospatial mapping, and data visualization, plus exposure to AWS, Microsoft Azure,
+            and applied AI models. Transforming complex data into actionable insights for evidence-based decision-making.
           </p>
 
           <!-- Location & Contact -->
@@ -135,6 +185,39 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
         </div>
       </section>
+
+      <!-- ========== RIGHT RAIL: SITE DIRECTORY ========== -->
+      <aside class="dir-card" aria-labelledby="dir-heading">
+        <div class="dir-head">
+          <span class="dir-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <p class="dir-path" id="dir-heading">~/mbachu-emmanuel</p>
+        </div>
+
+        <div id="site-tree" class="dir-tree">
+          <!-- Fallback if the tree script does not run -->
+          <ul class="tree-root-static">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="case-tmu.html">Research study case study</a></li>
+            <li><a href="case-newroots.html">Housing research case study</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="dir-status">
+          <p class="dir-status-label">Currently</p>
+          <p class="dir-status-role">Data Analyst</p>
+          <p class="dir-status-org">Together Design Lab, TMU &middot; Remote</p>
+        </div>
+
+        <div class="dir-foot">
+          <span class="dir-foot-key">↑↓</span> to move &middot; <span class="dir-foot-key">↵</span> to open
+        </div>
+      </aside>
+
+      </div><!-- /hero-grid -->
 
       <!-- PROJECTS SECTION -->
       <section id="projects" class="section animate-fade-in-up-delay-1" aria-label="Featured Projects">
@@ -233,10 +316,154 @@
         <div class="skills-summary">
           <h3 class="skills-summary-title">Professional Summary</h3>
           <p class="skills-summary-text">
-            Strong technical foundation in <strong>Python, R, SQL</strong>, with expertise in <strong>Power BI, Tableau</strong>, and ETL workflows (SSIS, SSRS).
-            Experienced in <strong>data cleaning, transformation, validation</strong>, exploratory data analysis (EDA), and large-dataset handling.
+            Strong technical foundation in <strong>Python, R, SQL, and Apache Spark</strong>, with expertise in <strong>Power BI, Tableau</strong>, and ETL workflows (SSIS, SSRS).
+            Experienced in <strong>data cleaning, transformation, validation</strong>, exploratory data analysis (EDA), large-dataset handling,
+            and <strong>interactive geospatial mapping</strong> with ArcGIS, Leaflet, and Folium.
             Proven ability to translate complex findings into clear insights for technical and non-technical stakeholders.
           </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <div class="container">
+      <!-- CAREER FLOW SECTION -->
+      <div class="section reveal" id="career-flow" aria-label="Career flow">
+        <div class="section-header">
+          <h2 class="section-title">Career Flow</h2>
+          <p class="section-subtitle">How roles fed into domains, and domains into tools</p>
+        </div>
+
+        <div class="graph-card">
+          <div class="graph-head">
+            <div>
+              <p class="graph-title">roles &rarr; domains &rarr; tools</p>
+              <p class="graph-sub">Hover or focus a band to trace what it connects to</p>
+            </div>
+            <ul class="graph-legend">
+              <li><span class="graph-key" style="background:#2a78d6"></span>Role</li>
+              <li><span class="graph-key" style="background:#eb6834"></span>Domain</li>
+              <li><span class="graph-key" style="background:#1baf7a"></span>Tool</li>
+            </ul>
+          </div>
+
+          <div class="graph-scroll">
+            <div id="career-flow-inner" class="career-flow-inner">
+              <div id="career-flow-tooltip" class="cf-tooltip" role="status"></div>
+            </div>
+          </div>
+
+          <div class="graph-foot">
+            <p class="graph-note">
+              Band thickness is a relative weight, not hours or dollars &mdash; it shows where the
+              work concentrated, not how much of it there was.
+            </p>
+            <div id="career-flow-fallback" class="graph-fallback">
+              <p><strong>Roles:</strong> Together Design Lab &middot; Detect Technologies &middot; NewRoots &middot; Grid Power Energy &middot; Scalable Brain &middot; NSCC Makerspace &middot; Northwest Co. &middot; NSCC Diploma &middot; UNN B.Eng</p>
+              <p><strong>Domains:</strong> Applied Research &middot; ETL &amp; Data Pipelines &middot; Visualization &amp; BI &middot; Geospatial Analysis &middot; Machine Learning &middot; Algorithmic Trading &middot; System Architecture &middot; Operations Analytics &middot; Energy &amp; Policy</p>
+              <p><strong>Tools:</strong> Python &middot; R &middot; SQL &middot; Pandas/NumPy &middot; Power BI/Tableau &middot; Leaflet/Folium/Plotly &middot; ArcGIS &middot; Excel &middot; SSIS/SSRS &middot; Apache Spark &middot; Docker &middot; Git &middot; AWS/Azure</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <div class="container">
+      <!-- SKILL TOPOLOGY SECTION -->
+      <div class="section reveal" id="topology" aria-label="Skill topology">
+        <div class="section-header">
+          <h2 class="section-title">Skill Topology</h2>
+          <p class="section-subtitle">The same skills, arranged by what they connect to</p>
+        </div>
+
+        <div class="graph-card">
+          <div class="graph-head">
+            <div>
+              <p class="graph-title">force-directed skill graph</p>
+              <p class="graph-sub">Drag to rearrange &middot; click a node to isolate its neighbourhood</p>
+            </div>
+            <div class="graph-head-right">
+              <ul class="graph-legend">
+                <li><span class="graph-key" style="background:#2a78d6"></span>Analytics</li>
+                <li><span class="graph-key" style="background:#eb6834"></span>Engineering</li>
+                <li><span class="graph-key" style="background:#1baf7a"></span>Strategy</li>
+              </ul>
+              <button id="topology-reset" class="graph-reset">Reset layout</button>
+            </div>
+          </div>
+
+          <div class="graph-body">
+            <div id="skill-topology-graph"></div>
+          </div>
+
+          <div class="graph-foot">
+            <p class="graph-note">
+              Node size reflects how central a skill is to the work, and edges mark skills that
+              actually get used together.
+            </p>
+            <div id="skill-topology-fallback" class="graph-fallback">
+              <p><strong>Analytics:</strong> Pandas &middot; NumPy &middot; Power BI &middot; Tableau &middot; Excel &middot; Matplotlib &middot; EDA &middot; Data Cleaning &middot; R &middot; Jupyter &middot; ArcGIS &middot; Leaflet/Folium &middot; Geospatial</p>
+              <p><strong>Engineering:</strong> Python &middot; SQL &middot; ETL Pipelines &middot; SSIS/SSRS &middot; Apache Spark &middot; Web Scraping &middot; TypeScript &middot; React &middot; Streamlit &middot; Docker &middot; Git/Actions &middot; Azure &middot; AWS</p>
+              <p><strong>Strategy:</strong> Machine Learning &middot; XGBoost &middot; Scikit-learn &middot; Backtesting &middot; Algorithmic Trading &middot; Risk Management &middot; System Architecture &middot; Data Governance &middot; Data Storytelling &middot; Applied Research &middot; Reproducibility</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <div class="container">
+      <!-- ORCA NOTE — the long version, given room of its own -->
+      <div class="section reveal" id="orca" aria-label="Spirit animal">
+        <div class="section-header">
+          <h2 class="section-title">Why Orcas</h2>
+          <p class="section-subtitle">A short note on how I think about the work</p>
+        </div>
+
+        <div class="orca-note">
+          <div class="orca-note-body">
+            <p class="orca-note-lead">
+              Orcas hunt in pods. They pass technique down through generations, coordinate
+              without any single one of them being in charge, and rewrite their method for
+              whatever water they are in &mdash; the same species solves a problem one way off
+              Norway and a completely different way off Patagonia.
+            </p>
+            <p class="orca-note-text">
+              That is the part I recognise in how I work. The problems worth taking are rarely
+              solved alone, and almost never solved twice the same way: a 274-column survey
+              instrument, a utility asset log and a tariff schedule each want a different
+              approach, and the job is to learn the shape of the new one quickly rather than
+              force the last one onto it.
+            </p>
+            <p class="orca-note-text">
+              Pods also keep a memory, which &mdash; stripped of the romance &mdash; is what an audit
+              ledger and a verification harness are for. And they are loud on purpose: a finding
+              nobody hears may as well not exist, which is why so much of what I build ends up
+              being about making the result legible to someone who is not an analyst.
+            </p>
+          </div>
+
+          <aside class="orca-note-side">
+            <blockquote class="orca-quote">
+              <p>
+                &ldquo;People with Orca totem are highly intelligent and have exceptional learning
+                abilities. They never make the same mistake twice.&rdquo;
+              </p>
+              <cite>
+                <a href="https://www.spirit-animals.com/orca-symbolism/" target="_blank" rel="noopener noreferrer">
+                  Spirit Animals &mdash; Orca Symbolism
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                </a>
+              </cite>
+            </blockquote>
+          </aside>
         </div>
       </div>
     </div>
@@ -326,13 +553,13 @@
         <!-- Brand -->
           <div class="footer-brand" style="grid-column: span 1;">
           <a href="index.html" class="footer-logo">
-            <div class="footer-logo-badge">ME</div>
+            <div class="footer-logo-badge" data-orca-badge>ME</div>
             <div>
               <p class="footer-logo-name">Emmanuel Mbachu</p>
-              <p class="footer-logo-title">Utility Data Analyst</p>
+              <p class="footer-logo-title">Data Analyst</p>
             </div>
           </a>
-          <p class="footer-tagline">Transforming complex utility data into actionable, evidence-based insights.</p>
+          <p class="footer-tagline">Transforming complex data into actionable, evidence-based insights.</p>
           <div class="footer-contact-list">
             <a href="mailto:emmanuelebubembachu@gmail.com" class="footer-contact-item">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -430,5 +657,11 @@
   </div>
 
   <script src="js/main.js"></script>
+
+  <!-- d3 powers the career flow (sankey) and skill topology (force graph).
+       Both degrade to a written summary if these fail to load. -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
+  <script src="js/graphs.js"></script>
 </body>
 </html>
