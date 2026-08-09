@@ -522,6 +522,13 @@ HERO SECTION
   padding-block: 4rem;
   position: relative;
   text-align: center;
+  /* The ambient glows below are deliberately larger than the hero and bleed
+     past its right edge. Without this they inflate the document's scroll
+     width and the whole page scrolls sideways between 641px and 1099px,
+     where the hero spans the full container. `clip` (not `hidden`) trims the
+     horizontal bleed without creating a scroll container or touching the
+     vertical axis — nothing inside the hero extends past its bottom edge. */
+  overflow-x: clip;
 }
 
 /* Soft ambient glows behind the hero to add warmth without heavy imagery */
