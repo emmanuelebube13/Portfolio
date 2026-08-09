@@ -594,8 +594,12 @@ function initMap() {
       <span class="tip-row"><span class="tip-swatch" style="background:${VIZ.seq[binOf(p[m.field], m.bins)]}"></span>${m.label}: <strong>${p[m.field]} ${m.unit}</strong></span>
       <span class="tip-row tip-alt">${measure === "commute" ? `Housing cost share: ${p.share}% of income` : `Commute time: ${p.commute} min`}</span>
       <span class="tip-foot">Synthetic record</span>`;
-    tipHost.style.left = `${Math.min(Math.max(sx, 8), rect.width - 8)}px`;
-    tipHost.style.top = `${Math.max(sy - 14, 8)}px`;
+    // Clamp to the card on both axes; at 390px the raw position put the
+    // tooltip at left:-9.5px, i.e. off-screen.
+    const tw = tipHost.offsetWidth || 180;
+    const th = tipHost.offsetHeight || 70;
+    tipHost.style.left = `${Math.min(Math.max(sx, tw / 2 + 6), rect.width - tw / 2 - 6)}px`;
+    tipHost.style.top = `${Math.max(sy - 14, th + 6)}px`;
     tipHost.classList.add("open");
   }
 
@@ -604,6 +608,35 @@ function initMap() {
     hiLayer.innerHTML = "";
     if (tipHost) tipHost.classList.remove("open");
   }
+
+  function nearestTo(clientX, clientY) {
+    const rect = svg.getBoundingClientRect();
+    const x = MAP_VIEW.x + ((clientX - rect.left) / rect.width) * MAP_VIEW.w;
+    const y = MAP_VIEW.y + ((clientY - rect.top) / rect.height) * MAP_VIEW.h;
+    let best = -1;
+    let bestD = 34 * 34;
+    points.forEach((p, i) => {
+      const d = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y);
+      if (d < bestD) {
+        bestD = d;
+        best = i;
+      }
+    });
+    return best;
+  }
+
+  // Touch has no hover: tap selects the nearest point, tap again or tap
+  // away dismisses. Without this the map is a static picture on a phone.
+  svg.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "mouse") return;
+    const i = nearestTo(e.clientX, e.clientY);
+    if (i < 0 || i === active) hideTip();
+    else showTip(i);
+  });
+
+  document.addEventListener("pointerdown", (e) => {
+    if (active !== null && !svg.contains(e.target)) hideTip();
+  });
 
   // Nearest-point layer: hit target is generous, not the 11px dot.
   svg.addEventListener("mousemove", (e) => {
@@ -638,6 +671,18 @@ function initMap() {
   svg.addEventListener("blur", hideTip);
 
   host.appendChild(svg);
+
+  const stepper = document.getElementById("map-stepper");
+  if (stepper) {
+    stepper.hidden = false;
+    stepper.querySelector("[data-map-prev]").addEventListener("click", () =>
+      showTip(active === null ? points.length - 1 : active - 1)
+    );
+    stepper.querySelector("[data-map-next]").addEventListener("click", () =>
+      showTip(active === null ? 0 : active + 1)
+    );
+    stepper.querySelector("[data-map-clear]").addEventListener("click", hideTip);
+  }
 
   if (toggle) {
     toggle.querySelectorAll("[data-measure]").forEach((btn) => {

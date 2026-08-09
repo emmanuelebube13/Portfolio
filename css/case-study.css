@@ -11,7 +11,7 @@
   --viz-surface: #ffffff;
   --viz-ink: #0b0b0b;
   --viz-ink-2: #52514e;
-  --viz-muted: #898781;
+  --viz-muted: #6f6d69;   /* was #898781 — 3.59:1 on white */
   --viz-grid: #e1e0d9;
   --viz-axis: #c3c2b7;
   --viz-series: #2a78d6;
@@ -1038,4 +1038,45 @@
     animation: none;
     border-top-color: var(--viz-grid);
   }
+}
+
+
+/* ============================================================
+   MAP STEPPER — the map's arrow-key navigation is unreachable by touch
+   ============================================================ */
+.map-stepper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 1.35rem 0.25rem;
+}
+
+.map-step-btn {
+  flex: 1 1 auto;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  background-color: var(--secondary);
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.map-step-btn:hover { border-color: var(--orange); color: var(--orange-text); }
+.map-step-clear { flex: 0 0 auto; }
+
+/* Small controls need finger-sized targets */
+@media (max-width: 900px) {
+  .viz-toggle button,
+  .viz-linkbtn,
+  .graph-reset,
+  .btn-sm {
+    min-height: 2.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .map-stepper { padding-inline: 1rem; }
 }

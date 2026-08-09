@@ -934,3 +934,39 @@
   #skill-topology-fallback.is-collapsed { display: block; }
   .graph-mobile-note { margin-inline: 1rem; }
 }
+
+
+/* ============================================================
+   TOUCH TARGETS (overrides live here: home.css loads after styles.css
+   and its `padding` shorthand resets padding-block)
+   ============================================================ */
+@media (max-width: 900px) {
+  .tree-folder,
+  .tree-file {
+    padding-top: 0.72rem;
+    padding-bottom: 0.72rem;
+    min-height: 2.75rem;
+  }
+
+  /* Hover underline does not exist on touch — mark file rows permanently */
+  .tree-file .tree-name {
+    text-decoration: underline;
+    text-decoration-color: rgba(0, 0, 0, 0.22);
+    text-underline-offset: 2px;
+  }
+
+  .orca-dots { gap: 0.85rem; }
+
+  .orca-nav {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+/* The keyboard hint describes hardware a phone does not have */
+.dir-foot-touch { display: none; }
+
+@media (max-width: 900px) {
+  .dir-foot-keys { display: none; }
+  .dir-foot-touch { display: inline; }
+}
