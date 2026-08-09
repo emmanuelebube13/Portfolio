@@ -890,6 +890,43 @@ function initBackToTop() {
 }
 
 /* ============================================================
+   GRAPH SECTIONS ON PHONES
+   Below 700px both diagrams are already written summaries rather than
+   canvases. Left expanded they were ~1,700px of prose in the middle of
+   the page, so they fold behind their own headings instead.
+   ============================================================ */
+function initGraphSectionFolding() {
+  if (!window.matchMedia("(max-width: 699px)").matches) return;
+
+  [
+    ["career-flow", "How roles fed into domains, and domains into tools"],
+    ["topology", "The same skills, grouped by what they connect to"],
+  ].forEach(([id, hint]) => {
+    const section = document.getElementById(id);
+    if (!section) return;
+    const card = section.querySelector(".graph-card");
+    const header = section.querySelector(".section-header");
+    if (!card || !header) return;
+
+    card.classList.add("graph-card-foldable");
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "graph-fold-toggle";
+    btn.setAttribute("aria-expanded", "false");
+    btn.setAttribute("aria-controls", id + "-card");
+    card.id = id + "-card";
+    btn.textContent = "Show details";
+    btn.addEventListener("click", () => {
+      const open = card.classList.toggle("is-expanded");
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Hide details" : "Show details";
+    });
+    header.insertAdjacentElement("afterend", btn);
+  });
+}
+
+/* ============================================================
    DIRECTORY DOCK
    With the top nav removed, the directory is the navigation — so it has
    to stay reachable past the hero. Once the in-page card scrolls away, a
@@ -1279,7 +1316,11 @@ function initCategoryFilter() {
   categories.forEach((cat) => {
     const btn = document.createElement("button");
     btn.className = "filter-btn" + (cat === activeCategory ? " active" : "");
-    btn.textContent = cat;
+    // The count tells a phone visitor that a tap collapses 19 cards to a few
+    const n = cat === "All Categories"
+      ? projects.length
+      : projects.filter((p) => p.category === cat).length;
+    btn.innerHTML = `${cat}<span class="filter-count">${n}</span>`;
     btn.addEventListener("click", () => {
       activeCategory = cat;
       filterContainer.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
@@ -1299,8 +1340,8 @@ function renderExperience() {
   const timeline = document.getElementById("experience-timeline");
   if (!timeline) return;
 
-  timeline.innerHTML = experiences.map((exp) => `
-    <div class="timeline-item">
+  timeline.innerHTML = experiences.map((exp, idx) => `
+    <div class="timeline-item${idx > 1 ? " exp-role-extra" : ""}">
       <div class="timeline-dot">
         <div class="timeline-dot-inner"></div>
       </div>
@@ -1313,12 +1354,16 @@ function renderExperience() {
         </div>
         <p class="exp-card-dates">${exp.dates}</p>
         <ul class="exp-card-list">
-          ${exp.responsibilities.map((r) => `
-            <li class="exp-card-list-item">
+          ${exp.responsibilities.map((r, i) => `
+            <li class="exp-card-list-item${i > 1 ? " exp-bullet-extra" : ""}">
               <span class="exp-bullet"></span>
               ${r}
             </li>`).join("")}
         </ul>
+        ${exp.responsibilities.length > 2 ? `
+        <button type="button" class="exp-more-bullets" aria-expanded="false">
+          +${exp.responsibilities.length - 2} more
+        </button>` : ""}
         ${exp.caseUrl ? `
         <a href="${exp.caseUrl}" class="exp-case-link">
           ${icons.filetext}
@@ -1328,6 +1373,70 @@ function renderExperience() {
       </div>
     </div>
   `).join("");
+}
+
+/* ============================================================
+   EXPERIENCE DISCLOSURE (phones)
+   Five roles with every bullet ran 4,897px — 30% of the page. Two roles
+   with two bullets each is enough to judge; the rest is one tap away.
+   ============================================================ */
+function initExperienceDisclosure() {
+  const timeline = document.getElementById("experience-timeline");
+  if (!timeline) return;
+
+  timeline.querySelectorAll(".exp-more-bullets").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const card = btn.closest(".exp-card");
+      const open = card.classList.toggle("bullets-open");
+      btn.setAttribute("aria-expanded", String(open));
+      const extra = card.querySelectorAll(".exp-bullet-extra").length;
+      btn.textContent = open ? "Show less" : `+${extra} more`;
+    });
+  });
+
+  const hidden = timeline.querySelectorAll(".exp-role-extra").length;
+  if (!hidden) return;
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "exp-more-roles";
+  btn.setAttribute("aria-controls", "experience-timeline");
+  btn.setAttribute("aria-expanded", "false");
+  btn.textContent = `Show ${hidden} earlier roles`;
+  btn.addEventListener("click", () => {
+    const open = timeline.classList.toggle("roles-open");
+    btn.setAttribute("aria-expanded", String(open));
+    btn.textContent = open ? "Show fewer roles" : `Show ${hidden} earlier roles`;
+    if (!open) timeline.scrollIntoView({ block: "start" });
+  });
+  timeline.insertAdjacentElement("afterend", btn);
+}
+
+/* Education / awards / volunteer are eight cards of supporting detail —
+   folded on phones behind a labelled count. */
+function initInfoDisclosures() {
+  [
+    ["education-cards", "Education & certifications"],
+    ["awards-cards", "Awards & innovation"],
+    ["volunteer-cards", "Leadership & volunteer"],
+  ].forEach(([id, label]) => {
+    const host = document.getElementById(id);
+    if (!host) return;
+    const count = host.children.length;
+    if (!count) return;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "info-disclosure";
+    btn.setAttribute("aria-controls", id);
+    btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = `<span>${label}</span><span class="info-disclosure-count">${count}</span>`;
+    btn.addEventListener("click", () => {
+      const open = host.classList.toggle("cards-open");
+      btn.setAttribute("aria-expanded", String(open));
+    });
+    host.insertAdjacentElement("beforebegin", btn);
+  });
 }
 
 function renderEducation() {
@@ -1602,14 +1711,17 @@ document.addEventListener("DOMContentLoaded", () => {
   initProjectsMore();
   initGraphFallbackToggles();
   initDirectoryDock();
+  initGraphSectionFolding();
   initSiteTree();
   initHeader();
   initResumeModal();
   initCategoryFilter();
   renderExperience();
+  initExperienceDisclosure();
   renderEducation();
   renderAwards();
   renderVolunteer();
+  initInfoDisclosures();
   renderSkills();
   initSkillModal();
   initContactForm();

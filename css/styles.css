@@ -2819,3 +2819,282 @@ MOBILE VERTICAL RHYTHM
   max-width: 22rem;
   justify-content: center;
 }
+
+/* ============================================================
+MOBILE DENSITY
+A phone card was 414px, 196px of which was a decorative thumbnail. The
+card becomes a row: small square thumb, then the text. Same information,
+roughly a third of the height, and more cards visible per screen.
+============================================================ */
+@media (max-width: 639px) {
+  .projects-grid {
+    gap: 0.85rem;
+  }
+
+  .project-card {
+    flex-direction: row;
+    align-items: stretch;
+    border-radius: 0.65rem;
+  }
+
+  .project-card:hover {
+    transform: none;   /* no hover on touch; keep the row still */
+  }
+
+  .project-thumb {
+    flex: 0 0 6.5rem;
+    width: 6.5rem;
+    aspect-ratio: auto;
+    align-self: stretch;
+    border-radius: 0;
+  }
+
+  .project-thumb-gradient { display: none; }
+
+  .project-body {
+    padding: 0.8rem 0.9rem;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .project-title {
+    font-size: 0.9375rem;
+    line-height: 1.3;
+  }
+
+  .project-subtitle {
+    min-height: 0;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Two chips carry the signal; the rest is noise at this size */
+  .project-skills {
+    margin-top: 0.4rem;
+    gap: 0.3rem;
+  }
+
+  .project-skills .skill-badge:nth-child(n + 3) { display: none; }
+
+  .skill-badge {
+    font-size: 0.625rem;
+    padding: 0.15rem 0.45rem;
+  }
+
+  .project-links {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    gap: 1rem;
+  }
+
+  .project-link {
+    font-size: 0.6875rem;
+    padding-block: 0.45rem;
+    min-height: 2.25rem;
+  }
+
+  .project-link svg { width: 0.85rem; height: 0.85rem; }
+
+  /* ---- Skills: five titled cards become one chip field ---- */
+  .skills-grid {
+    display: block;
+  }
+
+  .skill-category-card {
+    border: 0;
+    background: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .skill-cat-header {
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-cat-icon { display: none; }
+
+  .skill-cat-name {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted-foreground);
+  }
+
+  /* ---- Contact: the three cards duplicate the footer ---- */
+  .contact-grid { gap: 1.5rem; }
+  .contact-cards { gap: 0.5rem; }
+
+  .contact-card {
+    padding: 0.7rem 0.85rem;
+    border-radius: 0.55rem;
+  }
+
+  .contact-card-label {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ---- Footer: Quick Links repeat the menu and the directory; the
+         contact block repeats the section directly above it ---- */
+  .footer-links,
+  .footer-grid > div:nth-child(2),
+  .footer-contact-list {
+    display: none;
+  }
+
+  .footer-grid {
+    gap: 1.25rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.8125rem;
+  }
+
+  .footer-inner {
+    padding-block: 2rem 1.5rem;
+  }
+}
+
+/* ============================================================
+EXPERIENCE / INFO DISCLOSURES
+Desktop keeps everything open; the folding is a phone concern only.
+============================================================ */
+.exp-more-bullets,
+.exp-more-roles,
+.info-disclosure {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  /* --- bullets --- */
+  .exp-card-list-item.exp-bullet-extra { display: none; }
+  .exp-card.bullets-open .exp-card-list-item.exp-bullet-extra { display: flex; }
+
+  .exp-more-bullets {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    margin-top: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--orange-text);
+  }
+
+  /* --- roles --- */
+  .timeline .timeline-item.exp-role-extra { display: none; }
+  .timeline.roles-open .timeline-item.exp-role-extra { display: block; }
+
+  .exp-more-roles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 2.75rem;
+    margin-top: 1.25rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--foreground);
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 9999px;
+  }
+
+  /* --- education / awards / volunteer --- */
+  .info-disclosure {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    width: 100%;
+    min-height: 2.75rem;
+    padding: 0.7rem 0.95rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--foreground);
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 0.55rem;
+  }
+
+  .info-disclosure[aria-expanded="true"] {
+    border-color: var(--orange);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .info-disclosure::after {
+    content: "";
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-left: auto;
+    border-right: 2px solid var(--muted-foreground);
+    border-bottom: 2px solid var(--muted-foreground);
+    transform: rotate(45deg) translate(-2px, -2px);
+    transition: transform 0.2s ease;
+  }
+
+  .info-disclosure[aria-expanded="true"]::after {
+    transform: rotate(-135deg) translate(-2px, -2px);
+  }
+
+  .info-disclosure-count {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--muted-foreground);
+    background-color: var(--secondary);
+    border-radius: 9999px;
+    padding: 0.1rem 0.5rem;
+  }
+
+  .info-cards { display: none; }
+  .info-cards.cards-open { display: flex; }
+
+  /* The column headers above each group now duplicate the disclosure label */
+  .exp-right-col .exp-col-header { display: none; }
+
+  .exp-right-col { gap: 0.75rem; }
+  .experience-grid { gap: 2rem; }
+}
+
+/* ============================================================
+CATEGORY FILTER
+The count makes the filter's value legible — tapping one collapses the
+grid from 19 cards to a handful. On phones the chips become a single
+scrolling row instead of four wrapped lines.
+============================================================ */
+.filter-count {
+  margin-left: 0.4rem;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+@media (max-width: 639px) {
+  .category-filter {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.25rem;
+    /* bleed to the screen edges so the row reads as scrollable */
+    margin-inline: -1rem;
+    padding-inline: 1rem;
+  }
+
+  .category-filter::-webkit-scrollbar { display: none; }
+
+  .filter-btn {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.85rem;
+  }
+}
