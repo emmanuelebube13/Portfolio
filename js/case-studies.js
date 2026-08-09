@@ -203,15 +203,19 @@ function initLedger() {
   let mode = "intake";
   const BAR = 22;      // <= 24px marks
   const GAP = 20;
-  const LEFT = 230;
-  const RIGHT = 62;
   const TOP = 8;
   const max = Math.max(...ledgerClasses.map((d) => d.intake));
 
   function render(animate) {
     const w = host.clientWidth || 700;
-    const plotW = Math.max(120, w - LEFT - RIGHT);
-    const h = TOP + ledgerClasses.length * (BAR + GAP);
+    // Narrow screens cannot afford a label column beside the bars, so the
+    // label moves above its bar and the bar gets the full width.
+    const compact = w < 560;
+    const LEFT = compact ? 0 : 230;
+    const RIGHT = compact ? 54 : 62;
+    const ROW = compact ? BAR + GAP + 18 : BAR + GAP;
+    const plotW = Math.max(90, w - LEFT - RIGHT);
+    const h = TOP + ledgerClasses.length * ROW;
 
     host.innerHTML = "";
     const svg = svgEl("svg", {
@@ -231,13 +235,15 @@ function initLedger() {
     );
 
     ledgerClasses.forEach((d, i) => {
-      const y = TOP + i * (BAR + GAP);
+      const y = TOP + i * ROW + (compact ? 18 : 0);
       const val = mode === "intake" ? d.intake : d.remaining;
       const target = (val / max) * plotW;
 
       const label = svgEl("text", {
-        x: LEFT - 12, y: y + BAR / 2 + 4, "text-anchor": "end",
-        fill: VIZ.ink2, "font-size": "12.5", "font-family": "inherit",
+        x: compact ? 0 : LEFT - 12,
+        y: compact ? y - 7 : y + BAR / 2 + 4,
+        "text-anchor": compact ? "start" : "end",
+        fill: VIZ.ink2, "font-size": compact ? "12" : "12.5", "font-family": "inherit",
       });
       label.textContent = d.name;
       svg.appendChild(label);
@@ -868,14 +874,16 @@ function initThemes() {
 
   const BAR = 20;
   const GAP = 18;
-  const LEFT = 190;
-  const RIGHT = 46;
   const max = Math.max(...themes.map((t) => t.count));
 
   function render() {
     const w = chartHost.clientWidth || 640;
-    const plotW = Math.max(100, w - LEFT - RIGHT);
-    const h = themes.length * (BAR + GAP);
+    const compact = w < 460;
+    const LEFT = compact ? 0 : 190;
+    const RIGHT = compact ? 44 : 46;
+    const ROW = compact ? BAR + GAP + 17 : BAR + GAP;
+    const plotW = Math.max(80, w - LEFT - RIGHT);
+    const h = themes.length * ROW;
     chartHost.innerHTML = "";
     const svg = svgEl("svg", {
       viewBox: `0 0 ${w} ${h}`, width: "100%", height: h, role: "img",
@@ -884,7 +892,7 @@ function initThemes() {
     svg.appendChild(svgEl("line", { x1: LEFT, y1: 0, x2: LEFT, y2: h - GAP + 4, stroke: VIZ.axis, "stroke-width": 1 }));
 
     themes.forEach((t, i) => {
-      const y = i * (BAR + GAP);
+      const y = i * ROW + (compact ? 17 : 0);
       const wBar = (t.count / max) * plotW;
       const dim = selected && selected !== t.id;
 
@@ -892,11 +900,14 @@ function initThemes() {
         "aria-pressed": String(selected === t.id),
         "aria-label": `${t.label}, ${t.count} coded segments` });
 
-      g.appendChild(svgEl("rect", { x: 0, y: y - GAP / 2, width: w, height: BAR + GAP, fill: "transparent" }));
+      g.appendChild(svgEl("rect", { x: 0, y: y - (compact ? 20 : GAP / 2), width: w, height: compact ? ROW : BAR + GAP, fill: "transparent" }));
 
       const label = svgEl("text", {
-        x: LEFT - 12, y: y + BAR / 2 + 4, "text-anchor": "end",
-        fill: dim ? VIZ.muted : VIZ.ink2, "font-size": "12.5", "font-family": "inherit",
+        x: compact ? 0 : LEFT - 12,
+        y: compact ? y - 7 : y + BAR / 2 + 4,
+        "text-anchor": compact ? "start" : "end",
+        fill: dim ? VIZ.muted : VIZ.ink2,
+        "font-size": compact ? "12" : "12.5", "font-family": "inherit",
       });
       label.textContent = t.label;
       g.appendChild(label);

@@ -2252,3 +2252,162 @@ behind it and stays legible over any frame.
     transition: none;
   }
 }
+
+/* ============================================================
+BACK TO TOP
+============================================================ */
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border-radius: 9999px;
+  background-color: var(--orange);
+  color: var(--orange-foreground);
+  box-shadow: 0 8px 24px -6px rgba(249, 115, 22, 0.55), 0 2px 6px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.94);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s, background-color 0.2s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:hover {
+  background-color: var(--orange-muted);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.back-to-top svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+@media (max-width: 640px) {
+  .back-to-top {
+    right: 1rem;
+    bottom: 1rem;
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+}
+
+@media print {
+  .back-to-top { display: none; }
+}
+
+/* ============================================================
+CONTACT DETAILS — never break an address across lines
+============================================================ */
+.hero-meta-item,
+.footer-contact-item,
+.contact-card-value {
+  white-space: nowrap;
+}
+
+/* Scale the address down rather than let it wrap or overflow */
+.hero-meta-item {
+  font-size: clamp(0.72rem, 3.3vw, 0.9rem);
+}
+
+.footer-contact-item,
+.contact-card-value {
+  font-size: clamp(0.7rem, 3.1vw, 0.875rem);
+}
+
+.contact-card-value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 480px) {
+  .hero-meta-item { font-size: 0.9rem; }
+  .footer-contact-item,
+  .contact-card-value { font-size: 0.875rem; }
+}
+
+/* Stack the two meta items on narrow screens so each keeps its own line */
+@media (max-width: 479px) {
+  .hero-meta {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+}
+
+/* ============================================================
+MOBILE FIXES
+============================================================ */
+/* Flex children need min-width:0 or a nowrap child forces the card wider
+   than its container instead of ellipsing. */
+.contact-card > * {
+  min-width: 0;
+}
+
+.contact-card-value {
+  max-width: 100%;
+}
+
+@media (max-width: 400px) {
+  .contact-card {
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+}
+
+/* The resume modal header ran off-screen on phones */
+@media (max-width: 560px) {
+  .modal-header {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .modal-title {
+    font-size: 0.9375rem;
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .modal-header-actions {
+    order: 2;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .modal-close-btn {
+    order: 1;
+    margin-left: auto;
+  }
+}
+
+/* Very narrow phones: give the modal its full width back */
+@media (max-width: 400px) {
+  .modal-overlay {
+    padding: 0.5rem;
+  }
+
+  .modal-header {
+    padding-inline: 0.75rem;
+  }
+
+  .modal-action-btn,
+  .modal-action-dl {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.6875rem;
+  }
+}

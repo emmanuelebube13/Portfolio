@@ -26,10 +26,26 @@
   }
 }
 
-@media (min-width: 1400px) {
+/* Push the rails out toward the edges so the centre column — and the
+   profile photo in it — sits on its own. The breakout is capped by the
+   space actually available, so it never causes sideways scroll. */
+@media (min-width: 1280px) {
   .hero-grid {
-    margin-inline: -5rem;
-    gap: 2.5rem;
+    margin-inline: calc(-1 * min(4rem, max(0px, (100vw - 72rem) / 2)));
+    column-gap: 3rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .hero-grid {
+    margin-inline: calc(-1 * min(8rem, max(0px, (100vw - 72rem) / 2)));
+    grid-template-columns: minmax(16rem, 18.5rem) minmax(0, 1fr) minmax(14rem, 16rem);
+    column-gap: 4.5rem;
+  }
+
+  .dir-card {
+    justify-self: end;
+    width: 100%;
   }
 }
 

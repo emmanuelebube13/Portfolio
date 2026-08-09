@@ -500,6 +500,7 @@ const icons = {
   mail: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>`,
   phone: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12 19.79 19.79 0 0 1 1.07 3.4 2 2 0 0 1 3.05 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z"/></svg>`,
   mappin: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>`,
+  arrowup: `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>`,
   arrowdown: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>`,
   filetext: `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>`,
   menu: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`,
@@ -840,6 +841,44 @@ function initSiteTree() {
     e.preventDefault();
     rows[e.key === "ArrowDown" ? Math.min(i + 1, rows.length - 1) : Math.max(i - 1, 0)].focus();
   });
+}
+
+/* ============================================================
+   BACK TO TOP
+   Appears once you are a screen or so down the page. Built here so
+   every page picks it up without duplicating markup.
+   ============================================================ */
+function initBackToTop() {
+  if (document.getElementById("back-to-top")) return;
+
+  const btn = document.createElement("button");
+  btn.id = "back-to-top";
+  btn.className = "back-to-top";
+  btn.type = "button";
+  btn.setAttribute("aria-label", "Back to top");
+  btn.innerHTML = icons.arrowup;
+  document.body.appendChild(btn);
+
+  const threshold = () => Math.max(500, window.innerHeight * 0.85);
+
+  function sync() {
+    btn.classList.toggle("show", window.scrollY > threshold());
+  }
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: prefersReducedMotionSite() ? "auto" : "smooth",
+    });
+    // Send focus somewhere sensible instead of leaving it on a button
+    // that is about to disappear.
+    const target = document.querySelector(".logo");
+    if (target) target.focus({ preventScroll: true });
+  });
+
+  window.addEventListener("scroll", sync, { passive: true });
+  window.addEventListener("resize", sync);
+  sync();
 }
 
 /* ============================================================
@@ -1313,6 +1352,7 @@ function updateCopyright() {
 document.addEventListener("DOMContentLoaded", () => {
   initOrcaBadges();
   initOrcaCarousel();
+  initBackToTop();
   initSiteTree();
   initHeader();
   initResumeModal();
