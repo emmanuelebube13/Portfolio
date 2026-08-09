@@ -3,14 +3,48 @@
    ============================================================ */
 const projects = [
   {
+    title: "Multi-Institution Research Study",
+    subtitle: "Reproducible Pipeline, Verified Figures & Geospatial Apps",
+    category: "Research & Policy",
+    slug: "tmu-research-study",
+    skills: ["Python", "Pandas", "Leaflet & Folium", "ArcGIS"],
+    caseUrl: "case-tmu.html",
+    imageUrl: "https://images.unsplash.com/photo-1476973422084-e0fa66ff9456?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Housing & Property Research",
+    subtitle: "Integrating Interview Evidence with Quantitative Analysis",
+    category: "Research & Policy",
+    slug: "newroots-housing-research",
+    skills: ["Mixed Methods", "Python", "Power BI", "Thematic Coding"],
+    caseUrl: "case-newroots.html",
+    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Grid Power Energy",
+    subtitle: "Distributed vs. Centralized Electricity Analysis",
+    category: "Research & Policy",
+    slug: "grid-power-energy",
+    skills: ["Techno-Economic Analysis", "SQL", "Regulatory Data", "Python"],
+    imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop",
+  },
+  {
     title: "Scalable Brain",
     subtitle: "Institutional Quantitative Trading Pipeline",
     category: "Quantitative Finance",
     slug: "scalable-brain",
     skills: ["Python", "XGBoost", "Pandas", "Docker", "PostgreSQL"],
     githubUrl: "https://github.com/emmanuelebube13/scalable-brain",
-    liveUrl: "https://scalable-brain.vercel.app",
     imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
+  },
+  {
+    title: "System 2 Executor",
+    subtitle: "Autonomous FX Trade Execution Engine",
+    category: "Quantitative Finance",
+    slug: "system2-executor",
+    skills: ["Python", "OANDA API", "Risk Management", "Event-Driven Design"],
+    githubUrl: "https://github.com/emmanuelebube13/system2Executor",
+    imageUrl: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&h=400&fit=crop",
   },
   {
     title: "BettorsOracle",
@@ -104,6 +138,43 @@ const projects = [
     githubUrl: "https://github.com/emmanuelebube13/nsccwellness",
     imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
   },
+  {
+    title: "Wealth Signal Simulator",
+    subtitle: "Modelling Data Collection & Economic Outcomes",
+    category: "Data Science",
+    slug: "wealth-signal-simulator",
+    skills: ["TypeScript", "Simulation", "Economic Modelling", "Data Viz"],
+    githubUrl: "https://github.com/emmanuelebube13/Wealth-Signal-Simulator",
+    imageUrl: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Adica Editor",
+    subtitle: "Browser-Based Editing Tool",
+    category: "Web Development",
+    slug: "adica-editor",
+    skills: ["TypeScript", "Web App", "UI Engineering"],
+    githubUrl: "https://github.com/emmanuelebube13/adicaeditor",
+    imageUrl: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Forex Timezone",
+    subtitle: "Global Market Session Tracker",
+    category: "Quantitative Finance",
+    slug: "forex-timezone",
+    skills: ["JavaScript", "HTML", "Market Sessions"],
+    githubUrl: "https://github.com/emmanuelebube13/Forex-Timezone",
+    imageUrl: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop",
+  },
+  {
+    title: "Python Workshop",
+    subtitle: "Teaching Materials for Applied Python",
+    category: "Data Science",
+    slug: "python-workshop",
+    skills: ["Python", "Teaching", "Jupyter", "Fundamentals"],
+    githubUrl: "https://github.com/emmanuelebube13/pythonworkshop",
+    liveUrl: "https://emmanuelebube13.github.io/pythonworkshop/",
+    imageUrl: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop",
+  },
 ];
 
 const categories = [
@@ -111,43 +182,71 @@ const categories = [
   "Machine Learning",
   "Data Science",
   "Data Analytics",
+  "Research & Policy",
   "Web Development",
   "Quantitative Finance",
 ];
 
 const experiences = [
   {
-    title: "Utility Data Analyst",
-    company: "Detect Technologies Inc",
-    location: "Dartmouth",
-    dates: "May 2026 - Present",
+    title: "Data Analyst",
+    company: "Together Design Lab, Toronto Metropolitan University",
+    location: "Remote",
+    dates: "Dec 2025 - Present",
+    caseUrl: "case-tmu.html",
     responsibilities: [
-      "Analyze utility infrastructure and operational data to identify trends, optimize resource allocation, and support preventative maintenance initiatives.",
+      "Led analysis for a multi-institution research study, coordinating with academic supervisors and partner institutions across four analysis rounds and translating research questions into a delivered analytical plan.",
+      "Presented findings to stakeholders in recurring review meetings, iterating deliverables based on feedback and producing outputs at two access tiers to meet differing institutional data-sharing needs.",
+      "Built an automated verification harness that independently re-derives every published figure from source data, ensuring no unverified number reached the final report.",
+      "Engineered a reproducible cleaning and analysis pipeline over a 274-column survey instrument, resolving data-quality issues into an auditable record and deriving new measures for housing cost, commute, and geography.",
+      "Developed interactive geospatial applications (Leaflet, Folium, Plotly, ArcGIS) mapping institutional and respondent geography, built to be maintained by non-technical staff without developer support.",
+    ],
+  },
+  {
+    title: "Utility Data Analyst Intern",
+    company: "Detect Technologies Inc.",
+    location: "Dartmouth, NS",
+    dates: "May 2026 - Aug 2026",
+    responsibilities: [
+      "Analyzed utility infrastructure and operational data to identify trends, optimize resource allocation, and support preventative maintenance initiatives.",
       "Facilitated the development of internal AI and computer vision models by performing high-level data curation and feature identification, directly improving the accuracy of automated infrastructure analysis.",
       "Collaborated extensively with cross-functional teams to conduct joint analyses, ensuring accurate interpretation of structural data and cohesive, data-driven decision-making.",
     ],
   },
   {
     title: "Data Analyst",
-    company: "NewRoots (Applied Research)",
+    company: "NewRoots",
     location: "Halifax, NS",
-    dates: "2025 - Present",
+    dates: "Sep 2025 - May 2026",
+    caseUrl: "case-newroots.html",
     responsibilities: [
-      "Conduct data collection, analysis, and visualization to support housing and property management research initiatives.",
-      "Analyze qualitative data from research interviews and field observations, integrating insights with quantitative analysis to support evidence-based planning and decision-making.",
-      "Develop clear visual outputs and summaries to communicate findings to research and non-technical stakeholders.",
+      "Conducted data collection, analysis, and visualization to support housing and property management research initiatives.",
+      "Analyzed qualitative data from research interviews and field observations, integrating insights with quantitative analysis to support evidence-based planning and decision-making.",
+      "Developed clear visual outputs and summaries to communicate findings to research and non-technical stakeholders.",
     ],
   },
   {
     title: "Makerspace Assistant",
-    company: "NSCC",
+    company: "Nova Scotia Community College",
     location: "Halifax, NS",
-    dates: "2025 - Present",
+    dates: "May 2025 - Feb 2026",
     responsibilities: [
-      "Support daily operations in a multidisciplinary makerspace focused on innovation, prototyping, and applied technical learning.",
-      "Operate and support laser cutting and engraving workflows using the xTool P2, including material preparation, safety procedures, and production guidance.",
-      "Facilitate and support micro:bit workshops, introducing students to embedded systems, sensors, and basic programming concepts.",
-      "Gain hands-on experience in 3D modeling and additive manufacturing using Fusion 360 and Blender.",
+      "Supported daily operations in a multidisciplinary makerspace focused on innovation, prototyping, and applied technical learning.",
+      "Operated and supported laser cutting and engraving workflows using the xTool P2, including material preparation, safety procedures, and production guidance.",
+      "Facilitated and supported a micro:bit workshop, introducing students to embedded systems, sensors, and basic programming concepts.",
+      "Gained hands-on experience in 3D modeling and additive manufacturing using Fusion 360 and Blender.",
+    ],
+  },
+  {
+    title: "Product Supervisor / Retail Specialist",
+    company: "The Northwest Company",
+    location: "Halifax, NS",
+    dates: "Summer 2023 - 2024",
+    responsibilities: [
+      "Supervised inventory operations and ensured accuracy in a fast-paced retail environment.",
+      "Used Excel and internal reporting tools to track product movement and support inventory optimization.",
+      "Developed leadership, operational analytics, and data-handling skills applicable to business analytics roles.",
+      "Collaborated across teams to improve process efficiency and customer experience.",
     ],
   },
 ];
@@ -157,10 +256,17 @@ const education = [
     institution: "Nova Scotia Community College (NSCC)",
     credential: "Diploma, IT Data Analytics",
     location: "Halifax, NS",
+    dates: "May 2026",
+  },
+  {
+    institution: "University of Nigeria (UNN)",
+    credential: "Bachelor of Electrical Engineering",
+    location: "Nigeria",
+    dates: "Sep 2020 - Aug 2023",
   },
   {
     institution: "Google (Coursera)",
-    credential: "Google Data Analytics Certificate",
+    credential: "Google Data Analytics & Advanced Data Analytics Certificates",
   },
   {
     institution: "IBM (Coursera)",
@@ -170,8 +276,17 @@ const education = [
 
 const awards = [
   {
+    title: "Profine",
+    organization: "Arthur L. Irving Entrepreneurship Centre",
+    year: "2026",
+    description: [
+      "Awarded for innovation in building a user-focused tool for navigating and personalizing application submissions.",
+    ],
+  },
+  {
     title: "EYED - Accessibility Innovation Project",
     organization: "NSCC-Funded",
+    year: "2025",
     description: [
       "Awarded funding to design the initial system architecture for EYED, an assistive technology concept providing suggestive feedback for visually impaired individuals.",
       "Focused on accessibility-driven design, early system modeling, and applied technology concepts.",
@@ -182,9 +297,9 @@ const awards = [
 
 const volunteer = [
   {
-    role: "Student Wellness Strategy Committee Member",
+    role: "Wellness Strategy Committee Member",
     organization: "NSCC",
-    dates: "2025 - Present",
+    dates: "2025 - May 2026",
     description:
       "Contributed to student wellness initiatives through planning, feedback collection, and accessibility-focused discussions.",
   },
@@ -212,11 +327,12 @@ const skills = [
     overview:
       "Proficient in Python for data analysis, machine learning, and backend development. Extensive experience with Pandas, NumPy, Matplotlib, and Scikit-learn for building scalable data pipelines and predictive models.",
     relatedExperience: [
+      "Engineered a reproducible cleaning and analysis pipeline over a 274-column survey instrument at Together Design Lab.",
+      "Built an automated verification harness that re-derives every published figure from source data.",
       "Built the Scalable Brain quantitative trading pipeline with regime detection and ML meta-labeling.",
-      "Developed BettorsOracle for football match outcome predictions using classification models.",
       "Created Stock Screener web app with Streamlit and yFinance for financial data analysis.",
     ],
-    relatedProjectSlugs: ["scalable-brain", "bettors-oracle", "stock-screener", "data-science-ecosystem"],
+    relatedProjectSlugs: ["scalable-brain", "system2-executor", "bettors-oracle", "stock-screener", "data-science-ecosystem"],
   },
   {
     name: "R",
@@ -236,11 +352,11 @@ const skills = [
     overview:
       "Deep knowledge of SQL Server, PostgreSQL, and MySQL for relational data modeling, query optimization, and database administration. Experienced with complex joins, indexing strategies, and performance tuning.",
     relatedExperience: [
+      "Designing a relational database integrating utility tariff schedules, regulatory decisions, and reliability data for Grid Power Energy.",
       "Designed database architecture for Scalable Brain trading system.",
-      "Implemented efficient queries for financial data retrieval and analysis.",
       "Worked with SQL Server, PostgreSQL, and MySQL across multiple projects.",
     ],
-    relatedProjectSlugs: ["scalable-brain"],
+    relatedProjectSlugs: ["grid-power-energy", "scalable-brain"],
   },
   {
     name: "Excel",
@@ -275,6 +391,29 @@ const skills = [
       "Built executive dashboards for business intelligence reporting.",
       "Created interactive visualizations for stakeholder presentations.",
       "Designed data stories that communicate complex insights clearly.",
+    ],
+    relatedProjectSlugs: [],
+  },
+  {
+    name: "Geospatial Analysis",
+    category: "Visualization",
+    overview:
+      "Experienced in geospatial data analysis and interactive mapping with ArcGIS, Leaflet, Folium, and Plotly. Skilled at turning location data into maps that non-technical teams can read and maintain themselves.",
+    relatedExperience: [
+      "Developed interactive geospatial applications mapping institutional and respondent geography at Together Design Lab.",
+      "Built mapping tools designed to be maintained by non-technical staff without developer support.",
+      "Derived geography-based measures for housing cost and commute analysis.",
+    ],
+    relatedProjectSlugs: [],
+  },
+  {
+    name: "Apache Spark",
+    category: "Data & Analytics",
+    overview:
+      "Working knowledge of Apache Spark for distributed processing of large datasets, including DataFrame operations and performance-aware analytics on data too large for single-machine workflows.",
+    relatedExperience: [
+      "Applied Spark concepts to large-dataset handling and performance-aware analytics.",
+      "Used distributed processing patterns for big data analytics coursework and applied research.",
     ],
     relatedProjectSlugs: [],
   },
@@ -327,13 +466,13 @@ const skills = [
     relatedProjectSlugs: ["scalable-brain"],
   },
   {
-    name: "Microsoft Azure",
+    name: "AWS & Azure",
     category: "Tools & Platforms",
     overview:
-      "Growing exposure to cloud platforms including Microsoft Azure for data solutions and AI models. Familiar with cloud-based data storage and processing.",
+      "Exposure to cloud platforms including AWS and Microsoft Azure for data solutions and applied AI models. Familiar with cloud-based data storage, processing, and deployment.",
     relatedExperience: [
-      "Explored Azure services for cloud-based data analytics.",
-      "Gained exposure to Azure AI and machine learning capabilities.",
+      "Explored AWS and Azure services for cloud-based data analytics.",
+      "Gained exposure to cloud AI and machine learning capabilities.",
       "Understanding of cloud infrastructure for scalable solutions.",
     ],
     relatedProjectSlugs: [],
@@ -396,6 +535,312 @@ let activeCategory = "All Categories";
 let mobileMenuOpen = false;
 let resumeModalOpen = false;
 let selectedSkill = null;
+
+/* ============================================================
+   ORCA BADGE
+   The ME monogram sits on a rotating orca photo — a stand-in for an
+   avatar, and a nod to the pod that shows up all over this site.
+   Photos cross-fade every 20 seconds.
+   ============================================================ */
+const orcaPhotos = [
+  {
+    src: "photos/orcastogether.jpeg",
+    alt: "A pod of orcas moving together below the surface",
+    caption: "A pod moves as one, and still thinks for itself",
+  },
+  {
+    src: "photos/lovelyorcas.jpg",
+    alt: "An orca beneath a dense ball of herring it has helped corral",
+    caption: "Carousel feeding — a technique the pod learns, then teaches",
+  },
+  {
+    src: "photos/oneforallorcas.avif",
+    alt: "A single orca approaching a large bait ball of fish",
+    caption: "One works the ball the whole pod built",
+  },
+];
+
+function initOrcaBadges() {
+  const badges = document.querySelectorAll("[data-orca-badge]");
+  if (!badges.length) return;
+
+  badges.forEach((badge) => {
+    // Monogram stays as the accessible name; photos are decorative.
+    const label = badge.textContent.trim() || "ME";
+    badge.textContent = "";
+    badge.classList.add("orca-badge");
+
+    const layers = orcaPhotos.map((photo, i) => {
+      const img = document.createElement("img");
+      img.src = photo.src;
+      img.alt = "";
+      img.setAttribute("aria-hidden", "true");
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.className = "orca-badge-img" + (i === 0 ? " active" : "");
+      // A format the browser cannot decode must not blank the badge.
+      img.addEventListener("error", () => img.remove());
+      badge.appendChild(img);
+      return img;
+    });
+
+    const mono = document.createElement("span");
+    mono.className = "orca-badge-mono";
+    mono.textContent = label;
+    badge.appendChild(mono);
+
+    badge._orcaLayers = layers;
+    badge._orcaIndex = 0;
+  });
+
+  setInterval(() => {
+    badges.forEach((badge) => {
+      const layers = (badge._orcaLayers || []).filter((l) => l.isConnected);
+      if (layers.length < 2) return;
+      layers[badge._orcaIndex % layers.length].classList.remove("active");
+      badge._orcaIndex = (badge._orcaIndex + 1) % layers.length;
+      layers[badge._orcaIndex].classList.add("active");
+    });
+  }, 20000);
+}
+
+/* ============================================================
+   ORCA CAROUSEL
+   The framed photo in the hero. Manual controls are the point —
+   auto-advance is a slow secondary, paused whenever the visitor is
+   interacting, and off entirely under reduced-motion.
+   ============================================================ */
+function initOrcaCarousel() {
+  const slides = document.getElementById("orca-slides");
+  if (!slides) return;
+  const dotsHost = document.getElementById("orca-dots");
+  const caption = document.getElementById("orca-caption");
+  const prev = document.getElementById("orca-prev");
+  const next = document.getElementById("orca-next");
+
+  // Build the real slides, replacing the no-JS single image.
+  slides.innerHTML = "";
+  const imgs = orcaPhotos.map((photo, i) => {
+    const img = document.createElement("img");
+    img.src = photo.src;
+    img.alt = photo.alt;
+    img.width = 738;
+    img.height = 414;
+    img.className = "orca-slide" + (i === 0 ? " is-active" : "");
+    img.addEventListener("error", () => {
+      img.dataset.broken = "true";
+      img.remove();
+    });
+    slides.appendChild(img);
+    return img;
+  });
+
+  const usable = () => imgs.filter((im) => im.isConnected);
+  if (usable().length < 2) return; // nothing to navigate between
+
+  [prev, next].forEach((b) => b && b.removeAttribute("hidden"));
+
+  let index = 0;
+  let timer = null;
+
+  if (dotsHost) {
+    dotsHost.innerHTML = orcaPhotos
+      .map(
+        (p, i) =>
+          `<button class="orca-dot${i === 0 ? " is-active" : ""}" type="button" role="tab"
+                   aria-selected="${i === 0}" aria-label="Photo ${i + 1}: ${p.caption}"
+                   data-slide="${i}"></button>`
+      )
+      .join("");
+  }
+
+  function show(i) {
+    const list = usable();
+    if (!list.length) return;
+    index = (i + imgs.length) % imgs.length;
+    // Skip past any image the browser could not decode.
+    let guard = 0;
+    while (!imgs[index].isConnected && guard++ < imgs.length) {
+      index = (index + 1) % imgs.length;
+    }
+    imgs.forEach((im, n) => im.classList.toggle("is-active", n === index));
+    if (caption) caption.textContent = orcaPhotos[index].caption;
+    if (dotsHost) {
+      dotsHost.querySelectorAll(".orca-dot").forEach((d, n) => {
+        d.classList.toggle("is-active", n === index);
+        d.setAttribute("aria-selected", String(n === index));
+      });
+    }
+  }
+
+  function start() {
+    if (prefersReducedMotionSite()) return;
+    stop();
+    timer = setInterval(() => show(index + 1), 7000);
+  }
+  function stop() {
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+  // Any manual input restarts the clock rather than fighting it.
+  function step(delta) {
+    show(index + delta);
+    start();
+  }
+
+  if (prev) prev.addEventListener("click", () => step(-1));
+  if (next) next.addEventListener("click", () => step(1));
+  if (dotsHost) {
+    dotsHost.querySelectorAll(".orca-dot").forEach((dot) => {
+      dot.addEventListener("click", () => {
+        show(parseInt(dot.getAttribute("data-slide"), 10));
+        start();
+      });
+    });
+  }
+
+  const frame = slides.closest(".orca-frame");
+  if (frame) {
+    frame.addEventListener("mouseenter", stop);
+    frame.addEventListener("mouseleave", start);
+    frame.addEventListener("focusin", stop);
+    frame.addEventListener("focusout", start);
+    frame.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); }
+      if (e.key === "ArrowRight") { e.preventDefault(); step(1); }
+    });
+  }
+
+  show(0);
+  start();
+}
+
+const prefersReducedMotionSite = () =>
+  window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ============================================================
+   SITE DIRECTORY
+   A file-tree view of the site: folders expand, files navigate.
+   ============================================================ */
+const siteTree = [
+  {
+    name: "work",
+    open: true,
+    children: [
+      { name: "projects", href: "index.html#projects", note: "19 builds" },
+      { name: "experience", href: "index.html#experience", note: "5 roles" },
+      {
+        name: "case-studies",
+        children: [
+          { name: "tmu-research", href: "case-tmu.html", note: "interactive" },
+          { name: "newroots-housing", href: "case-newroots.html", note: "interactive" },
+        ],
+      },
+    ],
+  },
+  {
+    name: "skills",
+    children: [
+      { name: "skill-matrix", href: "index.html#skills" },
+      { name: "career-flow", href: "index.html#career-flow", note: "sankey" },
+      { name: "skill-topology", href: "index.html#topology", note: "force graph" },
+    ],
+  },
+  {
+    name: "about",
+    children: [
+      { name: "profile", href: "about.html" },
+      { name: "spirit-animal", href: "index.html#orca", note: "orcas" },
+    ],
+  },
+  {
+    name: "contact",
+    children: [
+      { name: "get-in-touch", href: "index.html#contact" },
+      { name: "resume.pdf", href: "resume.pdf", note: "download", external: true },
+      { name: "github", href: "https://github.com/emmanuelebube13", external: true },
+      { name: "linkedin", href: "https://linkedin.com/in/emmanuelmbachu/", external: true },
+    ],
+  },
+];
+
+const treeIcons = {
+  folder: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>`,
+  file: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>`,
+  chevron: `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`,
+  ext: `<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`,
+};
+
+/* Nested disclosure lists rather than an ARIA tree widget: a folder is a
+   button that expands the group it controls, and a file is a plain link.
+   The collapsing wrapper holds exactly one child so the grid-rows
+   height animation works. */
+let treeGroupSeq = 0;
+
+function buildTreeNodes(items, depth) {
+  return items
+    .map((item) => {
+      if (item.children) {
+        const open = !!item.open;
+        const id = `tree-group-${++treeGroupSeq}`;
+        return `
+        <li class="tree-item">
+          <button class="tree-folder" aria-expanded="${open}" aria-controls="${id}"
+                  style="--depth:${depth}">
+            <span class="tree-chevron">${treeIcons.chevron}</span>
+            <span class="tree-icon folder">${treeIcons.folder}</span>
+            <span class="tree-name">${item.name}/</span>
+          </button>
+          <div class="tree-group${open ? " open" : ""}" id="${id}">
+            <ul class="tree-sublist">
+              ${buildTreeNodes(item.children, depth + 1)}
+            </ul>
+          </div>
+        </li>`;
+      }
+      const target = item.external ? ` target="_blank" rel="noopener noreferrer"` : "";
+      return `
+      <li class="tree-item">
+        <a class="tree-file" href="${item.href}"${target} style="--depth:${depth}">
+          <span class="tree-icon file">${treeIcons.file}</span>
+          <span class="tree-name">${item.name}</span>
+          ${item.note ? `<span class="tree-note">${item.note}</span>` : ""}
+          ${item.external ? `<span class="tree-ext">${treeIcons.ext}</span>` : ""}
+        </a>
+      </li>`;
+    })
+    .join("");
+}
+
+function initSiteTree() {
+  const host = document.getElementById("site-tree");
+  if (!host) return;
+
+  host.innerHTML = `<nav class="tree-root" aria-label="Site directory">
+    <ul class="tree-sublist">${buildTreeNodes(siteTree, 0)}</ul>
+  </nav>`;
+
+  host.querySelectorAll(".tree-folder").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const group = document.getElementById(btn.getAttribute("aria-controls"));
+      const open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      if (group) group.classList.toggle("open", !open);
+    });
+  });
+
+  // Roving arrow-key navigation across every visible row.
+  host.addEventListener("keydown", (e) => {
+    if (!["ArrowDown", "ArrowUp"].includes(e.key)) return;
+    const rows = [...host.querySelectorAll(".tree-folder, .tree-file")].filter(
+      (el) => el.offsetParent !== null
+    );
+    const i = rows.indexOf(document.activeElement);
+    if (i === -1) return;
+    e.preventDefault();
+    rows[e.key === "ArrowDown" ? Math.min(i + 1, rows.length - 1) : Math.max(i - 1, 0)].focus();
+  });
+}
 
 /* ============================================================
    HEADER
@@ -505,8 +950,12 @@ function createProjectCard(project) {
   const article = document.createElement("article");
   article.className = "project-card";
 
-  const linksHTML = (project.githubUrl || project.liveUrl) ? `
+  const linksHTML = (project.githubUrl || project.liveUrl || project.caseUrl) ? `
     <div class="project-links">
+      ${project.caseUrl ? `
+        <a href="${project.caseUrl}" class="project-link case" onclick="event.stopPropagation()">
+          ${icons.filetext} Case Study
+        </a>` : ""}
       ${project.githubUrl ? `
         <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
           ${icons.github.replace('width="16"', 'width="16"')} Code
@@ -595,6 +1044,12 @@ function renderExperience() {
               ${r}
             </li>`).join("")}
         </ul>
+        ${exp.caseUrl ? `
+        <a href="${exp.caseUrl}" class="exp-case-link">
+          ${icons.filetext}
+          Read the case study
+          <span class="exp-case-arrow">&rarr;</span>
+        </a>` : ""}
       </div>
     </div>
   `).join("");
@@ -607,7 +1062,7 @@ function renderEducation() {
     <div class="info-card">
       <h4 class="info-card-title">${edu.credential}</h4>
       <p class="info-card-sub">${edu.institution}</p>
-      ${edu.location ? `<p class="info-card-loc">${edu.location}</p>` : ""}
+      ${edu.location || edu.dates ? `<p class="info-card-loc">${[edu.location, edu.dates].filter(Boolean).join(" • ")}</p>` : ""}
     </div>
   `).join("");
 }
@@ -618,7 +1073,7 @@ function renderAwards() {
   container.innerHTML = awards.map((award) => `
     <div class="info-card">
       <h4 class="info-card-title">${award.title}</h4>
-      <p class="info-card-sub" style="font-size:0.75rem;">${award.organization}</p>
+      <p class="info-card-sub" style="font-size:0.75rem;">${award.organization}${award.year ? ` • ${award.year}` : ""}</p>
       <ul class="exp-card-list" style="margin-top:0.75rem;">
         ${award.description.map((d) => `
           <li class="exp-card-list-item" style="font-size:0.75rem;">
@@ -820,6 +1275,15 @@ function showToast(title, message) {
    SCROLL ANIMATIONS (Intersection Observer)
    ============================================================ */
 function initScrollAnimations() {
+  const targets = document.querySelectorAll(".reveal");
+
+  // .reveal starts hidden, so without an observer the content would never
+  // appear. Show everything rather than hide it.
+  if (!("IntersectionObserver" in window)) {
+    targets.forEach((el) => el.classList.add("visible"));
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -832,7 +1296,7 @@ function initScrollAnimations() {
     { threshold: 0.1 }
   );
 
-  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  targets.forEach((el) => observer.observe(el));
 }
 
 /* ============================================================
@@ -847,6 +1311,9 @@ function updateCopyright() {
    INIT
    ============================================================ */
 document.addEventListener("DOMContentLoaded", () => {
+  initOrcaBadges();
+  initOrcaCarousel();
+  initSiteTree();
   initHeader();
   initResumeModal();
   initCategoryFilter();
