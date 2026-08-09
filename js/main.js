@@ -882,6 +882,23 @@ function initBackToTop() {
 }
 
 /* ============================================================
+   GRAPH TEXT EQUIVALENTS
+   Each diagram keeps a written summary. It collapses once the graph
+   renders, but stays reachable rather than being removed.
+   ============================================================ */
+function initGraphFallbackToggles() {
+  document.querySelectorAll(".graph-fallback-toggle").forEach((btn) => {
+    const panel = document.getElementById(btn.getAttribute("data-fallback"));
+    if (!panel) return;
+    btn.addEventListener("click", () => {
+      const open = panel.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Hide text version" : "Read as text";
+    });
+  });
+}
+
+/* ============================================================
    HEADER
    ============================================================ */
 function initHeader() {
@@ -1353,6 +1370,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initOrcaBadges();
   initOrcaCarousel();
   initBackToTop();
+  initGraphFallbackToggles();
   initSiteTree();
   initHeader();
   initResumeModal();

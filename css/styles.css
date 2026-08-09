@@ -697,7 +697,8 @@ HERO SECTION
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  margin-top: 1rem;
+  /* Breathing room between the contact line and the calls to action */
+  margin-top: 2.25rem;
 }
 
 /* Scroll indicator */
@@ -1055,11 +1056,31 @@ EXPERIENCE SECTION
 .timeline {
   position: relative;
   margin-left: 1.25rem;
-  border-left: 2px solid var(--charcoal-light);
+  /* Transparent border preserves the original geometry; the visible line is
+     the gradient below, so it can fade out rather than stop on a hard edge. */
+  border-left: 2px solid transparent;
   padding-left: 2rem;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0.6rem;      /* starts at the centre of the first node */
+  bottom: 0;
+  width: 2px;
+  border-radius: 1px;
+  background: linear-gradient(
+    180deg,
+    var(--orange) 0%,
+    rgba(249, 115, 22, 0.55) 14%,
+    rgba(120, 126, 134, 0.55) 45%,
+    rgba(120, 126, 134, 0.35) 80%,
+    rgba(120, 126, 134, 0) 100%
+  );
 }
 
 .timeline-item {
@@ -2417,4 +2438,19 @@ MOBILE FIXES
     padding: 0.4rem 0.55rem;
     font-size: 0.6875rem;
   }
+}
+
+
+/* ============================================================
+PROJECT CARD INTERIOR ALIGNMENT
+Card heights already match per row (flex column + height:100% + a footer
+pinned with margin-top:auto). Reserving two lines for the subtitle lines
+the skill chips up across the row as well.
+============================================================ */
+.project-subtitle {
+  min-height: 2.6em;
+}
+
+@media (max-width: 639px) {
+  .project-subtitle { min-height: 0; }
 }

@@ -15,10 +15,15 @@
 
 @media (min-width: 1100px) {
   .hero-grid {
-    grid-template-columns: minmax(16rem, 19rem) minmax(0, 1fr) minmax(14.5rem, 17rem);
+    grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr) minmax(14.5rem, 17rem);
     gap: 2rem;
     align-items: start;
   }
+
+  /* Column 1 is deliberately empty: it balances the terminal card in
+     column 3 so the profile stays centred on the page. */
+  .hero-grid > .hero { grid-column: 2; }
+  .hero-grid > .dir-card { grid-column: 3; }
 
   /* The rails read better with a little more room than the 72rem container */
   .hero-grid > .hero {
@@ -39,7 +44,7 @@
 @media (min-width: 1440px) {
   .hero-grid {
     margin-inline: calc(-1 * min(8rem, max(0px, (100vw - 72rem) / 2)));
-    grid-template-columns: minmax(16rem, 18.5rem) minmax(0, 1fr) minmax(14rem, 16rem);
+    grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr) minmax(14rem, 16rem);
     column-gap: 4.5rem;
   }
 
@@ -284,9 +289,19 @@
    ============================================================ */
 .orca-note {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 2.5rem;
   align-items: start;
+}
+
+.orca-note-media {
+  position: sticky;
+  top: 5.5rem;
+}
+
+.orca-eyebrow-centred {
+  justify-content: center;
+  margin-bottom: 0.6rem;
 }
 
 .orca-note-lead {
@@ -339,7 +354,8 @@
 }
 
 @media (max-width: 860px) {
-  .orca-note { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+  .orca-note { grid-template-columns: minmax(0, 1fr); gap: 1.75rem; }
+  .orca-note-media { position: static; }
 }
 
 /* ============================================================
@@ -771,14 +787,7 @@
   }
 
   .hero-grid > .hero { order: 1; min-height: auto; padding-block: 2rem 3rem; }
-  .orca-panel        { order: 2; }
-  .dir-card          { order: 3; }
-
-  .orca-panel {
-    max-width: 34rem;
-    margin-inline: auto;
-    padding-block: 1rem 0;
-  }
+  .dir-card          { order: 2; }
 
   .dir-card {
     max-width: 34rem;
@@ -835,4 +844,93 @@
   font-size: 0.6875rem;
   line-height: 1.5;
   color: var(--muted-foreground);
+}
+
+/* ============================================================
+   PROFESSIONAL SUMMARY BAND
+   Sits between the hero and Featured Projects so it frames the work
+   that follows, instead of trailing the skills matrix.
+   ============================================================ */
+.summary-band {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 1.6rem 1.9rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: var(--radius);
+}
+
+.summary-band-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #9a3412;
+  margin-bottom: 0.55rem;
+}
+
+.summary-band-text {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+
+.summary-band-text strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .summary-band {
+    padding: 1.25rem 1.15rem;
+  }
+}
+
+/* ============================================================
+   GRAPH TEXT EQUIVALENT + MOBILE AFFORDANCES
+   ============================================================ */
+.graph-fallback-toggle {
+  display: inline-block;
+  margin-top: 0.85rem;
+}
+
+/* Collapsed once the diagram renders, but still reachable via the toggle */
+.graph-fallback.is-collapsed {
+  display: none;
+}
+
+.graph-fallback.is-collapsed.is-open {
+  display: block;
+}
+
+.graph-scroll-hint {
+  display: none;
+  padding: 0.7rem 1.35rem 0;
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.graph-mobile-note {
+  margin: 0.9rem 1.35rem 0;
+  padding: 0.8rem 0.95rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: var(--radius);
+  background-color: var(--secondary);
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 860px) {
+  .graph-scroll-hint { display: block; }
+}
+
+/* Below this width the force graph is replaced by its grouped list, so the
+   empty mount and its chrome should not take up space. */
+@media (max-width: 699px) {
+  #skill-topology-graph { display: none; }
+  #skill-topology-fallback.is-collapsed { display: block; }
+  .graph-mobile-note { margin-inline: 1rem; }
 }
