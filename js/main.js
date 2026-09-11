@@ -30,11 +30,19 @@ const projects = [
   },
   {
     title: "Scalable Brain",
-    subtitle: "Institutional Quantitative Trading Pipeline",
+    subtitle: "Three-Machine Quantitative FX Platform — Research, Execution & Risk",
     category: "Quantitative Finance",
     slug: "scalable-brain",
-    skills: ["Python", "XGBoost", "Pandas", "Docker", "PostgreSQL"],
+    skills: [
+      "Python",
+      "XGBoost",
+      "Walk-Forward Validation",
+      "PostgreSQL + TimescaleDB",
+      "GCS & Pub/Sub",
+      "Regime Modelling",
+    ],
     githubUrl: "https://github.com/emmanuelebube13/scalable-brain",
+    liveUrl: "https://emmanuelebube13.github.io/Scalablebrainfullarchitecture/",
     imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
   },
   {
@@ -329,7 +337,7 @@ const skills = [
     relatedExperience: [
       "Engineered a reproducible cleaning and analysis pipeline over a 274-column survey instrument at Together Design Lab.",
       "Built an automated verification harness that re-derives every published figure from source data.",
-      "Built the Scalable Brain quantitative trading pipeline with regime detection and ML meta-labeling.",
+      "Built Scalable Brain, a three-machine quantitative FX platform separating research, execution and risk — regime detection, walk-forward validation, and fail-closed safety controls that stop trading on stale or mismatched inputs rather than degrade quietly.",
       "Created Stock Screener web app with Streamlit and yFinance for financial data analysis.",
     ],
     relatedProjectSlugs: ["scalable-brain", "system2-executor", "bettors-oracle", "stock-screener", "data-science-ecosystem"],
