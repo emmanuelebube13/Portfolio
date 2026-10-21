@@ -8,7 +8,7 @@ const projects = [
     category: "Data Analytics",
     slug: "ns-property-sales-bi",
     skills: ["Power BI", "DAX", "Power Query (M)", "Star Schema"],
-    liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9",
+    liveUrl: "pbi-property-sales.html",
     imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
   },
   {
