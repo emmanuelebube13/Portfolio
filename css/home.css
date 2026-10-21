@@ -13,22 +13,383 @@
   gap: 2rem;
 }
 
+/* ============================================================
+   POWER BI SERVICES CARD
+   ============================================================ */
+.pbi-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(12, 45, 72, 0.14);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 18px 38px -28px rgba(9, 42, 68, 0.5);
+}
+
+.pbi-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.8rem 0.9rem;
+  border-bottom: 1px solid rgba(12, 45, 72, 0.1);
+  background: rgba(244, 249, 253, 0.7);
+}
+
+.pbi-badge {
+  display: grid;
+  flex: 0 0 1.8rem;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.45rem;
+  background: rgba(249, 115, 22, 0.12);
+  color: #9a3412;
+}
+
+.pbi-head-text { min-width: 0; }
+
+.pbi-eyebrow {
+  color: #9a3412;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.pbi-title {
+  margin-top: 0.1rem;
+  color: var(--foreground);
+  font-size: 0.9rem;
+  line-height: 1.25;
+}
+
+.pbi-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.8rem 0.9rem 0.9rem;
+}
+
+.pbi-intro,
+.pbi-pillar,
+.pbi-arch-content {
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.pbi-pillars {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.pbi-pillar {
+  display: flex;
+  gap: 0.45rem;
+}
+
+.pbi-pillar strong { color: var(--foreground); }
+
+.pbi-pillar-dot {
+  flex: 0 0 0.32rem;
+  width: 0.32rem;
+  height: 0.32rem;
+  margin-top: 0.38rem;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.pbi-showcase {
+  padding: 0.7rem;
+  border: 1px solid rgba(12, 45, 72, 0.12);
+  border-radius: 0.75rem;
+  background: rgba(244, 249, 253, 0.82);
+}
+
+.pbi-projects {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.pbi-projects-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted-foreground);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pbi-project-count {
+  color: #9a3412;
+  font-size: 0.58rem;
+}
+
+.pbi-project-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+  padding: 0.6rem;
+  border: 1px solid rgba(12, 45, 72, 0.12);
+  border-radius: 0.5rem;
+  background: rgba(244, 249, 253, 0.72);
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.pbi-project-item:hover,
+.pbi-project-item:focus-visible {
+  border-color: var(--orange);
+  background: #fff;
+}
+
+.pbi-project-item:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.pbi-project-status {
+  flex: 0 0 0.4rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.pbi-project-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.15rem;
+}
+
+.pbi-project-copy strong {
+  overflow: hidden;
+  color: var(--foreground);
+  font-size: 0.68rem;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pbi-project-copy small {
+  color: var(--muted-foreground);
+  font-size: 0.6rem;
+}
+
+.pbi-project-arrow {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: #9a3412;
+}
+
+.pbi-showcase-head,
+.pbi-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.pbi-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #166534;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.pbi-live-dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.pbi-showcase-meta {
+  color: var(--muted-foreground);
+  font-size: 0.6rem;
+  text-align: right;
+}
+
+.pbi-showcase-title {
+  margin-top: 0.45rem;
+  color: var(--foreground);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.pbi-embed-preview {
+  aspect-ratio: 16 / 10;
+  margin-top: 0.6rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #dbe7f0;
+}
+
+.pbi-embed-preview iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.pbi-arch-details { margin-top: 0.7rem; }
+
+.pbi-arch-summary {
+  color: #9a3412;
+  cursor: pointer;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.pbi-arch-content {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.6rem;
+}
+
+.pbi-arch-content code {
+  padding: 0.05rem 0.2rem;
+  border-radius: 0.2rem;
+  background: rgba(12, 45, 72, 0.08);
+  font-size: 0.68rem;
+}
+
+.pbi-actions {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.pbi-btn-primary {
+  width: 100%;
+  justify-content: center;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.68rem;
+}
+
+.pbi-link-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--muted-foreground);
+  font-size: 0.62rem;
+  font-weight: 600;
+  justify-content: center;
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  border: 1px solid rgba(12, 45, 72, 0.14);
+  border-radius: 0.4rem;
+  background: #fff;
+}
+
+.pbi-link-secondary:hover,
+.pbi-link-secondary:focus-visible { color: var(--orange-muted); }
+
+/* --- Full-size interactive report modal --- */
+.pbi-modal {
+  max-width: 78rem;
+}
+
+.pbi-modal-subtitle {
+  margin-top: 0.25rem;
+  color: var(--muted-foreground);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.pbi-modal-body {
+  overflow-y: auto;
+}
+
+.pbi-modal-iframe-wrap {
+  aspect-ratio: 16 / 9;
+  min-height: 20rem;
+  overflow: hidden;
+  background: #dbe7f0;
+}
+
+.pbi-modal-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 20rem;
+  border: 0;
+}
+
+.pbi-modal-specs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.pbi-spec-card {
+  padding: 1rem;
+  border: 1px solid rgba(12, 45, 72, 0.12);
+  border-radius: 0.65rem;
+  background: rgba(244, 249, 253, 0.8);
+}
+
+.pbi-spec-card h3 {
+  color: var(--foreground);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.pbi-spec-card p {
+  margin-top: 0.55rem;
+  color: var(--muted-foreground);
+  font-size: 0.73rem;
+  line-height: 1.65;
+}
+
+.pbi-spec-card code {
+  padding: 0.05rem 0.2rem;
+  border-radius: 0.2rem;
+  background: rgba(12, 45, 72, 0.08);
+  font-size: 0.68rem;
+}
+
+@media (max-width: 767px) {
+  .pbi-modal .modal-header {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 0.9rem 1rem;
+  }
+
+  .pbi-modal .modal-header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .pbi-modal-iframe-wrap,
+  .pbi-modal-iframe {
+    min-height: 14rem;
+  }
+
+  .pbi-modal-specs {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}
+
 @media (min-width: 1100px) {
   .hero-grid {
-    grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr) minmax(14.5rem, 17rem);
+    grid-template-columns: minmax(15rem, 17.5rem) minmax(0, 1fr) minmax(14.5rem, 17rem);
     gap: 2rem;
     align-items: start;
   }
 
-  /* Column 1 is deliberately empty: it balances the terminal card in
-     column 3 so the profile stays centred on the page. */
-  .hero-grid > .hero { grid-column: 2; }
+  .hero-grid > .pbi-card { grid-column: 1; }
+  .hero-grid > .hero { grid-column: 2; min-height: 78vh; }
   .hero-grid > .dir-card { grid-column: 3; }
-
-  /* The rails read better with a little more room than the 72rem container */
-  .hero-grid > .hero {
-    min-height: 78vh;
-  }
 }
 
 /* Push the rails out toward the edges so the centre column — and the
@@ -37,15 +398,20 @@
 @media (min-width: 1280px) {
   .hero-grid {
     margin-inline: calc(-1 * min(4rem, max(0px, (100vw - 72rem) / 2)));
-    column-gap: 3rem;
+    column-gap: 2.75rem;
   }
 }
 
 @media (min-width: 1440px) {
   .hero-grid {
     margin-inline: calc(-1 * min(8rem, max(0px, (100vw - 72rem) / 2)));
-    grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr) minmax(14rem, 16rem);
-    column-gap: 4.5rem;
+    grid-template-columns: minmax(16rem, 18.5rem) minmax(0, 1fr) minmax(14.5rem, 17rem);
+    column-gap: 4rem;
+  }
+
+  .pbi-card {
+    justify-self: start;
+    width: 100%;
   }
 
   .dir-card {
@@ -57,6 +423,7 @@
 /* Sticky rails on tall screens so they stay with you through the hero */
 @media (min-width: 1100px) {
   .orca-panel,
+  .pbi-card,
   .dir-card {
     position: sticky;
     top: 5rem;
@@ -786,8 +1153,9 @@
     flex-direction: column;
   }
 
-  .hero-grid > .hero { order: 1; min-height: auto; padding-block: 2rem 3rem; }
-  .dir-card          { order: 2; }
+  .hero-grid > .hero { order: 1; min-height: auto; padding-block: 2rem 2.5rem; }
+  .hero-grid > .pbi-card { order: 2; max-width: 34rem; margin-inline: auto; width: 100%; margin-block: 0; }
+  .hero-grid > .dir-card { order: 3; }
 
   .dir-card {
     max-width: 34rem;
