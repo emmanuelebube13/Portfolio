@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Power BI project: Nova Scotia Property and Parcel Sales Intelligence dashboard built with Socrata API ingestion, data transformation, semantic modeling, DAX, and geospatial reporting." />
+  <meta property="og:title" content="NS Property & Parcel Sales Intelligence | Mbachu Emmanuel" />
+  <meta property="og:description" content="A Power BI project covering API ingestion, data preparation, semantic modeling, DAX, and geospatial reporting across 355K+ property sales records." />
+  <meta property="og:type" content="article" />
+  <title>NS Property &amp; Parcel Sales Intelligence | Mbachu Emmanuel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/case-study.css" />
+  <style>
+    .pbi-project-hero {
+      padding-block: 4rem 2.5rem;
+    }
+
+    .pbi-project-hero h1 {
+      max-width: 18ch;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.1;
+    }
+
+    .pbi-project-eyebrow {
+      margin-bottom: 0.85rem;
+      color: #9a3412;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .pbi-project-lede {
+      max-width: 68ch;
+      margin-top: 1.25rem;
+      color: var(--muted-foreground);
+      font-size: 1.05rem;
+      line-height: 1.75;
+    }
+
+    .pbi-project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 1.5rem;
+    }
+
+    .pbi-report-shell {
+      overflow: hidden;
+      margin-top: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      background: var(--card);
+      box-shadow: 0 18px 40px -28px rgba(9, 42, 68, 0.55);
+    }
+
+    .pbi-report-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 1rem;
+      border-bottom: 1px solid var(--border);
+      background: #f3f5f8;
+    }
+
+    .pbi-report-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #166534;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .pbi-report-label::before {
+      width: 0.45rem;
+      height: 0.45rem;
+      border-radius: 50%;
+      background: #22c55e;
+      content: "";
+    }
+
+    .pbi-report-meta {
+      color: var(--muted-foreground);
+      font-size: 0.7rem;
+    }
+
+    .pbi-report-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 24rem;
+      border: 0;
+    }
+
+    .pbi-project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pbi-project-panel {
+      padding: 1.2rem;
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--orange);
+      border-radius: 0.65rem;
+      background: var(--card);
+    }
+
+    .pbi-project-panel h2 {
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .pbi-project-panel p {
+      margin-top: 0.55rem;
+      color: var(--muted-foreground);
+      font-size: 0.82rem;
+      line-height: 1.65;
+    }
+
+    .pbi-project-panel code {
+      padding: 0.05rem 0.2rem;
+      border-radius: 0.2rem;
+      background: #eef1f5;
+      font-size: 0.72rem;
+    }
+
+    @media (max-width: 800px) {
+      .pbi-project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pbi-report-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .pbi-report-frame {
+        min-height: 18rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo" aria-label="Return to portfolio">
+        <div class="logo-badge">ME</div>
+        <span class="logo-name">Mbachu Emmanuel</span>
+      </a>
+      <a href="index.html#projects" class="btn btn-outline">Back to Portfolio</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="pbi-project-hero">
+        <a href="index.html#projects" class="case-back">
+          &larr; All projects
+        </a>
+        <p class="pbi-project-eyebrow">Power BI project &middot; Data Analytics</p>
+        <h1>NS Property &amp; Parcel Sales Intelligence</h1>
+        <p class="pbi-project-lede">
+          An interactive Power BI suite for exploring Nova Scotia property sales across
+          355K+ records. The project brings together API ingestion, data preparation,
+          semantic modeling, DAX measures, geospatial context, and stakeholder-friendly reporting.
+        </p>
+
+        <div class="pbi-project-actions">
+          <a class="btn btn-orange" href="https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9" target="_blank" rel="noopener noreferrer">Open in Power BI &rarr;</a>
+          <a class="btn btn-outline" href="index.html#powerbi-services">More Power BI work</a>
+        </div>
+
+        <div class="pbi-report-shell">
+          <div class="pbi-report-header">
+            <span class="pbi-report-label">Live interactive report</span>
+            <span class="pbi-report-meta">2018&ndash;2026 &middot; Nova Scotia property sales</span>
+          </div>
+          <iframe
+            class="pbi-report-frame"
+            title="Nova Scotia Property and Parcel Sales Intelligence"
+            src="https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+        <div class="pbi-project-grid">
+          <article class="pbi-project-panel">
+            <h2>Data ingestion &amp; preparation</h2>
+            <p>Connected to Nova Scotia DataZone through the Socrata API, then used filtering, profiling, normalization, address construction, and quality checks to prepare a usable analytical dataset.</p>
+          </article>
+          <article class="pbi-project-panel">
+            <h2>Flexible semantic modeling</h2>
+            <p>Designed a performance-aware analytical model using appropriate dimensional and relational techniques, with room to evolve as the reporting questions and source data change.</p>
+          </article>
+          <article class="pbi-project-panel">
+            <h2>DAX &amp; decision support</h2>
+            <p>Built measures for median sale price, year-over-year change, sales counts, and interactive geographic exploration with tooltips and property-level context.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 Mbachu Emmanuel</p>
+      <a href="index.html">Return to portfolio</a>
+    </div>
+  </footer>
+</body>
+</html>
