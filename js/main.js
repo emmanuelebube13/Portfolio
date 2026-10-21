@@ -3,6 +3,15 @@
    ============================================================ */
 const projects = [
   {
+    title: "NS Property & Parcel Sales Intelligence",
+    subtitle: "Socrata API Pipeline, Star Schema & Geospatial Power BI Suite (355K+ Rows)",
+    category: "Data Analytics",
+    slug: "ns-property-sales-bi",
+    skills: ["Power BI", "DAX", "Power Query (M)", "Star Schema"],
+    liveUrl: "https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9",
+    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
+  },
+  {
     title: "Multi-Institution Research Study",
     subtitle: "Reproducible Pipeline, Verified Figures & Geospatial Apps",
     category: "Research & Policy",
@@ -387,8 +396,9 @@ const skills = [
       "Developed interactive dashboards tracking KPIs across business units.",
       "Applied DAX for calculated measures and complex aggregations.",
       "Created executive-level reports for data-driven decision-making.",
+      "Engineered a 355K+ row Nova Scotia Parcel Sales Star Schema model connected via Socrata API with custom DAX time intelligence, report page tooltips, and Google Street View integration.",
     ],
-    relatedProjectSlugs: [],
+    relatedProjectSlugs: ["ns-property-sales-bi", "newroots-housing-research"],
   },
   {
     name: "Tableau",
@@ -745,6 +755,7 @@ const siteTree = [
     open: true,
     children: [
       { name: "projects", href: "index.html#projects", note: "19 builds" },
+      { name: "power-bi-suite", href: "index.html#powerbi-services", note: "live report" },
       { name: "experience", href: "index.html#experience", note: "5 roles" },
       {
         name: "case-studies",
@@ -895,6 +906,41 @@ function initBackToTop() {
   window.addEventListener("scroll", sync, { passive: true });
   window.addEventListener("resize", sync);
   sync();
+}
+
+function initPbiModal() {
+  const triggers = document.querySelectorAll("[data-pbi-trigger]");
+  const overlay = document.getElementById("pbi-modal-overlay");
+  const closeBtn = document.getElementById("pbi-modal-close");
+  if (!triggers.length || !overlay || !closeBtn) return;
+
+  let lastTrigger = null;
+
+  function openModal(event) {
+    event.preventDefault();
+    lastTrigger = event.currentTarget;
+    overlay.classList.add("open");
+    document.body.style.overflow = "hidden";
+    setPageInert(true, overlay);
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    if (!overlay.classList.contains("open")) return;
+    overlay.classList.remove("open");
+    document.body.style.overflow = "";
+    setPageInert(false, overlay);
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  triggers.forEach((trigger) => trigger.addEventListener("click", openModal));
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (event) => {
+    if (event.target === overlay) closeModal();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeModal();
+  });
 }
 
 /* ============================================================
@@ -1716,6 +1762,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initOrcaBadges();
   initOrcaCarousel();
   initBackToTop();
+  initPbiModal();
   initProjectsMore();
   initGraphFallbackToggles();
   initDirectoryDock();

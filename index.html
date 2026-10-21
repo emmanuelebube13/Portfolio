@@ -78,6 +78,70 @@
       <!-- HERO SECTION -->
       <div class="hero-grid animate-fade-in-up">
 
+      <!-- ========== LEFT RAIL: POWER BI SERVICES & PORTFOLIO ========== -->
+      <aside class="pbi-card" id="powerbi-services" aria-labelledby="pbi-heading">
+        <div class="pbi-head">
+          <span class="pbi-badge" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
+          </span>
+          <div class="pbi-head-text">
+            <p class="pbi-eyebrow">BI &amp; Data Visualization</p>
+            <h2 class="pbi-title" id="pbi-heading">Power BI Services</h2>
+          </div>
+        </div>
+
+        <div class="pbi-body">
+          <p class="pbi-intro">
+            Clean, decision-ready dashboards built from reliable data models and clear business questions.
+          </p>
+
+          <ul class="pbi-pillars" aria-label="Power BI capabilities">
+            <li class="pbi-pillar">
+              <span class="pbi-pillar-dot" aria-hidden="true"></span>
+              <span><strong>Modeling:</strong> Dimensional, relational &amp; semantic data models</span>
+            </li>
+            <li class="pbi-pillar">
+              <span class="pbi-pillar-dot" aria-hidden="true"></span>
+              <span><strong>Data Prep:</strong> Power Query (M), APIs, ETL &amp; data quality techniques</span>
+            </li>
+            <li class="pbi-pillar">
+              <span class="pbi-pillar-dot" aria-hidden="true"></span>
+              <span><strong>Reporting:</strong> DAX measures, KPI reporting &amp; interactive visuals</span>
+            </li>
+          </ul>
+
+          <div class="pbi-projects" aria-label="Power BI projects">
+            <div class="pbi-projects-heading">
+              <span>Selected work</span>
+              <span class="pbi-project-count">1 project</span>
+            </div>
+            <a class="pbi-project-item" href="#pbi-modal-overlay" data-pbi-trigger aria-label="Open NS Property and Parcel Sales Intelligence Power BI project">
+              <span class="pbi-project-status" aria-hidden="true"></span>
+              <span class="pbi-project-copy">
+                <strong>NS Property &amp; Parcel Sales Intelligence</strong>
+                <small>355K+ rows &middot; DAX &middot; Data Modeling</small>
+              </span>
+              <svg class="pbi-project-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+          </div>
+
+          <div class="pbi-actions">
+            <button type="button" class="btn btn-orange pbi-btn-primary" data-pbi-trigger aria-label="View Power BI Work in interactive viewer">
+              View Power BI Work
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></svg>
+            </button>
+            <a
+              href="https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="pbi-link-secondary">
+              Open Full Screen in Power BI
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            </a>
+          </div>
+        </div>
+      </aside>
+
       <!-- ========== CENTRE: HERO ========== -->
       <section class="hero" aria-label="Introduction">
         <!-- Profile Photo -->
@@ -648,6 +712,50 @@
         </button>
       </div>
       <div id="skill-modal-body" class="skill-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       POWER BI INTERACTIVE PORTFOLIO MODAL
+       ============================================================ -->
+  <div id="pbi-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="pbi-modal-title">
+    <div class="modal pbi-modal">
+      <div class="modal-header">
+        <div>
+          <h2 class="modal-title" id="pbi-modal-title">Nova Scotia Property &amp; Parcel Sales Intelligence (2018&ndash;2026)</h2>
+          <p class="pbi-modal-subtitle">Live Interactive Power BI Suite &middot; Socrata API &rarr; Power Query (M) &rarr; Star Schema &rarr; DAX</p>
+        </div>
+        <div class="modal-header-actions">
+          <a href="https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9" target="_blank" rel="noopener noreferrer" class="modal-action-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            Open in New Tab
+          </a>
+          <button id="pbi-modal-close" class="modal-close-btn" aria-label="Close Power BI portfolio modal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="modal-body pbi-modal-body">
+        <div class="pbi-modal-iframe-wrap">
+          <iframe title="Nova_Scotia_Property_Sale_Analytics" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9" frameborder="0" allowFullScreen="true" class="pbi-modal-iframe"></iframe>
+        </div>
+
+        <div class="pbi-modal-specs">
+          <div class="pbi-spec-card">
+            <h3>1. Automated API &amp; M Pipeline</h3>
+            <p>Connected directly to Nova Scotia DataZone&rsquo;s Socrata API (<code>6a95-ppg4</code>) using server-side SoQL date filtering (<code>sale_date &gt;= 2018-01-01</code>). Profiled 355K+ records in Power Query, pruned sparse directional fields, merged street components into <code>Full_Civic_Address</code>, and excluded non-arm&rsquo;s-length nominal transfers (&lt;$10K).</p>
+          </div>
+          <div class="pbi-spec-card">
+            <h3>2. Star Schema &amp; VertiPaq Tuning</h3>
+            <p>Disabled staging load and normalized the flat feed into a 1-to-Many Star Schema: <code>Dim_Property</code> (deduplicated integer <code>aan</code> primary key with geospatial coordinates), <code>Fact_Parcel_Sales</code>, and a dedicated DAX <code>Dim_Date</code> table with Auto Date/Time disabled to minimize memory footprint.</p>
+          </div>
+          <div class="pbi-spec-card">
+            <h3>3. DAX, Geospatial &amp; UX Engineering</h3>
+            <p>Built explicit measures for <code>Median Sale Price</code>, <code>YoY Price Growth %</code> (via <code>SAMEPERIODLASTYEAR</code>), and pre-aggregated <code>Lifetime Sales Count</code>. Integrated Azure Hybrid Satellite maps, 1-click Google Street View &amp; Rooftop Satellite URLs, a logarithmic 4-quadrant turnover matrix, and custom hover Report Page Tooltips.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
