@@ -4,8 +4,8 @@
 const projects = [
   {
     title: "Scalable Brain",
-    subtitle: "Live Data Platform: Fact Tables, Point-in-Time Data & Audit Ledgers",
-    category: "Quantitative Finance",
+    subtitle: "Live data platform: fact tables, point-in-time data and audit ledgers",
+    category: "Quantitative finance",
     slug: "scalable-brain",
     skills: [
       "Data Modeling",
@@ -18,191 +18,171 @@ const projects = [
     ],
     githubUrl: "https://github.com/emmanuelebube13/scalable-brain",
     liveUrl: "https://emmanuelebube13.github.io/scalablebrain-live/",
-    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
   },
   {
     title: "NS Property & Parcel Sales Intelligence",
-    subtitle: "Socrata API Pipeline, Star Schema & Geospatial Power BI Suite (355K+ Rows)",
-    category: "Data Analytics",
+    subtitle: "Socrata API pipeline, star schema and geospatial Power BI suite (355K+ rows)",
+    category: "Data analytics",
     slug: "ns-property-sales-bi",
     skills: ["Power BI", "DAX", "Power Query (M)", "Star Schema"],
     liveUrl: "pbi-property-sales.html",
-    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
   },
   {
     title: "Multi-Institution Research Study",
-    subtitle: "Reproducible Pipeline, Verified Figures & Geospatial Apps",
-    category: "Research & Policy",
+    subtitle: "Reproducible pipeline, verified figures and geospatial apps",
+    category: "Research and policy",
     slug: "tmu-research-study",
     skills: ["Python", "Pandas", "Leaflet & Folium", "ArcGIS"],
     caseUrl: "case-tmu.html",
-    imageUrl: "https://images.unsplash.com/photo-1476973422084-e0fa66ff9456?w=600&h=400&fit=crop",
   },
   {
     title: "Housing & Property Research",
-    subtitle: "Integrating Interview Evidence with Quantitative Analysis",
-    category: "Research & Policy",
+    subtitle: "Integrating interview evidence with quantitative analysis",
+    category: "Research and policy",
     slug: "newroots-housing-research",
     skills: ["Mixed Methods", "Python", "Power BI", "Thematic Coding"],
     caseUrl: "case-newroots.html",
-    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
   },
   {
     title: "Grid Power Energy",
-    subtitle: "Distributed vs. Centralized Electricity Analysis",
-    category: "Research & Policy",
+    subtitle: "Distributed vs. centralized electricity analysis",
+    category: "Research and policy",
     slug: "grid-power-energy",
     skills: ["Techno-Economic Analysis", "SQL", "Regulatory Data", "Python"],
-    imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop",
   },
   {
     title: "System 2 Executor",
-    subtitle: "Autonomous FX Trade Execution Engine",
-    category: "Quantitative Finance",
+    subtitle: "Autonomous FX trade execution engine",
+    category: "Quantitative finance",
     slug: "system2-executor",
     skills: ["Python", "OANDA API", "Risk Management", "Event-Driven Design"],
     githubUrl: "https://github.com/emmanuelebube13/system2Executor",
-    imageUrl: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&h=400&fit=crop",
   },
   {
     title: "BettorsOracle",
-    subtitle: "ML-Driven Football Match Prediction",
-    category: "Machine Learning",
+    subtitle: "ML-driven football match prediction",
+    category: "Machine learning",
     slug: "bettors-oracle",
     skills: ["Python", "Machine Learning", "Scikit-learn", "Data Analysis"],
     githubUrl: "https://github.com/emmanuelebube13/BettorsOracle",
-    imageUrl: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
   },
   {
     title: "Stock Screener",
-    subtitle: "Financial Screener with Streamlit",
-    category: "Data Science",
+    subtitle: "Financial screener with Streamlit",
+    category: "Data science",
     slug: "stock-screener",
     skills: ["Python", "Streamlit", "yFinance", "Data Visualization"],
     githubUrl: "https://github.com/emmanuelebube13/stockScreener",
     liveUrl: "https://stockman.streamlit.app/",
-    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
   },
   {
     title: "Honey Price Predictor",
-    subtitle: "Lasso Regression & K-Fold Validation",
-    category: "Machine Learning",
+    subtitle: "Lasso regression and k-fold validation",
+    category: "Machine learning",
     slug: "honey-price-predictor",
     skills: ["R", "Caret", "glmnet", "Cross-Validation"],
     githubUrl: "https://github.com/emmanuelebube13/Honey_Price_Predictor",
-    imageUrl: "https://images.unsplash.com/photo-1599599810694-b5ac1ea7ac61?w=600&h=400&fit=crop",
   },
   {
     title: "Canny Clean",
-    subtitle: "Business Website Template",
-    category: "Web Development",
+    subtitle: "Business website template",
+    category: "Web development",
     slug: "canny-clean",
     skills: ["HTML", "CSS", "JavaScript", "Responsive Design"],
     githubUrl: "https://github.com/emmanuelebube13/canny-clean",
     liveUrl: "https://emmanuelebube13.github.io/canny-clean/",
-    imageUrl: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
   },
   {
     title: "Data Science Ecosystem",
-    subtitle: "Languages, Libraries & Tools Overview",
-    category: "Data Science",
+    subtitle: "Languages, libraries and tools overview",
+    category: "Data science",
     slug: "data-science-ecosystem",
     skills: ["Python", "Jupyter", "Pandas", "NumPy", "R"],
     githubUrl: "https://github.com/emmanuelebube13/DataScienceEcosystem",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
   },
   {
     title: "Ethical Algorithm - Loan Analysis",
-    subtitle: "Algorithmic Bias & Fairness Case Study",
-    category: "Data Analytics",
+    subtitle: "Algorithmic bias and fairness case study",
+    category: "Data analytics",
     slug: "ethical-algorithm-loan-analysis",
     skills: ["Python", "Bias Analysis", "Data Ethics", "Case Study"],
     githubUrl: "https://github.com/emmanuelebube13/ethical-algorithm-loan-analysis",
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
   },
   {
     title: "Biobin Cleaning Quote System",
-    subtitle: "Interactive Web App for Service Pricing",
-    category: "Web Development",
+    subtitle: "Interactive web app for service pricing",
+    category: "Web development",
     slug: "biobinquotes",
     skills: ["Python", "Web Application", "Pricing Engine"],
     githubUrl: "https://github.com/emmanuelebube13/BIOBINQUOTES",
-    imageUrl: "https://images.unsplash.com/photo-1553531088-f59c1a3fd546?w=600&h=400&fit=crop",
   },
   {
     title: "Smart Dashboard",
-    subtitle: "Interactive Analytics Dashboard",
-    category: "Data Analytics",
+    subtitle: "Interactive analytics dashboard",
+    category: "Data analytics",
     slug: "smart-dashboard",
     skills: ["JavaScript", "Data Visualization", "Dashboard Design"],
     githubUrl: "https://github.com/emmanuelebube13/smart-dashboard",
-    imageUrl: "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=400&fit=crop",
   },
   {
     title: "EV Charging Station System",
-    subtitle: "Electric Vehicle Infrastructure Management",
-    category: "Data Analytics",
+    subtitle: "Electric vehicle infrastructure management",
+    category: "Data analytics",
     slug: "ev-charging-station",
     skills: ["Python", "System Design", "Data Management"],
     githubUrl: "https://github.com/emmanuelebube13/EvChargingStation",
-    imageUrl: "https://images.unsplash.com/photo-1615886287437-f121b6d8a850?w=600&h=400&fit=crop",
   },
   {
     title: "NSCC Wellness Platform",
-    subtitle: "Student Wellness & Engagement Tool",
-    category: "Web Development",
+    subtitle: "Student wellness and engagement tool",
+    category: "Web development",
     slug: "nscc-wellness",
     skills: ["HTML", "CSS", "JavaScript", "Community Impact"],
     githubUrl: "https://github.com/emmanuelebube13/nsccwellness",
-    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
   },
   {
     title: "Wealth Signal Simulator",
-    subtitle: "Modelling Data Collection & Economic Outcomes",
-    category: "Data Science",
+    subtitle: "Modelling data collection and economic outcomes",
+    category: "Data science",
     slug: "wealth-signal-simulator",
     skills: ["TypeScript", "Simulation", "Economic Modelling", "Data Viz"],
     githubUrl: "https://github.com/emmanuelebube13/Wealth-Signal-Simulator",
-    imageUrl: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=400&fit=crop",
   },
   {
     title: "Adica Editor",
-    subtitle: "Browser-Based Editing Tool",
-    category: "Web Development",
+    subtitle: "Browser-based editing tool",
+    category: "Web development",
     slug: "adica-editor",
     skills: ["TypeScript", "Web App", "UI Engineering"],
     githubUrl: "https://github.com/emmanuelebube13/adicaeditor",
-    imageUrl: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
   },
   {
     title: "Forex Timezone",
-    subtitle: "Global Market Session Tracker",
-    category: "Quantitative Finance",
+    subtitle: "Global market session tracker",
+    category: "Quantitative finance",
     slug: "forex-timezone",
     skills: ["JavaScript", "HTML", "Market Sessions"],
     githubUrl: "https://github.com/emmanuelebube13/Forex-Timezone",
-    imageUrl: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop",
   },
   {
     title: "Python Workshop",
-    subtitle: "Teaching Materials for Applied Python",
-    category: "Data Science",
+    subtitle: "Teaching materials for applied Python",
+    category: "Data science",
     slug: "python-workshop",
     skills: ["Python", "Teaching", "Jupyter", "Fundamentals"],
     githubUrl: "https://github.com/emmanuelebube13/pythonworkshop",
     liveUrl: "https://emmanuelebube13.github.io/pythonworkshop/",
-    imageUrl: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop",
   },
 ];
 
 const categories = [
-  "All Categories",
-  "Machine Learning",
-  "Data Science",
-  "Data Analytics",
-  "Research & Policy",
-  "Web Development",
-  "Quantitative Finance",
+  "All",
+  "Machine learning",
+  "Data science",
+  "Data analytics",
+  "Research and policy",
+  "Web development",
+  "Quantitative finance",
 ];
 
 const experiences = [
@@ -334,7 +314,7 @@ const skillCategories = [
   "Data & Analytics",
   "Programming",
   "Visualization",
-  "Machine Learning",
+  "Machine learning",
   "Tools & Platforms",
 ];
 
@@ -551,7 +531,7 @@ const categoryIcons = {
 /* ============================================================
    STATE
    ============================================================ */
-let activeCategory = "All Categories";
+let activeCategory = "All";
 let mobileMenuOpen = false;
 let resumeModalOpen = false;
 let selectedSkill = null;
@@ -747,131 +727,6 @@ const prefersReducedMotionSite = () =>
   window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ============================================================
-   SITE DIRECTORY
-   A file-tree view of the site: folders expand, files navigate.
-   ============================================================ */
-const siteTree = [
-  {
-    name: "work",
-    open: true,
-    children: [
-      { name: "projects", href: "index.html#projects", note: "19 builds" },
-      { name: "power-bi-suite", href: "index.html#powerbi-services", note: "live report" },
-      { name: "experience", href: "index.html#experience", note: "5 roles" },
-      {
-        name: "case-studies",
-        children: [
-          { name: "tmu-research", href: "case-tmu.html", note: "interactive" },
-          { name: "newroots-housing", href: "case-newroots.html", note: "interactive" },
-        ],
-      },
-    ],
-  },
-  {
-    name: "skills",
-    children: [
-      { name: "skill-matrix", href: "index.html#skills" },
-      { name: "career-flow", href: "index.html#career-flow", note: "sankey" },
-      { name: "skill-topology", href: "index.html#topology", note: "force graph" },
-    ],
-  },
-  {
-    name: "about",
-    children: [
-      { name: "profile", href: "about.html" },
-      { name: "spirit-animal", href: "index.html#orca", note: "orcas" },
-    ],
-  },
-  {
-    name: "contact",
-    children: [
-      { name: "get-in-touch", href: "index.html#contact" },
-      { name: "resume.pdf", href: "resume.pdf", note: "download", external: true },
-      { name: "github", href: "https://github.com/emmanuelebube13", external: true },
-      { name: "linkedin", href: "https://linkedin.com/in/emmanuelmbachu/", external: true },
-    ],
-  },
-];
-
-const treeIcons = {
-  folder: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>`,
-  file: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>`,
-  chevron: `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`,
-  ext: `<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`,
-};
-
-/* Nested disclosure lists rather than an ARIA tree widget: a folder is a
-   button that expands the group it controls, and a file is a plain link.
-   The collapsing wrapper holds exactly one child so the grid-rows
-   height animation works. */
-let treeGroupSeq = 0;
-
-function buildTreeNodes(items, depth) {
-  return items
-    .map((item) => {
-      if (item.children) {
-        const open = !!item.open;
-        const id = `tree-group-${++treeGroupSeq}`;
-        return `
-        <li class="tree-item">
-          <button class="tree-folder" aria-expanded="${open}" aria-controls="${id}"
-                  style="--depth:${depth}">
-            <span class="tree-chevron">${treeIcons.chevron}</span>
-            <span class="tree-icon folder">${treeIcons.folder}</span>
-            <span class="tree-name">${item.name}/</span>
-          </button>
-          <div class="tree-group${open ? " open" : ""}" id="${id}">
-            <ul class="tree-sublist">
-              ${buildTreeNodes(item.children, depth + 1)}
-            </ul>
-          </div>
-        </li>`;
-      }
-      const target = item.external ? ` target="_blank" rel="noopener noreferrer"` : "";
-      return `
-      <li class="tree-item">
-        <a class="tree-file" href="${item.href}"${target} style="--depth:${depth}">
-          <span class="tree-icon file">${treeIcons.file}</span>
-          <span class="tree-name">${item.name}</span>
-          ${item.note ? `<span class="tree-note">${item.note}</span>` : ""}
-          ${item.external ? `<span class="tree-ext">${treeIcons.ext}</span>` : ""}
-        </a>
-      </li>`;
-    })
-    .join("");
-}
-
-function initSiteTree() {
-  const host = document.getElementById("site-tree");
-  if (!host) return;
-
-  host.innerHTML = `<nav class="tree-root" aria-label="Site directory">
-    <ul class="tree-sublist">${buildTreeNodes(siteTree, 0)}</ul>
-  </nav>`;
-
-  host.querySelectorAll(".tree-folder").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const group = document.getElementById(btn.getAttribute("aria-controls"));
-      const open = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", String(!open));
-      if (group) group.classList.toggle("open", !open);
-    });
-  });
-
-  // Roving arrow-key navigation across every visible row.
-  host.addEventListener("keydown", (e) => {
-    if (!["ArrowDown", "ArrowUp"].includes(e.key)) return;
-    const rows = [...host.querySelectorAll(".tree-folder, .tree-file")].filter(
-      (el) => el.offsetParent !== null
-    );
-    const i = rows.indexOf(document.activeElement);
-    if (i === -1) return;
-    e.preventDefault();
-    rows[e.key === "ArrowDown" ? Math.min(i + 1, rows.length - 1) : Math.max(i - 1, 0)].focus();
-  });
-}
-
-/* ============================================================
    BACK TO TOP
    Appears once you are a screen or so down the page. Built here so
    every page picks it up without duplicating markup.
@@ -982,94 +837,6 @@ function initGraphSectionFolding() {
 }
 
 /* ============================================================
-   DIRECTORY DOCK
-   With the top nav removed, the directory is the navigation — so it has
-   to stay reachable past the hero. Once the in-page card scrolls away, a
-   compact launcher docks to the edge and expands into the same tree.
-   ============================================================ */
-function initDirectoryDock() {
-  if (document.getElementById("dir-dock")) return;
-
-  const dock = document.createElement("div");
-  dock.id = "dir-dock";
-  dock.className = "dir-dock";
-  dock.innerHTML = `
-    <button class="dir-dock-toggle" type="button" aria-label="Site directory" aria-expanded="false" aria-controls="dir-dock-panel">
-      ${treeIcons.folder}
-      <span class="dir-dock-label">Directory</span>
-    </button>
-    <div class="dir-dock-panel" id="dir-dock-panel" hidden>
-      <div class="dir-dock-head">
-        <span class="dir-path">~/mbachu-emmanuel</span>
-        <button class="dir-dock-close" type="button" aria-label="Close directory">${icons.x}</button>
-      </div>
-      <div class="dir-tree" id="dir-dock-tree"></div>
-    </div>`;
-  document.body.appendChild(dock);
-
-  // Second, independent render of the same tree (ids stay unique).
-  const treeHost = dock.querySelector("#dir-dock-tree");
-  treeHost.innerHTML = `<nav class="tree-root" aria-label="Site directory">
-    <ul class="tree-sublist">${buildTreeNodes(siteTree, 0)}</ul>
-  </nav>`;
-  treeHost.querySelectorAll(".tree-folder").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const group = document.getElementById(btn.getAttribute("aria-controls"));
-      const open = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", String(!open));
-      if (group) group.classList.toggle("open", !open);
-    });
-  });
-
-  const toggle = dock.querySelector(".dir-dock-toggle");
-  const panel = dock.querySelector(".dir-dock-panel");
-  const closeBtn = dock.querySelector(".dir-dock-close");
-
-  function setOpen(open) {
-    toggle.setAttribute("aria-expanded", String(open));
-    panel.toggleAttribute("hidden", !open);
-    dock.classList.toggle("is-open", open);
-  }
-
-  toggle.addEventListener("click", () => setOpen(panel.hasAttribute("hidden")));
-  if (closeBtn) closeBtn.addEventListener("click", () => { setOpen(false); toggle.focus(); });
-
-  // Navigating should not leave the panel hanging open over the content.
-  treeHost.addEventListener("click", (e) => {
-    if (e.target.closest(".tree-file")) setOpen(false);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !panel.hasAttribute("hidden")) {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!dock.contains(e.target) && !panel.hasAttribute("hidden")) setOpen(false);
-  });
-
-  // The dock only earns its place once the in-page card is gone. On pages
-  // without one (about, case studies) it is available immediately.
-  const heroCard = document.querySelector(".hero-grid .dir-card");
-
-  function sync() {
-    let show = true;
-    if (heroCard) {
-      const r = heroCard.getBoundingClientRect();
-      show = r.bottom < 72;
-    }
-    dock.classList.toggle("show", show);
-    if (!show && !panel.hasAttribute("hidden")) setOpen(false);
-  }
-
-  window.addEventListener("scroll", sync, { passive: true });
-  window.addEventListener("resize", sync);
-  sync();
-}
-
-/* ============================================================
    GRAPH TEXT EQUIVALENTS
    Each diagram keeps a written summary. It collapses once the graph
    renders, but stays reachable rather than being removed.
@@ -1141,7 +908,7 @@ function initHeader() {
   }
 
   // Highlight active nav link based on scroll
-  const sections = ["projects", "experience", "skills", "contact"];
+  const sections = ["scalable-brain", "projects", "experience", "skills", "contact"];
   const navLinks = document.querySelectorAll(".nav-link[data-section], .mobile-nav-link[data-section]");
 
   window.addEventListener("scroll", () => {
@@ -1161,7 +928,7 @@ function initHeader() {
    and screen-reader users wander into content hidden behind the overlay. */
 function setPageInert(on, except) {
   [...document.body.children].forEach((el) => {
-    if (el === except || el.id === "back-to-top" || el.id === "dir-dock") return;
+    if (el === except || el.id === "back-to-top") return;
     if (on) {
       el.setAttribute("inert", "");
       el.setAttribute("aria-hidden", "true");
@@ -1240,7 +1007,7 @@ function renderProjects() {
 
   grid.innerHTML = "";
 
-  const filtered = activeCategory === "All Categories"
+  const filtered = activeCategory === "All"
     ? projects
     : projects.filter((p) => p.category === activeCategory);
 
@@ -1315,15 +1082,15 @@ function createProjectCard(project) {
     <div class="project-links">
       ${project.caseUrl ? `
         <a href="${project.caseUrl}" class="project-link case" onclick="event.stopPropagation()">
-          ${icons.filetext} Case Study
+          Case study
         </a>` : ""}
       ${project.githubUrl ? `
         <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
-          ${icons.github.replace('width="16"', 'width="16"')} Code
+          Code
         </a>` : ""}
       ${project.liveUrl ? `
         <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="project-link live" onclick="event.stopPropagation()">
-          ${icons.externallink} Live Demo
+          ${project.slug === "scalable-brain" ? "Live system" : "Live demo"}
         </a>` : ""}
     </div>` : "";
 
@@ -1331,27 +1098,9 @@ function createProjectCard(project) {
     ? `<div class="project-skills">${project.skills.slice(0, 4).map(s => `<span class="skill-badge">${s}</span>`).join("")}</div>`
     : "";
 
-  // Thumbnails are decorative stock, so alt is empty (the title is right
-  // below it). auto=format lets Unsplash negotiate AVIF/WebP, ~22% smaller.
-  const thumbSrc = project.imageUrl && project.imageUrl.includes("images.unsplash.com")
-    ? project.imageUrl + "&auto=format&q=60"
-    : project.imageUrl;
-
-  const imageHTML = project.imageUrl ? `
-    <img src="${thumbSrc}" alt="" loading="lazy" decoding="async" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-    <div class="project-placeholder" style="display:none;">
-      ${icons.image}
-    </div>` : `
-    <div class="project-placeholder">
-      ${icons.image}
-    </div>`;
-
   article.innerHTML = `
-    <div class="project-thumb">
-      ${imageHTML}
-      <div class="project-thumb-gradient"></div>
-    </div>
     <div class="project-body">
+      <p class="project-category">${project.category}</p>
       <h3 class="project-title">${project.title}</h3>
       <p class="project-subtitle">${project.subtitle}</p>
       ${skillsHTML}
@@ -1372,7 +1121,7 @@ function initCategoryFilter() {
     const btn = document.createElement("button");
     btn.className = "filter-btn" + (cat === activeCategory ? " active" : "");
     // The count tells a phone visitor that a tap collapses 19 cards to a few
-    const n = cat === "All Categories"
+    const n = cat === "All"
       ? projects.length
       : projects.filter((p) => p.category === cat).length;
     btn.innerHTML = `${cat}<span class="filter-count">${n}</span>`;
@@ -1512,10 +1261,10 @@ function renderAwards() {
   container.innerHTML = awards.map((award) => `
     <div class="info-card">
       <h4 class="info-card-title">${award.title}</h4>
-      <p class="info-card-sub" style="font-size:0.75rem;">${award.organization}${award.year ? ` • ${award.year}` : ""}</p>
+      <p class="info-card-sub">${award.organization}${award.year ? ` • ${award.year}` : ""}</p>
       <ul class="exp-card-list" style="margin-top:0.75rem;">
         ${award.description.map((d) => `
-          <li class="exp-card-list-item" style="font-size:0.75rem;">
+          <li class="exp-card-list-item" >
             <span class="exp-bullet"></span>
             ${d}
           </li>`).join("")}
@@ -1531,9 +1280,8 @@ function renderVolunteer() {
     <div class="info-card">
       <h4 class="info-card-title">${vol.role}</h4>
       <div class="info-card-org-meta">
-        <span style="color: var(--orange); font-size:0.75rem;">${vol.organization}</span>
-        <span style="color: var(--muted-foreground); font-size:0.75rem;">•</span>
-        <span style="color: var(--muted-foreground); font-size:0.75rem;">${vol.dates}</span>
+        <span class="info-card-sub">${vol.organization}</span>
+        <span class="info-meta">${vol.dates}</span>
       </div>
       <p class="info-card-desc">${vol.description}</p>
     </div>
@@ -1742,7 +1490,7 @@ function initScrollAnimations() {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.01 }
   );
 
   targets.forEach((el) => observer.observe(el));
@@ -1766,9 +1514,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPbiModal();
   initProjectsMore();
   initGraphFallbackToggles();
-  initDirectoryDock();
   initGraphSectionFolding();
-  initSiteTree();
   initHeader();
   initResumeModal();
   initCategoryFilter();
