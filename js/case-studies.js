@@ -26,20 +26,20 @@ function makeRng(seed) {
 /* ------------------------------------------------------------
    Visualization tokens — validated against the white card surface.
    Sequential ramp: one hue (blue), light -> dark.
-   Accent (#C4622D) marks institutions; it is a data color and is
+   Accent (#eb6834) marks institutions; it is a data color and is
    deliberately distinct from the site's UI orange.
    ------------------------------------------------------------ */
 const VIZ = {
-  seq: ["#7FC4DA", "#4AA6C4", "#1384AB", "#0E6885", "#0A4D63"],
-  series: "#1384AB",
-  accent: "#C4622D",
+  seq: ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281"],
+  series: "#2a78d6",
+  accent: "#eb6834",
   good: "#0ca30c",
   critical: "#d03b3b",
   grid: "#e1e0d9",
   axis: "#c3c2b7",
-  muted: "#5F6670",
-  ink: "#14181D",
-  ink2: "#46505B",
+  muted: "#898781",
+  ink: "#0b0b0b",
+  ink2: "#52514e",
   surface: "#ffffff",
 };
 
