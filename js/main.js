@@ -3,6 +3,24 @@
    ============================================================ */
 const projects = [
   {
+    title: "Scalable Brain",
+    subtitle: "Live Data Platform: Fact Tables, Point-in-Time Data & Audit Ledgers",
+    category: "Quantitative Finance",
+    slug: "scalable-brain",
+    skills: [
+      "Data Modeling",
+      "Python",
+      "XGBoost",
+      "Walk-Forward Validation",
+      "PostgreSQL + TimescaleDB",
+      "GCS & Pub/Sub",
+      "Regime Modelling",
+    ],
+    githubUrl: "https://github.com/emmanuelebube13/scalable-brain",
+    liveUrl: "https://emmanuelebube13.github.io/scalablebrain-live/",
+    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
+  },
+  {
     title: "NS Property & Parcel Sales Intelligence",
     subtitle: "Socrata API Pipeline, Star Schema & Geospatial Power BI Suite (355K+ Rows)",
     category: "Data Analytics",
@@ -36,23 +54,6 @@ const projects = [
     slug: "grid-power-energy",
     skills: ["Techno-Economic Analysis", "SQL", "Regulatory Data", "Python"],
     imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Scalable Brain",
-    subtitle: "Three-Machine Quantitative FX Platform — Research, Execution & Risk",
-    category: "Quantitative Finance",
-    slug: "scalable-brain",
-    skills: [
-      "Python",
-      "XGBoost",
-      "Walk-Forward Validation",
-      "PostgreSQL + TimescaleDB",
-      "GCS & Pub/Sub",
-      "Regime Modelling",
-    ],
-    githubUrl: "https://github.com/emmanuelebube13/scalable-brain",
-    liveUrl: "https://emmanuelebube13.github.io/Scalablebrainfullarchitecture/",
-    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
   },
   {
     title: "System 2 Executor",
@@ -346,7 +347,7 @@ const skills = [
     relatedExperience: [
       "Engineered a reproducible cleaning and analysis pipeline over a 274-column survey instrument at Together Design Lab.",
       "Built an automated verification harness that re-derives every published figure from source data.",
-      "Built Scalable Brain, a three-machine quantitative FX platform separating research, execution and risk — regime detection, walk-forward validation, and fail-closed safety controls that stop trading on stale or mismatched inputs rather than degrade quietly.",
+      "Built Scalable Brain, a three-service quantitative FX platform separating research, execution and risk — regime detection, walk-forward validation, and fail-closed safety controls that stop trading on stale or mismatched inputs rather than degrade quietly.",
       "Created Stock Screener web app with Streamlit and yFinance for financial data analysis.",
     ],
     relatedProjectSlugs: ["scalable-brain", "system2-executor", "bettors-oracle", "stock-screener", "data-science-ecosystem"],
@@ -370,7 +371,7 @@ const skills = [
       "Deep knowledge of SQL Server, PostgreSQL, and MySQL for relational data modeling, query optimization, and database administration. Experienced with complex joins, indexing strategies, and performance tuning.",
     relatedExperience: [
       "Designing a relational database integrating utility tariff schedules, regulatory decisions, and reliability data for Grid Power Energy.",
-      "Designed database architecture for Scalable Brain trading system.",
+      "Modeled market, research and point-in-time data in PostgreSQL for Scalable Brain, including an append-only forward-test ledger.",
       "Worked with SQL Server, PostgreSQL, and MySQL across multiple projects.",
     ],
     relatedProjectSlugs: ["grid-power-energy", "scalable-brain"],

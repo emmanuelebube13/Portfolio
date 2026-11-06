@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Mbachu Emmanuel - Data Analyst. Analytical and research-driven Data Analyst with hands-on experience in applied research, big data analytics, geospatial mapping, and data visualization." />
-  <meta name="keywords" content="Data Analyst, Python, R, SQL, Apache Spark, Machine Learning, Power BI, Tableau, ArcGIS, Geospatial, AWS, Azure, Halifax" />
-  <meta property="og:title" content="Mbachu Emmanuel | Data Analyst" />
-  <meta property="og:description" content="Transforming complex data into actionable insights for evidence-based decision-making." />
+  <meta name="description" content="Emmanuel Mbachu - Data Modeler. Dimensional models, point-in-time data and audit-ready records, shown live through Scalable Brain, a data and trading research platform." />
+  <meta name="keywords" content="Data Modeler, Data Modeling, Dimensional Modeling, PostgreSQL, Data Analyst, Python, R, SQL, Google Cloud, Apache Spark, Machine Learning, Power BI, Tableau, ArcGIS, Geospatial, AWS, Azure, Halifax" />
+  <meta property="og:title" content="Emmanuel Mbachu | Data Modeler" />
+  <meta property="og:description" content="Data models built so every number can be traced to its source. See one running live." />
   <meta property="og:type" content="website" />
-  <title>Mbachu Emmanuel | Data Analyst</title>
+  <title>Emmanuel Mbachu | Data Modeler</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -74,6 +74,17 @@
        ============================================================ -->
   <main>
     <div class="container">
+
+      <aside class="sb-live" id="sb-live" data-tone="idle" aria-label="Live project: Scalable Brain">
+        <span class="sb-live-dot" aria-hidden="true"></span>
+        <p class="sb-live-copy">
+          <span class="sb-live-name">Scalable Brain</span>
+          <span class="sb-live-desc">The data and trading research platform I built, running now.</span>
+          <span class="sb-live-state" id="sb-live-state" role="status">Live view</span>
+          <span class="sb-live-stats" id="sb-live-stats">System health, data model and research record</span>
+        </p>
+        <button type="button" class="sb-live-btn" data-sb-open>Explore it live</button>
+      </aside>
 
       <!-- HERO SECTION -->
       <div class="hero-grid animate-fade-in-up">
@@ -159,11 +170,9 @@
         <!-- Hero Text -->
         <div class="hero-content">
           <h1 class="hero-title">Emmanuel Mbachu</h1>
-          <p class="hero-subtitle">Data Analyst</p>
+          <p class="hero-subtitle">Data Modeler</p>
           <p class="hero-description">
-            Analytical and research-driven Data Analyst with hands-on experience in applied research,
-            big data analytics, geospatial mapping, and data visualization, plus exposure to AWS, Microsoft Azure,
-            and applied AI models. Transforming complex data into actionable insights for evidence-based decision-making.
+            I design data models that hold up under real use, from dimensional models to point-in-time and audit-ready records. With a background in data analysis, I build so that every number can be traced to its source. I work in PostgreSQL, Python and Power BI, with Google Cloud experience and exposure to AWS and Azure.
           </p>
 
           <!-- Location & Contact -->
@@ -235,7 +244,7 @@
       <!-- PROFESSIONAL SUMMARY — context for the work that follows -->
       <section class="summary-band reveal" aria-label="Professional summary">
         <p class="summary-band-label">Professional summary</p>
-        <p class="summary-band-text">Strong technical foundation in <strong>Python, R, SQL, and Apache Spark</strong>, with expertise in <strong>Power BI, Tableau</strong>, and ETL workflows (SSIS, SSRS).
+        <p class="summary-band-text"><strong>Data modeling</strong> in PostgreSQL and Power BI, including dimensional, relational and semantic models, built on a technical foundation in <strong>Python, R, SQL, and Apache Spark</strong> and ETL workflows (SSIS, SSRS).
             Experienced in <strong>data cleaning, transformation, validation</strong>, exploratory data analysis (EDA), large-dataset handling,
             and <strong>interactive geospatial mapping</strong> with ArcGIS, Leaflet, and Folium.
             Proven ability to translate complex findings into clear insights for technical and non-technical stakeholders.</p>
@@ -245,7 +254,7 @@
       <section id="projects" class="section animate-fade-in-up-delay-1" aria-label="Featured Projects">
         <div class="section-header">
           <h2 class="section-title">Featured Projects</h2>
-          <p class="section-subtitle">A collection of data science, machine learning, and analytics projects</p>
+          <p class="section-subtitle">Data modeling, data systems and analytics projects</p>
         </div>
 
         <div style="display:flex; flex-direction:column; gap:3rem;">
@@ -615,10 +624,10 @@
             <div class="footer-logo-badge" data-orca-badge>ME</div>
             <div>
               <p class="footer-logo-name">Emmanuel Mbachu</p>
-              <p class="footer-logo-title">Data Analyst</p>
+              <p class="footer-logo-title">Data Modeler</p>
             </div>
           </a>
-          <p class="footer-tagline">Transforming complex data into actionable, evidence-based insights.</p>
+          <p class="footer-tagline">Data models built so every number can be traced to its source.</p>
           <div class="footer-contact-list">
             <a href="mailto:emmanuelebubembachu@gmail.com" class="footer-contact-item">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -759,7 +768,19 @@
     </div>
   </div>
 
+  <dialog class="sb-dialog" id="sb-dialog" aria-label="Scalable Brain live view">
+    <div class="sb-dialog-head">
+      <strong>Scalable Brain live view</strong>
+      <div class="sb-dialog-actions">
+        <a href="https://emmanuelebube13.github.io/scalablebrain-live/" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+        <button type="button" data-sb-close>Close</button>
+      </div>
+    </div>
+    <iframe class="sb-frame" id="sb-frame" title="Scalable Brain live system view"></iframe>
+  </dialog>
+
   <script src="js/main.js"></script>
+  <script src="js/sb-live.js"></script>
 
   <!-- d3 powers the career flow (sankey) and skill topology (force graph).
        Both degrade to a written summary if these fail to load. -->
