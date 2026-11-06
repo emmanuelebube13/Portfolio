@@ -4,7 +4,7 @@
    --border, --orange, --radius) and adds a visualization layer.
 
    Viz tokens are validated against the white card surface:
-   sequential blue ramp for magnitude, #eb6834 for the second
+   sequential blue ramp for magnitude, #C4622D for the second
    identity class (institutions), status colors for pass/fail.
    ============================================================ */
 :root {
@@ -14,14 +14,14 @@
   --viz-muted: #6f6d69;   /* was #898781 — 3.59:1 on white */
   --viz-grid: #e1e0d9;
   --viz-axis: #c3c2b7;
-  --viz-series: #2a78d6;
-  --viz-accent: #eb6834;
+  --viz-series: #1384AB;
+  --viz-accent: #C4622D;
   --viz-good: #0ca30c;
   --viz-critical: #d03b3b;
   --viz-hairline: rgba(11, 11, 11, 0.1);
   /* The UI orange is too light to carry small text at 4.5:1 — these
      labels are 11px, so they use a darkened step of the same hue. */
-  --orange-text: #9a3412;
+  --orange-text: #0A5E75;
 }
 
 /* ============================================================
@@ -53,8 +53,8 @@
   gap: 0.5rem;
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--orange-text);
   margin-bottom: 0.9rem;
 }
@@ -128,11 +128,11 @@
   gap: 0.35rem;
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #8a4a12;
-  background-color: #fdf1e6;
-  border: 1px solid #f3d6ba;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #14181D;
+  background-color: #ECEDE7;
+  border: 1px solid #D3D6CF;
   border-radius: 9999px;
   padding: 0.22rem 0.6rem;
   white-space: nowrap;
@@ -202,9 +202,9 @@
 .case-section-num {
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   color: var(--orange-text);
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .case-section-title {
@@ -269,7 +269,7 @@
   font-size: 0.625rem;
   font-weight: 700;
   color: var(--orange-text);
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
 }
 
 .pipe-label {
@@ -589,8 +589,8 @@
   padding-top: 0.3rem;
   border-top: 1px solid var(--viz-grid);
   font-size: 0.625rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  text-transform: none;
+  letter-spacing: 0;
   color: var(--viz-muted);
 }
 
@@ -611,8 +611,8 @@
 .legend-title {
   font-size: 0.6875rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0;
+  text-transform: none;
   color: var(--viz-ink-2);
 }
 
@@ -758,8 +758,8 @@
 .verify-state {
   font-size: 0.6875rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-transform: none;
+  letter-spacing: 0;
   color: var(--viz-ink-2);
   white-space: nowrap;
   min-width: 5.2rem;
@@ -794,8 +794,8 @@
 .verify-summary-badge {
   font-size: 0.6875rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  text-transform: none;
+  letter-spacing: 0;
   padding: 0.25rem 0.6rem;
   border-radius: 9999px;
   white-space: nowrap;
@@ -864,8 +864,8 @@
 .excerpt-tag {
   font-size: 0.625rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  text-transform: none;
+  letter-spacing: 0;
   color: var(--viz-ink-2);
 }
 
@@ -970,8 +970,8 @@
 .case-nav-label {
   font-size: 0.6875rem;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  text-transform: none;
+  letter-spacing: 0;
   color: var(--orange-text);
 }
 

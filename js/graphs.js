@@ -7,20 +7,20 @@
    aqua slot sits below 3:1 on white, so text relief is required.
 
    Categorical slots (validated all-pairs on #ffffff):
-     blue #2a78d6 · orange #eb6834 · aqua #1baf7a
+     blue #1384AB · orange #C4622D · aqua #1B9E77
    ============================================================ */
 
 const GRAPH_COLORS = {
-  role: "#2a78d6",
-  domain: "#eb6834",
-  tool: "#1baf7a",
-  Analytics: "#2a78d6",
-  Engineering: "#eb6834",
-  Strategy: "#1baf7a",
+  role: "#1384AB",
+  domain: "#C4622D",
+  tool: "#1B9E77",
+  Analytics: "#1384AB",
+  Engineering: "#C4622D",
+  Strategy: "#1B9E77",
 };
 
-const GRAPH_INK = "#52514e";
-const GRAPH_INK_STRONG = "#0b0b0b";
+const GRAPH_INK = "#46505B";
+const GRAPH_INK_STRONG = "#14181D";
 const GRAPH_SURFACE = "#ffffff";
 const GRAPH_LINE = "#d8dde2";
 

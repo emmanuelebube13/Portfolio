@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Emmanuel Mbachu - Data Modeler. Dimensional models, point-in-time data and audit-ready records, shown live through Scalable Brain, a data and trading research platform." />
+  <meta name="description" content="Emmanuel Mbachu - Data Modeler. Dimensional models, point-in-time data and audit-ready records, shown live through Scalable Brain." />
   <meta name="keywords" content="Data Modeler, Data Modeling, Dimensional Modeling, PostgreSQL, Data Analyst, Python, R, SQL, Google Cloud, Apache Spark, Machine Learning, Power BI, Tableau, ArcGIS, Geospatial, AWS, Azure, Halifax" />
   <meta property="og:title" content="Emmanuel Mbachu | Data Modeler" />
   <meta property="og:description" content="Data models built so every number can be traced to its source. See one running live." />
@@ -11,10 +11,10 @@
   <title>Emmanuel Mbachu | Data Modeler</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   
   <!-- EmailJS SDK -->
-  <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript" defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4.4.1/dist/email.min.js"></script>
   <script type="text/javascript">
     // The SDK is deferred, so initialise once it has parsed.
     window.addEventListener("DOMContentLoaded", function () {
@@ -22,49 +22,46 @@
     });
   </script>
   
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/home.css?v=20261106b" />
+  <link rel="stylesheet" href="css/styles.css?v=20261106c" />
+  <link rel="stylesheet" href="css/home.css?v=20261106c" />
+  <link rel="stylesheet" href="css/design.css?v=20261106c" />
 </head>
 <body>
 
   <!-- ============================================================
        HEADER
        ============================================================ -->
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Logo -->
-      <a href="index.html" class="logo" aria-label="Home">
+      <a href="index.html" class="logo" aria-label="Emmanuel Mbachu, home">
         <div class="logo-badge" data-orca-badge>ME</div>
-        <span class="logo-name">Mbachu Emmanuel</span>
+        <span class="logo-name">Emmanuel Mbachu</span>
       </a>
-
-
-      <!-- Right: Resume + Hamburger -->
+      <nav class="desktop-nav" aria-label="Main">
+        <a href="#scalable-brain" class="nav-link" data-section="scalable-brain">Scalable Brain</a>
+        <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+        <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+      </nav>
       <div class="header-right">
-        <button class="btn btn-orange resume-btn" data-resume-trigger aria-label="View Resume">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-          View Resume
-        </button>
-
+        <button class="btn btn-orange resume-btn" data-resume-trigger><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg> View resume</button>
         <button id="hamburger-btn" class="hamburger-btn" aria-label="Open menu">
-          <span id="hamburger-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-          </span>
+          <span id="hamburger-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg></span>
         </button>
       </div>
     </div>
-
-    <!-- Mobile Nav -->
     <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
       <div class="mobile-nav-inner">
-        <a href="#projects"   class="mobile-nav-link" data-section="projects">Projects</a>
+        <a href="#scalable-brain" class="mobile-nav-link" data-section="scalable-brain">Scalable Brain</a>
+        <a href="#projects" class="mobile-nav-link" data-section="projects">Projects</a>
         <a href="#experience" class="mobile-nav-link" data-section="experience">Experience</a>
-        <a href="#skills"     class="mobile-nav-link" data-section="skills">Skills</a>
-        <a href="#contact"    class="mobile-nav-link" data-section="contact">Contact</a>
-        <button class="mobile-resume-btn" data-resume-trigger>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
-          View Resume
-        </button>
+        <a href="#skills" class="mobile-nav-link" data-section="skills">Skills</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
+        <a href="#contact" class="mobile-nav-link" data-section="contact">Contact</a>
+        <button class="mobile-resume-btn" data-resume-trigger>View resume</button>
       </div>
     </nav>
   </header>
@@ -72,188 +69,113 @@
   <!-- ============================================================
        MAIN CONTENT
        ============================================================ -->
-  <main>
+  <main id="main">
+    <!-- HOME HERO. Self-contained so it can be replaced as one block. -->
+    <section class="home-hero" aria-label="Introduction">
+      <div class="container hero-layout">
+        <div class="hero-intro">
+          <div class="hero-id">
+            <img class="hero-photo" src="images/emmanuel-profile.jpg" alt="Portrait of Emmanuel Mbachu" width="80" height="80" />
+            <p class="hero-name">Halifax, NS<br />Data Analyst at Together Design Lab, TMU</p>
+          </div>
+          <h1 class="hero-title-main">Emmanuel Mbachu <span class="hero-role">Data Modeler</span></h1>
+          <p class="hero-lede">I design data models that hold up under real use, from dimensional models to point-in-time and audit-ready records.</p>
+        </div>
+
+        <section class="sb" id="scalable-brain" data-tone="idle" aria-labelledby="sb-name">
+          <div class="sb-top">
+            <h2 class="sb-name" id="sb-name">Scalable Brain</h2>
+            <p class="sb-state" role="status"><span class="sb-state-mark" id="sb-state-mark" aria-hidden="true">○</span><span id="sb-state-text">Live system view</span> <span class="sb-age" id="sb-state-age"></span></p>
+          </div>
+          <p class="sb-note">Scalable Brain is my data consulting practice, running since 2020. I design data models, pipelines and monitoring for systems where the numbers have to be right. Its flagship build is a live research and trading data platform, which you can explore below.</p>
+
+          <div class="sb-actions">
+            <a class="sb-btn sb-btn-primary" href="https://emmanuelebube13.github.io/scalablebrain-live/" data-sb-open="overview">Open the live system</a>
+            <a class="sb-btn" href="https://emmanuelebube13.github.io/scalablebrain-live/#telemetry" data-sb-open="telemetry">Telemetry</a>
+            <a class="sb-btn" href="https://emmanuelebube13.github.io/scalablebrain-live/#model" data-sb-open="model">Data model</a>
+            <a class="sb-btn" href="https://emmanuelebube13.github.io/scalablebrain-live/#map" data-sb-open="map">System map</a>
+            <a class="sb-btn" href="https://emmanuelebube13.github.io/scalablebrain-live/#research" data-sb-open="research">Research record</a>
+          </div>
+
+          <dl class="sb-stats" aria-label="Live figures from the running system">
+            <div class="sb-stat"><dt>Rows modelled</dt><dd id="sb-rows">—</dd></div>
+            <div class="sb-stat"><dt>Documented tables</dt><dd id="sb-tables">—</dd></div>
+            <div class="sb-stat"><dt>Registered trials</dt><dd id="sb-trials">—</dd></div>
+            <div class="sb-stat"><dt>Trials passed</dt><dd id="sb-passed">—</dd></div>
+          </dl>
+
+          <a class="sb-schema" href="https://emmanuelebube13.github.io/scalablebrain-live/#model" data-sb-open="model" aria-label="Open the data model: fact tables joined to shared dimensions">
+            <span id="sb-schema-host"></span>
+            <span class="sb-schema-cap">Part of the live model: fact tables joined to shared dimensions. It runs on a practice account, and no results or returns are claimed.</span>
+          </a>
+
+          <div class="sb-more">
+            <span class="sb-more-label">Also</span>
+            <a class="sb-link" href="pbi-property-sales.html" data-pbi-trigger>Power BI report</a>
+            <a class="sb-link" href="https://github.com/emmanuelebube13/scalable-brain" target="_blank" rel="noopener noreferrer">scalable-brain on GitHub</a>
+            <a class="sb-link" href="https://github.com/emmanuelebube13/system2Executor" target="_blank" rel="noopener noreferrer">system2Executor on GitHub</a>
+          </div>
+        </section>
+
+        <div class="hero-more">
+          <p class="hero-rest">With a background in data analysis, I build so that every number can be traced to its source. I work in PostgreSQL, Python and Power BI, with Google Cloud experience and exposure to AWS and Azure.</p>
+          <ul class="hero-facts">
+            <li><span class="hero-fact-label">Email</span><a href="mailto:emmanuelebubembachu@gmail.com">emmanuelebubembachu@gmail.com</a></li>
+          </ul>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-orange">View projects</a>
+            <a href="#contact" class="btn btn-outline">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice" aria-labelledby="practice-title">
+      <div class="container">
+        <h2 class="practice-title" id="practice-title">What the practice does</h2>
+        <p class="practice-sub">Each line links to work you can inspect.</p>
+        <ul class="offers">
+          <li class="offer"><h3>Data modeling</h3><p>Dimensional, relational and point-in-time models, with clear grain, keys and audit trails.</p><a href="https://emmanuelebube13.github.io/scalablebrain-live/#model" data-sb-open="model">See the data model</a></li>
+          <li class="offer"><h3>Data pipelines and quality</h3><p>Automated ingestion, validation and quarantine, with lineage back to each source run.</p><a href="https://emmanuelebube13.github.io/scalablebrain-live/#map" data-sb-open="map">See the system map</a></li>
+          <li class="offer"><h3>Telemetry and monitoring</h3><p>Live dashboards, job health, reconciliation and alerts.</p><a href="https://emmanuelebube13.github.io/scalablebrain-live/#telemetry" data-sb-open="telemetry">See the telemetry</a></li>
+          <li class="offer"><h3>Reporting and BI</h3><p>Power BI models and decision-ready reports.</p><a href="pbi-property-sales.html" data-pbi-trigger>See a Power BI report</a></li>
+          <li class="offer"><h3>Research validation</h3><p>Pre-registered tests, realistic cost modeling and forward-test records.</p><a href="https://emmanuelebube13.github.io/scalablebrain-live/#research" data-sb-open="research">See the research record</a></li>
+        </ul>
+      </div>
+    </section>
+
     <div class="container">
-
-      <aside class="sb-live" id="sb-live" data-tone="idle" aria-label="Live project: Scalable Brain">
-        <span class="sb-live-dot" aria-hidden="true"></span>
-        <p class="sb-live-copy">
-          <span class="sb-live-name">Scalable Brain</span>
-          <span class="sb-live-desc">The data and trading research platform I built, running now.</span>
-          <span class="sb-live-state" id="sb-live-state" role="status">Live view</span>
-          <span class="sb-live-stats" id="sb-live-stats">System health, data model and research record</span>
-        </p>
-        <button type="button" class="sb-live-btn" data-sb-open>Explore it live</button>
-      </aside>
-
-      <!-- HERO SECTION -->
-      <div class="hero-grid animate-fade-in-up">
-
-      <!-- ========== LEFT RAIL: POWER BI SERVICES & PORTFOLIO ========== -->
-      <aside class="pbi-card" id="powerbi-services" aria-labelledby="pbi-heading">
-        <div class="pbi-head">
-          <span class="pbi-badge" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
-          </span>
-          <div class="pbi-head-text">
-            <p class="pbi-eyebrow">BI &amp; Data Visualization</p>
-            <h2 class="pbi-title" id="pbi-heading">Power BI Services</h2>
-          </div>
-        </div>
-
-        <div class="pbi-body">
-          <p class="pbi-intro">
-            Clean, decision-ready dashboards built from reliable data models and clear business questions.
-          </p>
-
-          <ul class="pbi-pillars" aria-label="Power BI capabilities">
-            <li class="pbi-pillar">
-              <span class="pbi-pillar-dot" aria-hidden="true"></span>
-              <span><strong>Modeling:</strong> Dimensional, relational &amp; semantic data models</span>
-            </li>
-            <li class="pbi-pillar">
-              <span class="pbi-pillar-dot" aria-hidden="true"></span>
-              <span><strong>Data Prep:</strong> Power Query (M), APIs, ETL &amp; data quality techniques</span>
-            </li>
-            <li class="pbi-pillar">
-              <span class="pbi-pillar-dot" aria-hidden="true"></span>
-              <span><strong>Reporting:</strong> DAX measures, KPI reporting &amp; interactive visuals</span>
-            </li>
-          </ul>
-
-          <div class="pbi-projects" aria-label="Power BI projects">
-            <div class="pbi-projects-heading">
-              <span>Selected work</span>
-              <span class="pbi-project-count">1 project</span>
-            </div>
-            <a class="pbi-project-item" href="#pbi-modal-overlay" data-pbi-trigger aria-label="Open NS Property and Parcel Sales Intelligence Power BI project">
-              <span class="pbi-project-status" aria-hidden="true"></span>
-              <span class="pbi-project-copy">
-                <strong>NS Property &amp; Parcel Sales Intelligence</strong>
-                <small>355K+ rows &middot; DAX &middot; Data Modeling</small>
-              </span>
-              <svg class="pbi-project-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-            </a>
-          </div>
-
-          <div class="pbi-actions">
-            <button type="button" class="btn btn-orange pbi-btn-primary" data-pbi-trigger aria-label="View Power BI Work in interactive viewer">
-              View Power BI Work
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" x2="14" y1="3" y2="10"/><line x1="3" x2="10" y1="21" y2="14"/></svg>
-            </button>
-            <a
-              href="https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="pbi-link-secondary">
-              Open Full Screen in Power BI
-              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            </a>
-          </div>
-        </div>
-      </aside>
-
-      <!-- ========== CENTRE: HERO ========== -->
-      <section class="hero" aria-label="Introduction">
-        <!-- Profile Photo -->
-        <div class="profile-photo-wrapper">
-          <div class="profile-photo">
-            <img
-              src="images/emmanuel-profile.jpg"
-              alt="Mbachu Emmanuel"
-              onerror="this.style.display='none'; this.parentElement.querySelector('.profile-fallback').style.display='flex';"
-            />
-            <div class="profile-fallback" style="display:none; width:100%; height:100%; align-items:center; justify-content:center; color:var(--muted-foreground); font-size:2.5rem; font-weight:700;">ME</div>
-          </div>
-        </div>
-
-        <!-- Hero Text -->
-        <div class="hero-content">
-          <h1 class="hero-title">Emmanuel Mbachu</h1>
-          <p class="hero-subtitle">Data Modeler</p>
-          <p class="hero-description">
-            I design data models that hold up under real use, from dimensional models to point-in-time and audit-ready records. With a background in data analysis, I build so that every number can be traced to its source. I work in PostgreSQL, Python and Power BI, with Google Cloud experience and exposure to AWS and Azure.
-          </p>
-
-          <!-- Location & Contact -->
-          <div class="hero-meta">
-            <span class="hero-meta-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              Halifax, NS
-            </span>
-            <span class="hero-meta-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              emmanuelebubembachu@gmail.com
-            </span>
-          </div>
-
-          <!-- CTA Buttons -->
-          <div class="hero-cta">
-            <a href="#projects" class="btn btn-orange">
-              View Projects
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-            </a>
-            <a href="#contact" class="btn btn-outline">
-              Get in Touch
-            </a>
-          </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator" aria-hidden="true">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-        </div>
-      </section>
-
-      <!-- ========== RIGHT RAIL: SITE DIRECTORY ========== -->
-      <aside class="dir-card" aria-labelledby="dir-heading">
-        <div class="dir-head">
-          <span class="dir-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-          <p class="dir-path" id="dir-heading">~/mbachu-emmanuel</p>
-        </div>
-
-        <div id="site-tree" class="dir-tree">
-          <!-- Fallback if the tree script does not run -->
-          <ul class="tree-root-static">
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="case-tmu.html">Research study case study</a></li>
-            <li><a href="case-newroots.html">Housing research case study</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-
-        <div class="dir-status">
-          <p class="dir-status-label">Currently</p>
-          <p class="dir-status-role">Data Analyst</p>
-          <p class="dir-status-org">Together Design Lab, TMU &middot; Remote</p>
-        </div>
-
-        <div class="dir-foot">
-          <span class="dir-foot-keys">
-            <span class="dir-foot-key">↑↓</span> to move &middot; <span class="dir-foot-key">↵</span> to open
-          </span>
-          <span class="dir-foot-touch">Tap a folder to expand</span>
-        </div>
-      </aside>
-
-      </div><!-- /hero-grid -->
-
-      <!-- PROFESSIONAL SUMMARY — context for the work that follows -->
-      <section class="summary-band reveal" aria-label="Professional summary">
-        <p class="summary-band-label">Professional summary</p>
-        <p class="summary-band-text"><strong>Data modeling</strong> in PostgreSQL and Power BI, including dimensional, relational and semantic models, built on a technical foundation in <strong>Python, R, SQL, and Apache Spark</strong> and ETL workflows (SSIS, SSRS).
+      <div class="profile-grid reveal">
+        <section aria-label="Professional summary">
+          <h2 class="profile-label">Professional summary</h2>
+          <p class="profile-text"><strong>Data modeling</strong> in PostgreSQL and Power BI, including dimensional, relational and semantic models, built on a technical foundation in <strong>Python, R, SQL, and Apache Spark</strong> and ETL workflows (SSIS, SSRS).
             Experienced in <strong>data cleaning, transformation, validation</strong>, exploratory data analysis (EDA), large-dataset handling,
             and <strong>interactive geospatial mapping</strong> with ArcGIS, Leaflet, and Folium.
             Proven ability to translate complex findings into clear insights for technical and non-technical stakeholders.</p>
-      </section>
+        </section>
+        <section class="bi-card" id="powerbi-services" aria-labelledby="pbi-heading">
+          <h2 id="pbi-heading">Power BI</h2>
+          <p>Clean, decision-ready dashboards built from reliable data models and clear business questions.</p>
+          <ul class="bi-list" aria-label="Power BI capabilities">
+            <li><strong>Modeling:</strong> dimensional, relational and semantic data models</li>
+            <li><strong>Data prep:</strong> Power Query (M), APIs, ETL and data quality techniques</li>
+            <li><strong>Reporting:</strong> DAX measures, KPI reporting and interactive visuals</li>
+          </ul>
+          <div class="bi-project">
+            <strong>NS Property &amp; Parcel Sales Intelligence</strong>
+            <small>355K+ rows &middot; DAX &middot; Data Modeling</small>
+          </div>
+          <div class="bi-actions">
+            <button type="button" class="btn btn-orange" data-pbi-trigger>View Power BI work</button>
+            <a class="btn btn-outline" href="https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9" target="_blank" rel="noopener noreferrer">Open full screen in Power BI</a>
+          </div>
+        </section>
+      </div>
 
       <!-- PROJECTS SECTION -->
-      <section id="projects" class="section animate-fade-in-up-delay-1" aria-label="Featured Projects">
+      <section id="projects" class="section animate-fade-in-up-delay-1" aria-label="Projects">
         <div class="section-header">
-          <h2 class="section-title">Featured Projects</h2>
+          <h2 class="section-title">Projects</h2>
           <p class="section-subtitle">Data modeling, data systems and analytics projects</p>
         </div>
 
@@ -276,20 +198,20 @@
 
     <div class="container">
       <!-- EXPERIENCE SECTION -->
-      <div class="section reveal" id="experience" aria-label="Professional Experience">
+      <div class="section reveal" id="experience" aria-label="Experience">
         <div class="section-header">
-          <h2 class="section-title">Professional Experience</h2>
+          <h2 class="section-title">Experience</h2>
           <p class="section-subtitle">My journey in data analytics and research</p>
         </div>
 
         <div class="experience-grid">
-          <!-- Work Experience -->
+          <!-- Work -->
           <div>
             <div class="exp-col-header">
               <div class="exp-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
               </div>
-              <h3 class="exp-col-title">Work Experience</h3>
+              <h3 class="exp-col-title">Work</h3>
             </div>
             <div class="timeline" id="experience-timeline"></div>
           </div>
@@ -313,7 +235,7 @@
                 <div class="exp-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
                 </div>
-                <h3 class="exp-col-title">Awards &amp; Innovation</h3>
+                <h3 class="exp-col-title">Awards and innovation</h3>
               </div>
               <div class="info-cards" id="awards-cards"></div>
             </div>
@@ -324,7 +246,7 @@
                 <div class="exp-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
                 </div>
-                <h3 class="exp-col-title">Leadership &amp; Volunteer</h3>
+                <h3 class="exp-col-title">Leadership and volunteer</h3>
               </div>
               <div class="info-cards" id="volunteer-cards"></div>
             </div>
@@ -340,8 +262,8 @@
       <!-- SKILLS SECTION -->
       <div class="section reveal" id="skills" aria-label="Skills and Expertise">
         <div class="section-header">
-          <h2 class="section-title">Skills &amp; Expertise</h2>
-          <p class="section-subtitle">Click on any skill to learn more about my experience</p>
+          <h2 class="section-title">Skills</h2>
+          <p class="section-subtitle">Select a skill to see where I have used it</p>
         </div>
 
         <div id="skills-grid" class="skills-grid"></div>
@@ -356,7 +278,7 @@
       <!-- CAREER FLOW SECTION -->
       <div class="section reveal" id="career-flow" aria-label="Career flow">
         <div class="section-header">
-          <h2 class="section-title">Career Flow</h2>
+          <h2 class="section-title">Career flow</h2>
           <p class="section-subtitle">How roles fed into domains, and domains into tools</p>
         </div>
 
@@ -409,7 +331,7 @@
       <!-- SKILL TOPOLOGY SECTION -->
       <div class="section reveal" id="topology" aria-label="Skill topology">
         <div class="section-header">
-          <h2 class="section-title">Skill Topology</h2>
+          <h2 class="section-title">Skill topology</h2>
           <p class="section-subtitle">The same skills, arranged by what they connect to</p>
         </div>
 
@@ -465,7 +387,7 @@
             Spirit animal <span class="orca-eyebrow-dash" aria-hidden="true">&mdash;</span>
             <span class="orca-eyebrow-name">Orcas</span>
           </p>
-          <h2 class="section-title">Why Orcas</h2>
+          <h2 class="section-title">Why orcas</h2>
           <p class="section-subtitle">A short note on how I think about the work</p>
         </div>
 
@@ -543,7 +465,7 @@
       <!-- CONTACT SECTION -->
       <div class="section reveal" id="contact" aria-label="Contact">
         <div class="section-header">
-          <h2 class="section-title">Get in Touch</h2>
+          <h2 class="section-title">Get in touch</h2>
           <p class="section-subtitle">Have a question or want to work together? I would love to hear from you.</p>
         </div>
 
@@ -603,7 +525,7 @@
             </div>
             <button type="submit" class="form-submit">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
-              Send Message
+              Send message
             </button>
           </form>
         </div>
@@ -644,9 +566,9 @@
           </div>
         </div>
 
-        <!-- Quick Links -->
+        <!-- Quick links -->
         <div>
-          <h3 class="footer-col-title">Quick Links</h3>
+          <h3 class="footer-col-title">Quick links</h3>
           <ul class="footer-links">
             <li><a href="#projects"   class="footer-link">Projects</a></li>
             <li><a href="#experience" class="footer-link">Experience</a></li>
@@ -670,7 +592,7 @@
           </div>
           <a href="resume.pdf" download="Mbachu_Emmanuel_Resume.pdf" class="footer-resume-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-            Download Resume
+            Download resume
           </a>
         </div>
       </div>
@@ -692,7 +614,7 @@
         <div class="modal-header-actions">
           <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="modal-action-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            Open in New Tab
+            Open in new tab
           </a>
           <a href="resume.pdf" download="Mbachu_Emmanuel_Resume.pdf" class="modal-action-dl">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
@@ -737,7 +659,7 @@
         <div class="modal-header-actions">
           <a href="https://app.powerbi.com/view?r=eyJrIjoiY2FhZjcyYjMtYjQ0NS00MzQyLTg4YmMtZWM5OWUwYzUxN2I0IiwidCI6ImU3ZTc2NmE4LTY3NDEtNDdhNy1iNDEwLWUwZDJiNzMxYzMyYSJ9" target="_blank" rel="noopener noreferrer" class="modal-action-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            Open in New Tab
+            Open in new tab
           </a>
           <button id="pbi-modal-close" class="modal-close-btn" aria-label="Close Power BI portfolio modal">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -772,20 +694,20 @@
     <div class="sb-dialog-head">
       <strong>Scalable Brain live view</strong>
       <div class="sb-dialog-actions">
-        <a href="https://emmanuelebube13.github.io/scalablebrain-live/" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+        <a id="sb-newtab" href="https://emmanuelebube13.github.io/scalablebrain-live/" target="_blank" rel="noopener noreferrer">Open in new tab</a>
         <button type="button" data-sb-close>Close</button>
       </div>
     </div>
     <iframe class="sb-frame" id="sb-frame" title="Scalable Brain live system view"></iframe>
   </dialog>
 
-  <script src="js/main.js"></script>
-  <script src="js/sb-live.js?v=20261106b"></script>
+  <script src="js/main.js?v=20261106c"></script>
+  <script src="js/sb-live.js?v=20261106c"></script>
 
   <!-- d3 powers the career flow (sankey) and skill topology (force graph).
        Both degrade to a written summary if these fail to load. -->
-  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/d3-sankey@0.12.3/dist/d3-sankey.min.js"></script>
-  <script src="js/graphs.js"></script>
+  <script src="js/graphs.js?v=20261106c"></script>
 </body>
 </html>
