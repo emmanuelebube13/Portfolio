@@ -47,7 +47,7 @@ body {
   background-size: 20px 20px, cover; /* grid spacing, then cover for the gradient */
   background-position: 0 0, center center;
   color: var(--foreground);
-  font-family: 'IBM Plex Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   line-height: 1.6;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -97,7 +97,7 @@ img {
 
 /* Selection */
 ::selection {
-  background: rgba(10, 94, 117, 0.3);
+  background: rgba(249, 115, 22, 0.3);
   color: var(--foreground);
 }
 
@@ -128,10 +128,10 @@ ANIMATIONS
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(10, 94, 117, 0.3);
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
   }
   50% {
-    box-shadow: 0 0 40px rgba(10, 94, 117, 0.5);
+    box-shadow: 0 0 40px rgba(249, 115, 22, 0.5);
   }
 }
 
@@ -266,7 +266,7 @@ HEADER
 }
 
 .logo:hover .logo-badge {
-  box-shadow: 0 0 20px rgba(10, 94, 117, 0.3);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
 }
 
 .logo-name {
@@ -402,7 +402,7 @@ BUTTONS
 
 .btn-orange:hover {
   background-color: var(--orange-muted);
-  box-shadow: 0 8px 24px rgba(10, 94, 117, 0.2);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.2);
 }
 
 .btn-outline {
@@ -548,7 +548,7 @@ HERO SECTION
   height: 420px;
   left: -80px;
   top: -60px;
-  background: radial-gradient(circle at center, rgba(10,94,117,0.9) 0%, rgba(10,94,117,0.15) 40%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(249,115,22,0.9) 0%, rgba(249,115,22,0.15) 40%, transparent 70%);
 }
 
 .hero::after {
@@ -789,8 +789,8 @@ PROJECTS SECTION
 
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(10, 94, 117, 0.5);
-  box-shadow: 0 20px 40px rgba(10, 94, 117, 0.1);
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.1);
 }
 
 .project-card.hidden {
@@ -812,7 +812,7 @@ PROJECTS SECTION
 .project-thumb-gradient {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(10, 94, 117, 0.05), transparent);
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.05), transparent);
   opacity: 0;
   transition: opacity 0.3s;
   z-index: 2;
@@ -902,7 +902,7 @@ PROJECTS SECTION
 }
 
 .project-card:hover .skill-badge {
-  background-color: rgba(10, 94, 117, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
   color: var(--foreground);
 }
 
@@ -994,7 +994,7 @@ PROJECTS SECTION
 }
 
 .project-card:hover::after {
-  border-color: rgba(10, 94, 117, 0.2);
+  border-color: rgba(249, 115, 22, 0.2);
 }
 
 .no-projects {
@@ -1036,7 +1036,7 @@ EXPERIENCE SECTION
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 9999px;
-  background-color: rgba(10, 94, 117, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
   color: var(--orange);
   flex-shrink: 0;
 }
@@ -1076,7 +1076,7 @@ EXPERIENCE SECTION
   background: linear-gradient(
     180deg,
     var(--orange) 0%,
-    rgba(10, 94, 117, 0.55) 14%,
+    rgba(249, 115, 22, 0.55) 14%,
     rgba(120, 126, 134, 0.55) 45%,
     rgba(120, 126, 134, 0.35) 80%,
     rgba(120, 126, 134, 0) 100%
@@ -1118,8 +1118,8 @@ EXPERIENCE SECTION
 }
 
 .exp-card:hover {
-  border-color: rgba(10, 94, 117, 0.5);
-  box-shadow: 0 8px 24px rgba(10, 94, 117, 0.05);
+  border-color: rgba(249, 115, 22, 0.5);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.05);
 }
 
 .exp-card-title {
@@ -1204,7 +1204,7 @@ EXPERIENCE SECTION
 }
 
 .info-card:hover {
-  border-color: rgba(10, 94, 117, 0.5);
+  border-color: rgba(249, 115, 22, 0.5);
 }
 
 .info-card-title {
@@ -1270,7 +1270,7 @@ SKILLS SECTION
 }
 
 .skill-category-card:hover {
-  border-color: rgba(10, 94, 117, 0.3);
+  border-color: rgba(249, 115, 22, 0.3);
 }
 
 .skill-cat-header {
@@ -1287,7 +1287,7 @@ SKILLS SECTION
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 9999px;
-  background-color: rgba(10, 94, 117, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
   color: var(--orange);
   flex-shrink: 0;
 }
@@ -1324,7 +1324,7 @@ SKILLS SECTION
 .skill-tag:hover,
 .skill-tag:focus {
   border-color: var(--orange);
-  background-color: rgba(10, 94, 117, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
   color: var(--orange);
 }
 
@@ -1336,8 +1336,8 @@ SKILLS SECTION
 .skills-summary {
   margin-top: 3rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(10, 94, 117, 0.2);
-  background-color: rgba(10, 94, 117, 0.05);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  background-color: rgba(249, 115, 22, 0.05);
   padding: 1.5rem;
 }
 
@@ -1408,7 +1408,7 @@ CONTACT SECTION
 
 .contact-card:hover {
   border-color: var(--orange);
-  box-shadow: 0 8px 24px rgba(10, 94, 117, 0.05);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.05);
 }
 
 .contact-card-icon {
@@ -1418,7 +1418,7 @@ CONTACT SECTION
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  background-color: rgba(10, 94, 117, 0.1);
+  background-color: rgba(249, 115, 22, 0.1);
   color: var(--orange);
   flex-shrink: 0;
   transition: background-color 0.3s, color 0.3s;
@@ -1449,8 +1449,8 @@ CONTACT SECTION
 .contact-social-label {
   font-size: 0.75rem;
   font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--muted-foreground);
 }
 
@@ -1517,8 +1517,8 @@ CONTACT SECTION
 .form-label {
   font-size: 0.75rem;
   font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--muted-foreground);
 }
 
@@ -1577,7 +1577,7 @@ CONTACT SECTION
 
 .form-submit:hover {
   background-color: var(--orange-muted);
-  box-shadow: 0 8px 24px rgba(10, 94, 117, 0.2);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.2);
 }
 
 .form-submit:disabled {
@@ -1711,8 +1711,8 @@ FOOTER
 .footer-col-title {
   font-size: 0.75rem;
   font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--foreground);
   margin-bottom: 1rem;
 }
@@ -1777,7 +1777,7 @@ FOOTER
 
 .footer-resume-btn:hover {
   background-color: var(--orange-muted);
-  box-shadow: 0 8px 24px rgba(10, 94, 117, 0.2);
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.2);
 }
 
 /* Footer bottom */
@@ -2005,8 +2005,8 @@ MODALS
 .skill-modal-section-title {
   font-size: 0.75rem;
   font-weight: 600;
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--orange);
   margin-bottom: 0.5rem;
 }
@@ -2057,7 +2057,7 @@ MODALS
 }
 
 .skill-project-item:hover {
-  border-color: rgba(10, 94, 117, 0.5);
+  border-color: rgba(249, 115, 22, 0.5);
 }
 
 .skill-project-title {
@@ -2078,7 +2078,7 @@ ABOUT PAGE
 ============================================================ */
 .about-banner {
   width: 100%;
-  background-color: rgba(10, 94, 117, 0.05);
+  background-color: rgba(249, 115, 22, 0.05);
 }
 
 .about-banner-inner {
@@ -2281,7 +2281,7 @@ behind it and stays legible over any frame.
 }
 
 .logo:hover .orca-badge {
-  box-shadow: 0 0 0 2px rgba(10, 94, 117, 0.55);
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.55);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -2306,7 +2306,7 @@ BACK TO TOP
   border-radius: 9999px;
   background-color: var(--orange);
   color: var(--orange-foreground);
-  box-shadow: 0 8px 24px -6px rgba(10, 94, 117, 0.55), 0 2px 6px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 8px 24px -6px rgba(249, 115, 22, 0.55), 0 2px 6px rgba(0, 0, 0, 0.16);
   opacity: 0;
   visibility: hidden;
   transform: translateY(12px) scale(0.94);
@@ -2635,8 +2635,8 @@ not navigating blind. --ring is darkened here because #F97316 measures
 2.80:1 on white — below the 3:1 minimum for a focus indicator.
 ============================================================ */
 :root {
-  --ring: #0A5E75;          /* 5.18:1 on white */
-  --orange-text: #0A5E75;   /* 7.31:1 on white — orange used as text */
+  --ring: #C2410C;          /* 5.18:1 on white */
+  --orange-text: #9a3412;   /* 7.31:1 on white — orange used as text */
 }
 
 *:focus-visible {
@@ -2675,7 +2675,7 @@ Anywhere it carries words on a light surface, use the darker step.
 .project-link.case:hover,
 .project-link.live:hover,
 .exp-case-link:hover {
-  color: #084A5C;
+  color: #7c2d12;
 }
 
 /* Small greys that measured below 4.5:1 */
@@ -2919,8 +2919,8 @@ roughly a third of the height, and more cards visible per screen.
 
   .skill-cat-name {
     font-size: 0.6875rem;
-    text-transform: none;
-    letter-spacing: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     color: var(--muted-foreground);
   }
 
@@ -2935,8 +2935,8 @@ roughly a third of the height, and more cards visible per screen.
 
   .contact-card-label {
     font-size: 0.625rem;
-    text-transform: none;
-    letter-spacing: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 
   /* ---- Footer: Quick Links repeat the menu and the directory; the
