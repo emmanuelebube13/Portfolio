@@ -71,6 +71,9 @@ const projects = [
     slug: "bettors-oracle",
     skills: ["Python", "Machine Learning", "Scikit-learn", "Data Analysis"],
     githubUrl: "https://github.com/emmanuelebube13/BettorsOracle",
+    liveUrl: "https://emmanuelebube13.github.io/BettorsOracle/",
+    // Clicking anywhere on the card opens the live app.
+    cardUrl: "https://emmanuelebube13.github.io/BettorsOracle/",
     imageUrl: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
   },
   {
@@ -1358,6 +1361,23 @@ function createProjectCard(project) {
       ${linksHTML}
     </div>
   `;
+
+  // Optional whole-card link. The Code / Live Demo buttons stop propagation,
+  // so they still go to their own targets.
+  if (project.cardUrl) {
+    const open = () => window.open(project.cardUrl, "_blank", "noopener,noreferrer");
+    article.classList.add("is-link");
+    article.tabIndex = 0;
+    article.setAttribute("role", "link");
+    article.setAttribute("aria-label", `${project.title}: open live app`);
+    article.addEventListener("click", open);
+    article.addEventListener("keydown", (e) => {
+      if (e.target === article && (e.key === "Enter" || e.key === " ")) {
+        e.preventDefault();
+        open();
+      }
+    });
+  }
 
   return article;
 }

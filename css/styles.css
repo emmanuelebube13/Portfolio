@@ -797,6 +797,15 @@ PROJECTS SECTION
   display: none;
 }
 
+.project-card.is-link {
+  cursor: pointer;
+}
+
+.project-card.is-link:focus-visible {
+  outline: 2px solid rgba(249, 115, 22, 0.8);
+  outline-offset: 3px;
+}
+
 .project-thumb {
   position: relative;
   aspect-ratio: 16 / 9;
