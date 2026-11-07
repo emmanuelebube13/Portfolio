@@ -69,7 +69,7 @@ const projects = [
     subtitle: "ML-Driven Football Match Prediction",
     category: "Machine Learning",
     slug: "bettors-oracle",
-    skills: ["Python", "Machine Learning", "Scikit-learn", "Data Analysis"],
+    skills: ["Python", "TypeScript", "FastAPI", "React", "Scikit-learn", "GitHub Actions"],
     githubUrl: "https://github.com/emmanuelebube13/BettorsOracle",
     liveUrl: "https://emmanuelebube13.github.io/BettorsOracle/",
     // Clicking anywhere on the card opens the live app.
@@ -485,7 +485,7 @@ const skills = [
       "Managed multi-service architectures with database and application containers.",
       "Created consistent development environments across systems.",
     ],
-    relatedProjectSlugs: ["scalable-brain"],
+    relatedProjectSlugs: ["scalable-brain", "bettors-oracle"],
   },
   {
     name: "AWS & Azure",
@@ -509,7 +509,7 @@ const skills = [
       "Implemented interactive features and smooth animations with vanilla JS.",
       "Created mobile-first layouts optimized for all device sizes.",
     ],
-    relatedProjectSlugs: ["canny-clean"],
+    relatedProjectSlugs: ["canny-clean", "bettors-oracle"],
   },
 ];
 
