@@ -1127,6 +1127,56 @@ function initScrollAnimations() {
 }
 
 /* ============================================================
+   HEADLINE NUMBERS COUNT UP
+   "34.3M", "355K+" and "274" climb from zero once, on load. The
+   final text is restored exactly, and screen readers get it from
+   the start through aria-label.
+   ============================================================ */
+function initCountUp() {
+  const els = document.querySelectorAll(".intro-proof dt");
+  if (!els.length || prefersReducedMotionSite()) return;
+
+  els.forEach((el, i) => {
+    const final = el.textContent.trim();
+    const m = final.match(/^([\d.]+)(.*)$/);
+    if (!m) return;
+    const target = parseFloat(m[1]);
+    const suffix = m[2];
+    const decimals = (m[1].split(".")[1] || "").length;
+    const duration = 1400;
+    const delay = 250 + i * 150;
+
+    el.setAttribute("aria-label", final);
+    el.textContent = (0).toFixed(decimals) + suffix;
+
+    setTimeout(() => {
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+        el.textContent = t < 1 ? (target * eased).toFixed(decimals) + suffix : final;
+        if (t < 1) requestAnimationFrame(tick);
+        else el.removeAttribute("aria-label");
+      }
+      requestAnimationFrame(tick);
+    }, delay);
+  });
+}
+
+/* ============================================================
+   WORK CARDS RISE IN
+   Cards join the scroll reveal, staggered across each row so a pair
+   arrives left then right rather than as one block.
+   ============================================================ */
+function initWorkStagger() {
+  const cards = document.querySelectorAll(".work-grid > .work-card");
+  cards.forEach((card, i) => {
+    card.classList.add("reveal");
+    card.style.setProperty("--reveal-delay", `${(i % 2) * 140}ms`);
+  });
+}
+
+/* ============================================================
    COPYRIGHT YEAR
    ============================================================ */
 function updateCopyright() {
@@ -1153,6 +1203,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderSkills();
   initSkillModal();
   initContactForm();
+  initCountUp();
+  initWorkStagger();
   initScrollAnimations();
   updateCopyright();
 });

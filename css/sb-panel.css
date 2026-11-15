@@ -124,3 +124,24 @@ html.sb-dialog-open { overflow: hidden; }
 @media print {
   .sb-actions, .sb-more { display: none; }
 }
+
+/* Data moving along the schema: a short accent pulse travels each fact-to-
+   dimension curve, staggered so the model reads as one system in motion. */
+.sb-schema-svg .flow {
+  fill: none;
+  stroke: var(--sb-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 6 94;
+  stroke-dashoffset: 100;
+  opacity: 0.9;
+  animation: sbFlow 3.2s linear infinite;
+}
+
+@keyframes sbFlow {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-schema-svg .flow { display: none; }
+}
