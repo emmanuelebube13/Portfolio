@@ -4,11 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="About Emmanuel Mbachu, a data modeler and analyst who builds data systems that can be traced and audited." />
-  <title>About | Mbachu Emmanuel</title>
+  <title>About | Emmanuel Mbachu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=20261106d" />
+  <link rel="stylesheet" href="css/styles.css?v=20261115b" />
+  <link rel="stylesheet" href="css/work.css?v=20261115b" />
+  <link rel="stylesheet" href="css/home.css?v=20261115b" />
 </head>
 <body>
 
@@ -20,9 +22,17 @@
       <!-- Logo -->
       <a href="index.html" class="logo" aria-label="Home">
         <div class="logo-badge" data-orca-badge>ME</div>
-        <span class="logo-name">Mbachu Emmanuel</span>
+        <span class="logo-name">Emmanuel Mbachu</span>
       </a>
 
+
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="index.html#projects"   class="nav-link">Work</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+        <a href="index.html#skills"     class="nav-link">Skills</a>
+        <a href="about.html"            class="nav-link">About</a>
+        <a href="index.html#contact"    class="nav-link">Contact</a>
+      </nav>
 
       <!-- Right: Resume + Hamburger -->
       <div class="header-right">
@@ -42,9 +52,10 @@
     <!-- Mobile Nav -->
     <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
       <div class="mobile-nav-inner">
-        <a href="index.html#projects"   class="mobile-nav-link">Projects</a>
+        <a href="index.html#projects"   class="mobile-nav-link">Work</a>
         <a href="index.html#experience" class="mobile-nav-link">Experience</a>
         <a href="index.html#skills"     class="mobile-nav-link">Skills</a>
+        <a href="about.html" class="mobile-nav-link">About</a>
         <a href="index.html#contact"    class="mobile-nav-link">Contact</a>
         <button class="mobile-resume-btn" data-resume-trigger>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
@@ -73,7 +84,7 @@
           <div class="about-photo">
             <img
               src="images/emmanuel-profile.jpg"
-              alt="Mbachu Emmanuel"
+              alt="Emmanuel Mbachu"
               style="width:100%; height:100%; object-fit:cover;"
               onerror="this.style.display='none'; this.parentElement.querySelector('svg').style.display='block';"
             />
@@ -107,6 +118,85 @@
         </div>
       </div>
     </div>
+
+    <div class="container">
+      <!-- ORCA NOTE — the long version, given room of its own -->
+      <div class="section reveal" id="orca" aria-label="Spirit animal">
+        <div class="section-header">
+          <p class="orca-eyebrow orca-eyebrow-centred">
+            Spirit animal <span class="orca-eyebrow-dash" aria-hidden="true">&mdash;</span>
+            <span class="orca-eyebrow-name">Orcas</span>
+          </p>
+          <h2 class="section-title">Why Orcas</h2>
+          <p class="section-subtitle">A short note on how I think about the work</p>
+        </div>
+
+        <div class="orca-note">
+                    <div class="orca-note-media">
+            <figure class="orca-frame">
+            <div class="orca-frame-inner">
+            <div class="orca-slides" id="orca-slides" aria-live="polite">
+            <!-- Slides injected by initOrcaCarousel(); this one is the no-JS state -->
+            <img class="orca-slide is-active" src="photos/orcastogether.jpeg"
+            alt="A pod of orcas moving together below the surface"
+            width="738" height="414" />
+            </div>
+            <span class="orca-frame-sheen" aria-hidden="true"></span>
+
+            <button class="orca-nav orca-nav-prev" id="orca-prev" type="button" aria-label="Previous photo" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <button class="orca-nav orca-nav-next" id="orca-next" type="button" aria-label="Next photo" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+            </div>
+
+            <div class="orca-frame-bar">
+            <figcaption class="orca-caption" id="orca-caption">
+            A pod moves as one, and still thinks for itself
+            </figcaption>
+            <div class="orca-dots" id="orca-dots" role="tablist" aria-label="Choose photo"></div>
+            </div>
+            </figure>
+          </div>
+
+          <div class="orca-note-body">
+            <p class="orca-note-lead">
+              Orcas hunt in pods. They pass technique down through generations, coordinate
+              without any single one of them being in charge, and rewrite their method for
+              whatever water they are in &mdash; the same species solves a problem one way off
+              Norway and a completely different way off Patagonia.
+            </p>
+            <p class="orca-note-text">
+              That is the part I recognise in how I work. The problems worth taking are rarely
+              solved alone, and almost never solved twice the same way: a 274-column survey
+              instrument, a utility asset log and a tariff schedule each want a different
+              approach, and the job is to learn the shape of the new one quickly rather than
+              force the last one onto it.
+            </p>
+            <p class="orca-note-text">
+              Pods also keep a memory, which &mdash; stripped of the romance &mdash; is what an audit
+              ledger and a verification harness are for. And they are loud on purpose: a finding
+              nobody hears may as well not exist, which is why so much of what I build ends up
+              being about making the result legible to someone who is not an analyst.
+            </p>
+
+            <blockquote class="orca-quote">
+              <p>
+                &ldquo;People with Orca totem are highly intelligent and have exceptional learning
+                abilities. They never make the same mistake twice.&rdquo;
+              </p>
+              <cite>
+                <a href="https://www.spirit-animals.com/orca-symbolism/" target="_blank" rel="noopener noreferrer">
+                  Spirit Animals &mdash; Orca Symbolism
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                </a>
+              </cite>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
   <!-- ============================================================
@@ -121,10 +211,10 @@
             <div class="footer-logo-badge" data-orca-badge>ME</div>
             <div>
               <p class="footer-logo-name">Emmanuel Mbachu</p>
-              <p class="footer-logo-title">Data Modeler</p>
+              <p class="footer-logo-title">Data Analytics &middot; Science &middot; Modeling</p>
             </div>
           </a>
-          <p class="footer-tagline">Data models built so every number can be traced to its source.</p>
+          <p class="footer-tagline">Data work built so every number can be traced to its source.</p>
           <div class="footer-contact-list">
             <a href="mailto:emmanuelebubembachu@gmail.com" class="footer-contact-item">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
@@ -145,9 +235,10 @@
         <div>
           <h3 class="footer-col-title">Quick Links</h3>
           <ul class="footer-links">
-            <li><a href="index.html#projects"   class="footer-link">Projects</a></li>
+            <li><a href="index.html#projects"   class="footer-link">Work</a></li>
             <li><a href="index.html#experience" class="footer-link">Experience</a></li>
             <li><a href="index.html#skills"     class="footer-link">Skills</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
             <li><a href="index.html#contact"    class="footer-link">Contact</a></li>
           </ul>
         </div>
@@ -185,7 +276,7 @@
   <div id="resume-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
     <div class="modal">
       <div class="modal-header">
-        <h2 class="modal-title" id="resume-modal-title">Resume - Mbachu Emmanuel</h2>
+        <h2 class="modal-title" id="resume-modal-title">Resume - Emmanuel Mbachu</h2>
         <div class="modal-header-actions">
           <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="modal-action-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
@@ -201,11 +292,11 @@
         </div>
       </div>
       <div class="modal-body">
-        <iframe src="resume.pdf" title="Resume - Mbachu Emmanuel" class="modal-iframe"></iframe>
+        <iframe src="resume.pdf" title="Resume - Emmanuel Mbachu" class="modal-iframe"></iframe>
       </div>
     </div>
   </div>
 
-  <script src="js/main.js?v=20261106d"></script>
+  <script src="js/main.js?v=20261115b"></script>
 </body>
 </html>
