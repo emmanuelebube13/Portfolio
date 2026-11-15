@@ -500,38 +500,23 @@
   text-decoration-color: currentColor;
 }
 
-/* ---------- In progress ---------- */
-.next-up {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0.35rem;
-  min-height: 12rem;
-  padding: 2rem 1.75rem;
-  border: 1px dashed #b8c2cf;
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.next-up-label {
+/* ---------- In-progress badge and the GitHub link under the grid ---------- */
+.work-badge {
+  position: absolute;
+  left: 0.85rem;
+  top: 0.85rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 9999px;
+  background: var(--work-ink);
+  color: #fff;
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--work-ink-soft);
+  letter-spacing: 0.02em;
 }
 
-.next-up-title {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--work-ink);
-}
-
-.next-up-text {
-  margin-top: 0.2rem;
-  font-size: 0.875rem;
-  color: var(--work-ink-soft);
+.work-more {
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
 /* ---------- Skill modal: related work is now a link ---------- */

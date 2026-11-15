@@ -23,10 +23,10 @@
     });
   </script>
 
-  <link rel="stylesheet" href="css/styles.css?v=20261115b" />
-  <link rel="stylesheet" href="css/home.css?v=20261115b" />
-  <link rel="stylesheet" href="css/sb-panel.css?v=20261115b" />
-  <link rel="stylesheet" href="css/work.css?v=20261115b" />
+  <link rel="stylesheet" href="css/styles.css?v=20261115c" />
+  <link rel="stylesheet" href="css/home.css?v=20261115c" />
+  <link rel="stylesheet" href="css/sb-panel.css?v=20261115c" />
+  <link rel="stylesheet" href="css/work.css?v=20261115c" />
 </head>
 <body>
 
@@ -136,7 +136,7 @@
           <h2 class="track-title">Data Modeling &amp; Engineering</h2>
           <p class="track-text">Star schemas, point-in-time tables, pipelines and audit ledgers, built so every number can be traced.</p>
           <p class="track-tools">PostgreSQL &middot; Power Query (M) &middot; Google Cloud &middot; Docker</p>
-          <p class="track-proof">See: <a href="#scalable-brain">Scalable Brain</a>, <a href="#work-system2">System 2</a>, <a href="#work-ns-property">NS Property</a></p>
+          <p class="track-proof">See: <a href="#scalable-brain">Scalable Brain</a>, <a href="#work-halifax-twin">Halifax Twin City</a>, <a href="#work-system2">System 2</a></p>
         </article>
       </section>
 
@@ -144,7 +144,7 @@
       <section id="projects" class="section work" aria-labelledby="work-heading">
         <div class="section-header">
           <h2 class="section-title" id="work-heading">Selected work</h2>
-          <p class="section-subtitle">Six projects, each with something you can open, explore or run.</p>
+          <p class="section-subtitle">Seven projects, each with something you can open, explore or run.</p>
         </div>
 
         <p class="work-feature-label">Featured &middot; running live</p>
@@ -311,15 +311,33 @@
             </div>
           </article>
 
-          <!-- In progress: fills the last grid slot -->
-          <aside class="next-up" aria-labelledby="next-up-title">
-            <p class="next-up-label">In progress</p>
-            <h3 class="next-up-title" id="next-up-title">Halifax Twin City</h3>
-            <p class="next-up-text">A new build that will join the work here once it can be opened and used.</p>
-            <a class="work-link" href="https://github.com/emmanuelebube13" target="_blank" rel="noopener noreferrer">Smaller experiments on GitHub</a>
-          </aside>
+          <!-- Halifax Twin City -->
+          <article class="work-card" id="work-halifax-twin">
+            <a class="work-media" href="https://github.com/emmanuelebube13/halifax-twin-city" target="_blank" rel="noopener noreferrer" aria-label="Open the Halifax Twin City design on GitHub">
+              <img src="images/work/halifax-twin.jpg" alt="Conceptual model of the Halifax Digital Twin: Transportation and Public Works entities joined to a shared core of locations, events, assets and parties" loading="lazy" width="1120" height="700" />
+              <span class="work-badge">In progress &middot; Phase 1</span>
+              <span class="work-media-cta">See the design</span>
+            </a>
+            <div class="work-body">
+              <p class="work-track">Data Modeling &middot; Data Engineering</p>
+              <h3 class="work-title">Halifax Twin City</h3>
+              <p class="work-summary">A living data model of Halifax that joins city sectors through one shared core, so a question like &ldquo;is new housing going where transit is weakest?&rdquo; can be answered across sectors.</p>
+              <ul class="work-points">
+                <li>17 city sectors scored by a written rubric; three chosen for Phase 1</li>
+                <li>100 business questions and 77 open data sources inventoried</li>
+                <li>47-entity conceptual model and data flow design; live transit feed next</li>
+              </ul>
+              <ul class="work-stack" aria-label="Tools"><li>Conceptual modeling</li><li>draw.io</li><li>GTFS Realtime</li><li>Open data</li></ul>
+              <div class="work-actions">
+                <a class="btn btn-orange work-btn" href="https://github.com/emmanuelebube13/halifax-twin-city" target="_blank" rel="noopener noreferrer">See the design</a>
+                <a class="work-link" href="https://github.com/emmanuelebube13/halifax-twin-city/blob/main/docs/Halifax%20Digital%20Twin%20%E2%80%93%20Project%20Charter%20V1.md" target="_blank" rel="noopener noreferrer">Read the charter</a>
+              </div>
+            </div>
+          </article>
 
         </div>
+
+        <p class="work-more"><a class="work-link" href="https://github.com/emmanuelebube13" target="_blank" rel="noopener noreferrer">Smaller experiments on GitHub</a></p>
       </section>
 
     </div><!-- /container -->
@@ -645,7 +663,7 @@
     <iframe class="sb-frame" id="sb-frame" title="Scalable Brain live system view"></iframe>
   </dialog>
 
-  <script src="js/main.js?v=20261115b"></script>
-  <script src="js/sb-live.js?v=20261115b"></script>
+  <script src="js/main.js?v=20261115c"></script>
+  <script src="js/sb-live.js?v=20261115c"></script>
 </body>
 </html>
