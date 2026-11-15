@@ -77,15 +77,20 @@
     var dimTop = Math.max(0, (total - (dims.length * (H + 18) - 18)) / 2);
     var dimY = {};
     dims.forEach(function (d, i) { dimY[d] = dimTop + i * (H + 18) + H / 2; });
-    var out = "";
+    var out = "", flows = "", n = 0;
     facts.forEach(function (f, i) {
       var y = i * (H + GAP);
       f[1].forEach(function (d, k) {
         var y1 = y + H / 2 + (f[1].length > 1 ? (k ? 6 : -6) : 0), y2 = dimY[d] + (k ? 4 : -4) * 0 , x1 = boxW, x2 = dimX;
-        out += '<path class="edge" d="M' + x1 + " " + y1 + "C" + (x1 + 70) + " " + y1 + "," + (x2 - 70) + " " + y2 + "," + x2 + " " + y2 +
+        var curve = "M" + x1 + " " + y1 + "C" + (x1 + 70) + " " + y1 + "," + (x2 - 70) + " " + y2 + "," + x2 + " " + y2;
+        out += '<path class="edge" d="' + curve +
           "M" + (x1 + 10) + " " + y1 + "L" + x1 + " " + (y1 - 5) + "M" + (x1 + 10) + " " + y1 + "L" + x1 + " " + (y1 + 5) + '"/>';
+        // A pulse that travels the same curve, fact to dimension. pathLength
+        // normalises every curve to 100 so one dash pattern fits them all.
+        flows += '<path class="flow" pathLength="100" style="animation-delay:' + (n++ * 0.45).toFixed(2) + 's" d="' + curve + '"/>';
       });
     });
+    out += flows;
     dims.forEach(function (d) { out += '<path class="edge" d="M' + (dimX - 6) + " " + (dimY[d] - 6) + "V" + (dimY[d] + 6) + '"/>'; });
     facts.forEach(function (f, i) {
       var y = i * (H + GAP);
