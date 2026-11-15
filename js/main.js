@@ -1,212 +1,16 @@
 /* ============================================================
    DATA
    ============================================================ */
-const projects = [
-  {
-    title: "Scalable Brain",
-    subtitle: "Live Data Platform: Fact Tables, Point-in-Time Data & Audit Ledgers",
-    category: "Quantitative Finance",
-    slug: "scalable-brain",
-    skills: [
-      "Data Modeling",
-      "Python",
-      "XGBoost",
-      "Walk-Forward Validation",
-      "PostgreSQL + TimescaleDB",
-      "GCS & Pub/Sub",
-      "Regime Modelling",
-    ],
-    githubUrl: "https://github.com/emmanuelebube13/scalable-brain",
-    liveUrl: "https://emmanuelebube13.github.io/scalablebrain-live/",
-    imageUrl: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&h=400&fit=crop",
-  },
-  {
-    title: "NS Property & Parcel Sales Intelligence",
-    subtitle: "Socrata API Pipeline, Star Schema & Geospatial Power BI Suite (355K+ Rows)",
-    category: "Data Analytics",
-    slug: "ns-property-sales-bi",
-    skills: ["Power BI", "DAX", "Power Query (M)", "Star Schema"],
-    liveUrl: "pbi-property-sales.html",
-    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Multi-Institution Research Study",
-    subtitle: "Reproducible Pipeline, Verified Figures & Geospatial Apps",
-    category: "Research & Policy",
-    slug: "tmu-research-study",
-    skills: ["Python", "Pandas", "Leaflet & Folium", "ArcGIS"],
-    caseUrl: "case-tmu.html",
-    imageUrl: "https://images.unsplash.com/photo-1476973422084-e0fa66ff9456?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Housing & Property Research",
-    subtitle: "Integrating Interview Evidence with Quantitative Analysis",
-    category: "Research & Policy",
-    slug: "newroots-housing-research",
-    skills: ["Mixed Methods", "Python", "Power BI", "Thematic Coding"],
-    caseUrl: "case-newroots.html",
-    imageUrl: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Grid Power Energy",
-    subtitle: "Distributed vs. Centralized Electricity Analysis",
-    category: "Research & Policy",
-    slug: "grid-power-energy",
-    skills: ["Techno-Economic Analysis", "SQL", "Regulatory Data", "Python"],
-    imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop",
-  },
-  {
-    title: "System 2 Executor",
-    subtitle: "Autonomous FX Trade Execution Engine",
-    category: "Quantitative Finance",
-    slug: "system2-executor",
-    skills: ["Python", "OANDA API", "Risk Management", "Event-Driven Design"],
-    githubUrl: "https://github.com/emmanuelebube13/system2Executor",
-    imageUrl: "https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&h=400&fit=crop",
-  },
-  {
-    title: "BettorsOracle",
-    subtitle: "ML-Driven Football Match Prediction",
-    category: "Machine Learning",
-    slug: "bettors-oracle",
-    skills: ["Python", "TypeScript", "FastAPI", "React", "Scikit-learn", "GitHub Actions"],
-    githubUrl: "https://github.com/emmanuelebube13/BettorsOracle",
-    liveUrl: "https://emmanuelebube13.github.io/BettorsOracle/",
-    // Clicking anywhere on the card opens the live app.
-    cardUrl: "https://emmanuelebube13.github.io/BettorsOracle/",
-    imageUrl: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Stock Screener",
-    subtitle: "Financial Screener with Streamlit",
-    category: "Data Science",
-    slug: "stock-screener",
-    skills: ["Python", "Streamlit", "yFinance", "Data Visualization"],
-    githubUrl: "https://github.com/emmanuelebube13/stockScreener",
-    liveUrl: "https://stockman.streamlit.app/",
-    imageUrl: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Honey Price Predictor",
-    subtitle: "Lasso Regression & K-Fold Validation",
-    category: "Machine Learning",
-    slug: "honey-price-predictor",
-    skills: ["R", "Caret", "glmnet", "Cross-Validation"],
-    githubUrl: "https://github.com/emmanuelebube13/Honey_Price_Predictor",
-    imageUrl: "https://images.unsplash.com/photo-1599599810694-b5ac1ea7ac61?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Canny Clean",
-    subtitle: "Business Website Template",
-    category: "Web Development",
-    slug: "canny-clean",
-    skills: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-    githubUrl: "https://github.com/emmanuelebube13/canny-clean",
-    liveUrl: "https://emmanuelebube13.github.io/canny-clean/",
-    imageUrl: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Data Science Ecosystem",
-    subtitle: "Languages, Libraries & Tools Overview",
-    category: "Data Science",
-    slug: "data-science-ecosystem",
-    skills: ["Python", "Jupyter", "Pandas", "NumPy", "R"],
-    githubUrl: "https://github.com/emmanuelebube13/DataScienceEcosystem",
-    imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Ethical Algorithm - Loan Analysis",
-    subtitle: "Algorithmic Bias & Fairness Case Study",
-    category: "Data Analytics",
-    slug: "ethical-algorithm-loan-analysis",
-    skills: ["Python", "Bias Analysis", "Data Ethics", "Case Study"],
-    githubUrl: "https://github.com/emmanuelebube13/ethical-algorithm-loan-analysis",
-    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Biobin Cleaning Quote System",
-    subtitle: "Interactive Web App for Service Pricing",
-    category: "Web Development",
-    slug: "biobinquotes",
-    skills: ["Python", "Web Application", "Pricing Engine"],
-    githubUrl: "https://github.com/emmanuelebube13/BIOBINQUOTES",
-    imageUrl: "https://images.unsplash.com/photo-1553531088-f59c1a3fd546?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Smart Dashboard",
-    subtitle: "Interactive Analytics Dashboard",
-    category: "Data Analytics",
-    slug: "smart-dashboard",
-    skills: ["JavaScript", "Data Visualization", "Dashboard Design"],
-    githubUrl: "https://github.com/emmanuelebube13/smart-dashboard",
-    imageUrl: "https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=400&fit=crop",
-  },
-  {
-    title: "EV Charging Station System",
-    subtitle: "Electric Vehicle Infrastructure Management",
-    category: "Data Analytics",
-    slug: "ev-charging-station",
-    skills: ["Python", "System Design", "Data Management"],
-    githubUrl: "https://github.com/emmanuelebube13/EvChargingStation",
-    imageUrl: "https://images.unsplash.com/photo-1615886287437-f121b6d8a850?w=600&h=400&fit=crop",
-  },
-  {
-    title: "NSCC Wellness Platform",
-    subtitle: "Student Wellness & Engagement Tool",
-    category: "Web Development",
-    slug: "nscc-wellness",
-    skills: ["HTML", "CSS", "JavaScript", "Community Impact"],
-    githubUrl: "https://github.com/emmanuelebube13/nsccwellness",
-    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Wealth Signal Simulator",
-    subtitle: "Modelling Data Collection & Economic Outcomes",
-    category: "Data Science",
-    slug: "wealth-signal-simulator",
-    skills: ["TypeScript", "Simulation", "Economic Modelling", "Data Viz"],
-    githubUrl: "https://github.com/emmanuelebube13/Wealth-Signal-Simulator",
-    imageUrl: "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Adica Editor",
-    subtitle: "Browser-Based Editing Tool",
-    category: "Web Development",
-    slug: "adica-editor",
-    skills: ["TypeScript", "Web App", "UI Engineering"],
-    githubUrl: "https://github.com/emmanuelebube13/adicaeditor",
-    imageUrl: "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Forex Timezone",
-    subtitle: "Global Market Session Tracker",
-    category: "Quantitative Finance",
-    slug: "forex-timezone",
-    skills: ["JavaScript", "HTML", "Market Sessions"],
-    githubUrl: "https://github.com/emmanuelebube13/Forex-Timezone",
-    imageUrl: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=600&h=400&fit=crop",
-  },
-  {
-    title: "Python Workshop",
-    subtitle: "Teaching Materials for Applied Python",
-    category: "Data Science",
-    slug: "python-workshop",
-    skills: ["Python", "Teaching", "Jupyter", "Fundamentals"],
-    githubUrl: "https://github.com/emmanuelebube13/pythonworkshop",
-    liveUrl: "https://emmanuelebube13.github.io/pythonworkshop/",
-    imageUrl: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&h=400&fit=crop",
-  },
-];
 
-const categories = [
-  "All Categories",
-  "Machine Learning",
-  "Data Science",
-  "Data Analytics",
-  "Research & Policy",
-  "Web Development",
-  "Quantitative Finance",
-];
+// The curated work shown on the home page, keyed by the slugs skills use.
+const workIndex = {
+  "scalable-brain": { title: "Scalable Brain", track: "Data Modeling & Engineering", href: "index.html#scalable-brain" },
+  "ns-property-sales-bi": { title: "NS Property & Parcel Sales Intelligence", track: "Data Analytics", href: "index.html#work-ns-property" },
+  "tmu-research-study": { title: "Multi-Institution Research Study", track: "Data Analytics", href: "index.html#work-research" },
+  "bettors-oracle": { title: "BettorsOracle", track: "Data Science", href: "index.html#work-bettors" },
+  "newroots-housing-research": { title: "Housing & Property Research", track: "Data Analytics", href: "index.html#work-housing" },
+  "system2-executor": { title: "System 2 Executor", track: "Data Engineering", href: "index.html#work-system2" },
+};
 
 const experiences = [
   {
@@ -554,7 +358,6 @@ const categoryIcons = {
 /* ============================================================
    STATE
    ============================================================ */
-let activeCategory = "All Categories";
 let mobileMenuOpen = false;
 let resumeModalOpen = false;
 let selectedSkill = null;
@@ -750,131 +553,6 @@ const prefersReducedMotionSite = () =>
   window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ============================================================
-   SITE DIRECTORY
-   A file-tree view of the site: folders expand, files navigate.
-   ============================================================ */
-const siteTree = [
-  {
-    name: "work",
-    open: true,
-    children: [
-      { name: "projects", href: "index.html#projects", note: "19 builds" },
-      { name: "power-bi-suite", href: "index.html#powerbi-services", note: "live report" },
-      { name: "experience", href: "index.html#experience", note: "5 roles" },
-      {
-        name: "case-studies",
-        children: [
-          { name: "tmu-research", href: "case-tmu.html", note: "interactive" },
-          { name: "newroots-housing", href: "case-newroots.html", note: "interactive" },
-        ],
-      },
-    ],
-  },
-  {
-    name: "skills",
-    children: [
-      { name: "skill-matrix", href: "index.html#skills" },
-      { name: "career-flow", href: "index.html#career-flow", note: "sankey" },
-      { name: "skill-topology", href: "index.html#topology", note: "force graph" },
-    ],
-  },
-  {
-    name: "about",
-    children: [
-      { name: "profile", href: "about.html" },
-      { name: "spirit-animal", href: "index.html#orca", note: "orcas" },
-    ],
-  },
-  {
-    name: "contact",
-    children: [
-      { name: "get-in-touch", href: "index.html#contact" },
-      { name: "resume.pdf", href: "resume.pdf", note: "download", external: true },
-      { name: "github", href: "https://github.com/emmanuelebube13", external: true },
-      { name: "linkedin", href: "https://linkedin.com/in/emmanuelmbachu/", external: true },
-    ],
-  },
-];
-
-const treeIcons = {
-  folder: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>`,
-  file: `<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>`,
-  chevron: `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>`,
-  ext: `<svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`,
-};
-
-/* Nested disclosure lists rather than an ARIA tree widget: a folder is a
-   button that expands the group it controls, and a file is a plain link.
-   The collapsing wrapper holds exactly one child so the grid-rows
-   height animation works. */
-let treeGroupSeq = 0;
-
-function buildTreeNodes(items, depth) {
-  return items
-    .map((item) => {
-      if (item.children) {
-        const open = !!item.open;
-        const id = `tree-group-${++treeGroupSeq}`;
-        return `
-        <li class="tree-item">
-          <button class="tree-folder" aria-expanded="${open}" aria-controls="${id}"
-                  style="--depth:${depth}">
-            <span class="tree-chevron">${treeIcons.chevron}</span>
-            <span class="tree-icon folder">${treeIcons.folder}</span>
-            <span class="tree-name">${item.name}/</span>
-          </button>
-          <div class="tree-group${open ? " open" : ""}" id="${id}">
-            <ul class="tree-sublist">
-              ${buildTreeNodes(item.children, depth + 1)}
-            </ul>
-          </div>
-        </li>`;
-      }
-      const target = item.external ? ` target="_blank" rel="noopener noreferrer"` : "";
-      return `
-      <li class="tree-item">
-        <a class="tree-file" href="${item.href}"${target} style="--depth:${depth}">
-          <span class="tree-icon file">${treeIcons.file}</span>
-          <span class="tree-name">${item.name}</span>
-          ${item.note ? `<span class="tree-note">${item.note}</span>` : ""}
-          ${item.external ? `<span class="tree-ext">${treeIcons.ext}</span>` : ""}
-        </a>
-      </li>`;
-    })
-    .join("");
-}
-
-function initSiteTree() {
-  const host = document.getElementById("site-tree");
-  if (!host) return;
-
-  host.innerHTML = `<nav class="tree-root" aria-label="Site directory">
-    <ul class="tree-sublist">${buildTreeNodes(siteTree, 0)}</ul>
-  </nav>`;
-
-  host.querySelectorAll(".tree-folder").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const group = document.getElementById(btn.getAttribute("aria-controls"));
-      const open = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", String(!open));
-      if (group) group.classList.toggle("open", !open);
-    });
-  });
-
-  // Roving arrow-key navigation across every visible row.
-  host.addEventListener("keydown", (e) => {
-    if (!["ArrowDown", "ArrowUp"].includes(e.key)) return;
-    const rows = [...host.querySelectorAll(".tree-folder, .tree-file")].filter(
-      (el) => el.offsetParent !== null
-    );
-    const i = rows.indexOf(document.activeElement);
-    if (i === -1) return;
-    e.preventDefault();
-    rows[e.key === "ArrowDown" ? Math.min(i + 1, rows.length - 1) : Math.max(i - 1, 0)].focus();
-  });
-}
-
-/* ============================================================
    BACK TO TOP
    Appears once you are a screen or so down the page. Built here so
    every page picks it up without duplicating markup.
@@ -944,154 +622,6 @@ function initPbiModal() {
   });
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeModal();
-  });
-}
-
-/* ============================================================
-   GRAPH SECTIONS ON PHONES
-   Below 700px both diagrams are already written summaries rather than
-   canvases. Left expanded they were ~1,700px of prose in the middle of
-   the page, so they fold behind their own headings instead.
-   ============================================================ */
-function initGraphSectionFolding() {
-  if (!window.matchMedia("(max-width: 699px)").matches) return;
-
-  [
-    ["career-flow", "How roles fed into domains, and domains into tools"],
-    ["topology", "The same skills, grouped by what they connect to"],
-  ].forEach(([id, hint]) => {
-    const section = document.getElementById(id);
-    if (!section) return;
-    const card = section.querySelector(".graph-card");
-    const header = section.querySelector(".section-header");
-    if (!card || !header) return;
-
-    card.classList.add("graph-card-foldable");
-
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "graph-fold-toggle";
-    btn.setAttribute("aria-expanded", "false");
-    btn.setAttribute("aria-controls", id + "-card");
-    card.id = id + "-card";
-    btn.textContent = "Show details";
-    btn.addEventListener("click", () => {
-      const open = card.classList.toggle("is-expanded");
-      btn.setAttribute("aria-expanded", String(open));
-      btn.textContent = open ? "Hide details" : "Show details";
-    });
-    header.insertAdjacentElement("afterend", btn);
-  });
-}
-
-/* ============================================================
-   DIRECTORY DOCK
-   With the top nav removed, the directory is the navigation — so it has
-   to stay reachable past the hero. Once the in-page card scrolls away, a
-   compact launcher docks to the edge and expands into the same tree.
-   ============================================================ */
-function initDirectoryDock() {
-  if (document.getElementById("dir-dock")) return;
-
-  const dock = document.createElement("div");
-  dock.id = "dir-dock";
-  dock.className = "dir-dock";
-  dock.innerHTML = `
-    <button class="dir-dock-toggle" type="button" aria-label="Site directory" aria-expanded="false" aria-controls="dir-dock-panel">
-      ${treeIcons.folder}
-      <span class="dir-dock-label">Directory</span>
-    </button>
-    <div class="dir-dock-panel" id="dir-dock-panel" hidden>
-      <div class="dir-dock-head">
-        <span class="dir-path">~/mbachu-emmanuel</span>
-        <button class="dir-dock-close" type="button" aria-label="Close directory">${icons.x}</button>
-      </div>
-      <div class="dir-tree" id="dir-dock-tree"></div>
-    </div>`;
-  document.body.appendChild(dock);
-
-  // Second, independent render of the same tree (ids stay unique).
-  const treeHost = dock.querySelector("#dir-dock-tree");
-  treeHost.innerHTML = `<nav class="tree-root" aria-label="Site directory">
-    <ul class="tree-sublist">${buildTreeNodes(siteTree, 0)}</ul>
-  </nav>`;
-  treeHost.querySelectorAll(".tree-folder").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const group = document.getElementById(btn.getAttribute("aria-controls"));
-      const open = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", String(!open));
-      if (group) group.classList.toggle("open", !open);
-    });
-  });
-
-  const toggle = dock.querySelector(".dir-dock-toggle");
-  const panel = dock.querySelector(".dir-dock-panel");
-  const closeBtn = dock.querySelector(".dir-dock-close");
-
-  function setOpen(open) {
-    toggle.setAttribute("aria-expanded", String(open));
-    panel.toggleAttribute("hidden", !open);
-    dock.classList.toggle("is-open", open);
-  }
-
-  toggle.addEventListener("click", () => setOpen(panel.hasAttribute("hidden")));
-  if (closeBtn) closeBtn.addEventListener("click", () => { setOpen(false); toggle.focus(); });
-
-  // Navigating should not leave the panel hanging open over the content.
-  treeHost.addEventListener("click", (e) => {
-    if (e.target.closest(".tree-file")) setOpen(false);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !panel.hasAttribute("hidden")) {
-      setOpen(false);
-      toggle.focus();
-    }
-  });
-
-  document.addEventListener("click", (e) => {
-    if (!dock.contains(e.target) && !panel.hasAttribute("hidden")) setOpen(false);
-  });
-
-  // The dock only earns its place once the in-page card is gone. On pages
-  // without one (about, case studies) it is available immediately.
-  const heroCard = document.querySelector(".hero-grid .dir-card");
-
-  function sync() {
-    let show = true;
-    if (heroCard) {
-      const r = heroCard.getBoundingClientRect();
-      show = r.bottom < 72;
-    }
-    dock.classList.toggle("show", show);
-    if (!show && !panel.hasAttribute("hidden")) setOpen(false);
-  }
-
-  window.addEventListener("scroll", sync, { passive: true });
-  window.addEventListener("resize", sync);
-  sync();
-}
-
-/* ============================================================
-   GRAPH TEXT EQUIVALENTS
-   Each diagram keeps a written summary. It collapses once the graph
-   renders, but stays reachable rather than being removed.
-   ============================================================ */
-function initGraphFallbackToggles() {
-  document.querySelectorAll(".graph-fallback-toggle").forEach((btn) => {
-    const panel = document.getElementById(btn.getAttribute("data-fallback"));
-    if (!panel) return;
-    // Below the graph breakpoints the summary is shown outright, so a
-    // disclosure button for it would toggle nothing.
-    if (!panel.classList.contains("is-collapsed")) {
-      btn.hidden = true;
-      return;
-    }
-    btn.addEventListener("click", () => {
-      const open = panel.classList.toggle("is-open");
-      btn.setAttribute("aria-expanded", String(open));
-      btn.textContent = open ? "Hide text version" : "Read as text";
-    });
   });
 }
 
@@ -1231,181 +761,6 @@ function initResumeModal() {
       closeSkillModal();
     }
   });
-}
-
-/* ============================================================
-   PROJECT FILTERING
-   ============================================================ */
-function renderProjects() {
-  const grid = document.getElementById("projects-grid");
-  const noProjects = document.getElementById("no-projects");
-  if (!grid) return;
-
-  grid.innerHTML = "";
-
-  const filtered = activeCategory === "All Categories"
-    ? projects
-    : projects.filter((p) => p.category === activeCategory);
-
-  if (filtered.length === 0) {
-    if (noProjects) noProjects.style.display = "flex";
-  } else {
-    if (noProjects) noProjects.style.display = "none";
-    filtered.forEach((project) => {
-      const card = createProjectCard(project);
-      grid.appendChild(card);
-    });
-    applyProjectLimit(filtered.length);
-  }
-}
-
-/* On a phone the full grid is ~9.6 screens of near-identical cards, so it
-   starts trimmed. Nothing is removed — the rest is one tap away, and the
-   limit lifts entirely once there is room for a multi-column grid. */
-const PROJECT_LIMIT_MOBILE = 6;
-let projectsExpanded = false;
-
-function applyProjectLimit(total) {
-  const grid = document.getElementById("projects-grid");
-  const moreWrap = document.getElementById("projects-more");
-  if (!grid || !moreWrap) return;
-
-  const narrow = window.matchMedia("(max-width: 639px)").matches;
-  const cards = [...grid.children];
-  const limited = narrow && !projectsExpanded && total > PROJECT_LIMIT_MOBILE;
-
-  cards.forEach((c, i) => {
-    c.hidden = limited && i >= PROJECT_LIMIT_MOBILE;
-  });
-
-  if (!narrow || total <= PROJECT_LIMIT_MOBILE) {
-    moreWrap.hidden = true;
-    return;
-  }
-
-  moreWrap.hidden = false;
-  const btn = moreWrap.querySelector("button");
-  const remaining = total - PROJECT_LIMIT_MOBILE;
-  btn.textContent = projectsExpanded
-    ? "Show fewer projects"
-    : `Show all ${total} projects (${remaining} more)`;
-  btn.setAttribute("aria-expanded", String(projectsExpanded));
-}
-
-function initProjectsMore() {
-  const moreWrap = document.getElementById("projects-more");
-  if (!moreWrap) return;
-  const btn = moreWrap.querySelector("button");
-  btn.addEventListener("click", () => {
-    projectsExpanded = !projectsExpanded;
-    renderProjects();
-    if (!projectsExpanded) {
-      document.getElementById("projects").scrollIntoView({ block: "start" });
-    }
-  });
-  let t;
-  window.addEventListener("resize", () => {
-    clearTimeout(t);
-    t = setTimeout(renderProjects, 180);
-  });
-}
-
-function createProjectCard(project) {
-  const article = document.createElement("article");
-  article.className = "project-card";
-
-  const linksHTML = (project.githubUrl || project.liveUrl || project.caseUrl) ? `
-    <div class="project-links">
-      ${project.caseUrl ? `
-        <a href="${project.caseUrl}" class="project-link case" onclick="event.stopPropagation()">
-          ${icons.filetext} Case Study
-        </a>` : ""}
-      ${project.githubUrl ? `
-        <a href="${project.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
-          ${icons.github.replace('width="16"', 'width="16"')} Code
-        </a>` : ""}
-      ${project.liveUrl ? `
-        <a href="${project.liveUrl}" target="_blank" rel="noopener noreferrer" class="project-link live" onclick="event.stopPropagation()">
-          ${icons.externallink} Live Demo
-        </a>` : ""}
-    </div>` : "";
-
-  const skillsHTML = project.skills && project.skills.length > 0
-    ? `<div class="project-skills">${project.skills.slice(0, 4).map(s => `<span class="skill-badge">${s}</span>`).join("")}</div>`
-    : "";
-
-  // Thumbnails are decorative stock, so alt is empty (the title is right
-  // below it). auto=format lets Unsplash negotiate AVIF/WebP, ~22% smaller.
-  const thumbSrc = project.imageUrl && project.imageUrl.includes("images.unsplash.com")
-    ? project.imageUrl + "&auto=format&q=60"
-    : project.imageUrl;
-
-  const imageHTML = project.imageUrl ? `
-    <img src="${thumbSrc}" alt="" loading="lazy" decoding="async" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-    <div class="project-placeholder" style="display:none;">
-      ${icons.image}
-    </div>` : `
-    <div class="project-placeholder">
-      ${icons.image}
-    </div>`;
-
-  article.innerHTML = `
-    <div class="project-thumb">
-      ${imageHTML}
-      <div class="project-thumb-gradient"></div>
-    </div>
-    <div class="project-body">
-      <h3 class="project-title">${project.title}</h3>
-      <p class="project-subtitle">${project.subtitle}</p>
-      ${skillsHTML}
-      ${linksHTML}
-    </div>
-  `;
-
-  // Optional whole-card link. The Code / Live Demo buttons stop propagation,
-  // so they still go to their own targets.
-  if (project.cardUrl) {
-    const open = () => window.open(project.cardUrl, "_blank", "noopener,noreferrer");
-    article.classList.add("is-link");
-    article.tabIndex = 0;
-    article.setAttribute("role", "link");
-    article.setAttribute("aria-label", `${project.title}: open live app`);
-    article.addEventListener("click", open);
-    article.addEventListener("keydown", (e) => {
-      if (e.target === article && (e.key === "Enter" || e.key === " ")) {
-        e.preventDefault();
-        open();
-      }
-    });
-  }
-
-  return article;
-}
-
-function initCategoryFilter() {
-  const filterContainer = document.getElementById("category-filter");
-  if (!filterContainer) return;
-
-  filterContainer.innerHTML = "";
-
-  categories.forEach((cat) => {
-    const btn = document.createElement("button");
-    btn.className = "filter-btn" + (cat === activeCategory ? " active" : "");
-    // The count tells a phone visitor that a tap collapses 19 cards to a few
-    const n = cat === "All Categories"
-      ? projects.length
-      : projects.filter((p) => p.category === cat).length;
-    btn.innerHTML = `${cat}<span class="filter-count">${n}</span>`;
-    btn.addEventListener("click", () => {
-      activeCategory = cat;
-      filterContainer.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      renderProjects();
-    });
-    filterContainer.appendChild(btn);
-  });
-
-  renderProjects();
 }
 
 /* ============================================================
@@ -1616,9 +971,10 @@ function openSkillModal(skill, trigger) {
 
   title.textContent = skill.name;
 
-  const relatedProjects = projects.filter((p) =>
-    skill.relatedProjectSlugs.includes(p.slug)
-  );
+  // Only the curated work on the home page is linked; other slugs are ignored.
+  const relatedProjects = skill.relatedProjectSlugs
+    .map((slug) => workIndex[slug])
+    .filter(Boolean);
 
   body.innerHTML = `
     <div>
@@ -1640,10 +996,10 @@ function openSkillModal(skill, trigger) {
       <p class="skill-modal-section-title">Related Projects</p>
       <div class="skill-projects-grid">
         ${relatedProjects.map((p) => `
-          <div class="skill-project-item">
+          <a class="skill-project-item" href="${p.href}" data-skill-modal-link>
             <p class="skill-project-title">${p.title}</p>
-            <p class="skill-project-cat">${p.category}</p>
-          </div>`).join("")}
+            <p class="skill-project-cat">${p.track}</p>
+          </a>`).join("")}
       </div>
     </div>` : ""}
   `;
@@ -1674,6 +1030,8 @@ function initSkillModal() {
   if (overlay) {
     overlay.addEventListener("click", (e) => {
       if (e.target === overlay) closeSkillModal();
+      // A related-project link jumps to its card, so get out of the way.
+      if (e.target.closest("[data-skill-modal-link]")) closeSkillModal();
     });
   }
 }
@@ -1784,14 +1142,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initOrcaCarousel();
   initBackToTop();
   initPbiModal();
-  initProjectsMore();
-  initGraphFallbackToggles();
-  initDirectoryDock();
-  initGraphSectionFolding();
-  initSiteTree();
   initHeader();
   initResumeModal();
-  initCategoryFilter();
   renderExperience();
   initExperienceDisclosure();
   renderEducation();
