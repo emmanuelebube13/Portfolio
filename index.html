@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="css/home.css?v=20261115d" />
   <link rel="stylesheet" href="css/sb-panel.css?v=20261115d" />
   <link rel="stylesheet" href="css/work.css?v=20261115d" />
+  <link rel="stylesheet" href="css/hfx.css?v=20261125a" />
 </head>
 <body>
 
@@ -136,7 +137,7 @@
           <h2 class="track-title">Data Modeling &amp; Engineering</h2>
           <p class="track-text">Star schemas, point-in-time tables, pipelines and audit ledgers, built so every number can be traced.</p>
           <p class="track-tools">PostgreSQL &middot; Power Query (M) &middot; Google Cloud &middot; Docker</p>
-          <p class="track-proof">See: <a href="#scalable-brain">Scalable Brain</a>, <a href="#work-halifax-twin">Halifax Twin City</a>, <a href="#work-system2">System 2</a></p>
+          <p class="track-proof">See: <a href="#scalable-brain">Scalable Brain</a>, <a href="#work-halifax-twin">Halifax Twin</a>, <a href="#work-system2">System 2</a></p>
         </article>
       </section>
 
@@ -147,7 +148,57 @@
           <p class="section-subtitle">Seven projects, each with something you can open, explore or run.</p>
         </div>
 
-        <p class="work-feature-label">Featured &middot; running live</p>
+        <p class="work-feature-label">Featured &middot; live city map</p>
+        <section class="hfx" id="work-halifax-twin" aria-labelledby="hfx-name">
+          <div class="hfx-media">
+            <div class="hfx-bar">
+              <span class="hfx-live"><span class="hfx-dot" aria-hidden="true"></span>Live</span>
+              <span class="hfx-url">hfxtwin.profine.ca</span>
+              <div class="hfx-toggle" role="group" aria-label="Choose screenshot">
+                <button type="button" data-show="3d" aria-pressed="true">3D</button>
+                <button type="button" data-show="2d" aria-pressed="false">2D</button>
+              </div>
+            </div>
+            <a class="hfx-view" href="https://hfxtwin.profine.ca" target="_blank" rel="noopener noreferrer" aria-label="Open the live Halifax Twin map">
+              <img class="hfx-shot is-active" data-view="3d"
+                   src="images/work/halifax-twin-3d.jpg"
+                   srcset="images/work/halifax-twin-3d-800.jpg 800w, images/work/halifax-twin-3d.jpg 1440w"
+                   sizes="(min-width: 1000px) 640px, 100vw"
+                   alt="Halifax Twin in 3D: photorealistic Halifax peninsula with live, numbered bus markers and a panel of city figures"
+                   width="1440" height="900" />
+              <img class="hfx-shot" data-view="2d"
+                   src="images/work/halifax-twin-2d.jpg"
+                   srcset="images/work/halifax-twin-2d-800.jpg 800w, images/work/halifax-twin-2d.jpg 1440w"
+                   sizes="(min-width: 1000px) 640px, 100vw"
+                   alt="Halifax Twin in 2D: street map of Halifax with live bus markers, transit routes and road closure symbols"
+                   width="1440" height="900" loading="lazy" />
+            </a>
+          </div>
+
+          <div class="hfx-body">
+            <p class="hfx-track">Data Engineering &middot; Geospatial &middot; Full stack</p>
+            <h3 class="hfx-name" id="hfx-name">Halifax Twin</h3>
+            <p class="hfx-note">A live map of Halifax that shows what the city is doing right now. Every Halifax Transit bus moves on the map as it reports its position, next to road closures, building permits and short transit stories found in the data, such as buses bunching together or stops where riders wait longer than planned. You can read it as a flat street map or fly over a photorealistic 3D city. Behind it, a Python collector pulls the city&rsquo;s open feeds into a PostGIS database, and a FastAPI service hands them to the map.</p>
+
+            <dl class="hfx-stats" aria-label="Figures from the live site">
+              <div><dt>Live buses</dt><dd>~135</dd></div>
+              <div><dt>3D click</dt><dd>&lt;90&nbsp;ms</dd></div>
+              <div><dt>2D&ndash;3D switch</dt><dd>~30&nbsp;ms</dd></div>
+            </dl>
+
+            <ul class="hfx-stack" aria-label="Tools">
+              <li>Python</li><li>PostgreSQL + PostGIS</li><li>FastAPI</li><li>GTFS-realtime</li><li>MapLibre</li><li>CesiumJS</li><li>Google 3D Tiles</li><li>Cloudflare</li>
+            </ul>
+
+            <div class="hfx-actions">
+              <a class="hfx-btn hfx-btn-primary" href="https://hfxtwin.profine.ca" target="_blank" rel="noopener noreferrer">Open the live map</a>
+              <a class="hfx-btn" href="https://github.com/emmanuelebube13/halifax-twin-city" target="_blank" rel="noopener noreferrer">Code on GitHub</a>
+            </div>
+            <p class="hfx-fine">Opens in 2D. The 3D view is limited to 30 opens a day to keep map costs down.</p>
+          </div>
+        </section>
+
+        <p class="work-feature-label">Also running live</p>
         <section class="sb" id="scalable-brain" data-tone="idle" aria-labelledby="sb-name">
           <div class="sb-top">
             <h3 class="sb-name" id="sb-name">Scalable Brain</h3>
@@ -307,30 +358,6 @@
               <ul class="work-stack" aria-label="Tools"><li>Python</li><li>PostgreSQL</li><li>Google Cloud</li><li>OANDA API</li></ul>
               <div class="work-actions">
                 <a class="btn btn-orange work-btn" href="https://github.com/emmanuelebube13/system2Executor" target="_blank" rel="noopener noreferrer">Read the code</a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Halifax Twin City -->
-          <article class="work-card" id="work-halifax-twin">
-            <a class="work-media" href="https://github.com/emmanuelebube13/halifax-twin-city" target="_blank" rel="noopener noreferrer" aria-label="Open the Halifax Twin City design on GitHub">
-              <img src="images/work/halifax-twin.jpg" alt="Conceptual model of the Halifax Digital Twin: Transportation and Public Works entities joined to a shared core of locations, events, assets and parties" loading="lazy" width="1120" height="700" />
-              <span class="work-badge">In progress &middot; Phase 1</span>
-              <span class="work-media-cta">See the design</span>
-            </a>
-            <div class="work-body">
-              <p class="work-track">Data Modeling &middot; Data Engineering</p>
-              <h3 class="work-title">Halifax Twin City</h3>
-              <p class="work-summary">A living data model of Halifax that joins city sectors through one shared core, so a question like &ldquo;is new housing going where transit is weakest?&rdquo; can be answered across sectors.</p>
-              <ul class="work-points">
-                <li>17 city sectors scored by a written rubric; three chosen for Phase 1</li>
-                <li>100 business questions and 77 open data sources inventoried</li>
-                <li>47-entity conceptual model and data flow design; live transit feed next</li>
-              </ul>
-              <ul class="work-stack" aria-label="Tools"><li>Conceptual modeling</li><li>draw.io</li><li>GTFS Realtime</li><li>Open data</li></ul>
-              <div class="work-actions">
-                <a class="btn btn-orange work-btn" href="https://github.com/emmanuelebube13/halifax-twin-city" target="_blank" rel="noopener noreferrer">See the design</a>
-                <a class="work-link" href="https://github.com/emmanuelebube13/halifax-twin-city/blob/main/docs/Halifax%20Digital%20Twin%20%E2%80%93%20Project%20Charter%20V1.md" target="_blank" rel="noopener noreferrer">Read the charter</a>
               </div>
             </div>
           </article>
@@ -665,5 +692,6 @@
 
   <script src="js/main.js?v=20261115d"></script>
   <script src="js/sb-live.js?v=20261115d"></script>
+  <script src="js/hfx.js?v=20261125a"></script>
 </body>
 </html>
