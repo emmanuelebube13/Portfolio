@@ -1,0 +1,287 @@
+/* ============================================================
+   HALIFAX TWIN: featured project at the top of Selected work.
+   Dark navy and warm amber, taken from the live site's own panel,
+   so the card reads as a window onto the real thing.
+   ============================================================ */
+
+:root {
+  --hfx-bg: #0E1A26;
+  --hfx-raised: #152535;
+  --hfx-line: #24384B;
+  --hfx-line-strong: #3E5770;
+  --hfx-text: #EEF2F6;
+  --hfx-dim: #A9B6C4;
+  --hfx-amber: #F5A524;
+  --hfx-amber-hover: #FFBC4A;
+  --hfx-live: #34D399;
+}
+
+.hfx {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-block: 0.5rem 2.5rem;
+  overflow: hidden;
+  scroll-margin-top: 5rem;
+  border-radius: 1rem;
+  background: var(--hfx-bg);
+  color: var(--hfx-text);
+  box-shadow: 0 24px 60px rgba(14, 26, 38, 0.22);
+}
+
+.hfx:target { box-shadow: 0 0 0 3px rgba(245, 165, 36, 0.45), 0 24px 60px rgba(14, 26, 38, 0.22); }
+
+.hfx :focus-visible { outline: 2px solid var(--hfx-amber); outline-offset: 2px; }
+
+/* ---------- Screenshot with 3D / 2D switch ---------- */
+.hfx-media {
+  position: relative;
+  min-width: 0;
+  background: #0A131C;
+}
+
+.hfx-view {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.hfx-shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+  opacity: 0;
+  transition: opacity 0.35s ease, transform 0.6s ease;
+}
+
+.hfx-shot.is-active { opacity: 1; }
+
+.hfx-view:hover .hfx-shot.is-active { transform: scale(1.02); }
+
+/* A slim address-bar strip above the picture: live mark, address,
+   and the 3D / 2D switch, kept off the screenshot's own controls. */
+.hfx-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.6rem 0.5rem 0.85rem;
+  border-bottom: 1px solid var(--hfx-line);
+  background: var(--hfx-raised);
+}
+
+.hfx-live {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--hfx-live);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hfx-url {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  background: var(--hfx-bg);
+  color: var(--hfx-dim);
+  font: 400 0.8125rem/1.2 'IBM Plex Mono', ui-monospace, monospace;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hfx-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--hfx-live);
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6);
+  animation: hfxPulse 2s ease-out infinite;
+}
+
+@keyframes hfxPulse {
+  0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+  70% { box-shadow: 0 0 0 0.45rem rgba(52, 211, 153, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+}
+
+.hfx-toggle {
+  display: inline-flex;
+  flex: none;
+  padding: 0.2rem;
+  border-radius: 9999px;
+  background: var(--hfx-bg);
+}
+
+.hfx-toggle button {
+  min-width: 2.75rem;
+  min-height: 2.25rem;
+  padding: 0 0.85rem;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--hfx-dim);
+  font: 600 0.8125rem/1 'Inter', system-ui, sans-serif;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.hfx-toggle button:hover { color: var(--hfx-text); }
+
+.hfx-toggle button[aria-pressed="true"] {
+  background: var(--hfx-text);
+  color: var(--hfx-bg);
+}
+
+/* ---------- Text ---------- */
+.hfx-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.5rem;
+}
+
+.hfx-track {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--hfx-amber);
+}
+
+.hfx-name {
+  margin-top: 0.4rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--hfx-text);
+}
+
+.hfx-note {
+  margin-top: 0.75rem;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--hfx-dim);
+}
+
+.hfx-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 1.25rem;
+  border-block: 1px solid var(--hfx-line);
+}
+
+.hfx-stats > div {
+  min-width: 0;
+  padding: 0.7rem 0 0.7rem 0.85rem;
+  border-left: 1px solid var(--hfx-line);
+}
+
+.hfx-stats > div:first-child { padding-left: 0; border-left: 0; }
+
+.hfx-stats dt {
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  color: var(--hfx-dim);
+}
+
+.hfx-stats dd {
+  margin-top: 0.15rem;
+  font: 500 1.375rem/1.3 'IBM Plex Mono', ui-monospace, monospace;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: var(--hfx-amber);
+}
+
+.hfx-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  list-style: none;
+}
+
+.hfx-stack li {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--hfx-line-strong);
+  border-radius: 9999px;
+  background: var(--hfx-raised);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--hfx-text);
+}
+
+.hfx-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.hfx-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.875rem;
+  padding: 0.25rem 1rem;
+  border: 1px solid var(--hfx-line-strong);
+  border-radius: 9999px;
+  background: var(--hfx-raised);
+  color: var(--hfx-text);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.hfx-btn:hover { border-color: var(--hfx-text); }
+
+.hfx-btn-primary {
+  background: var(--hfx-amber);
+  border-color: var(--hfx-amber);
+  color: var(--hfx-bg);
+}
+
+.hfx-btn-primary:hover {
+  background: var(--hfx-amber-hover);
+  border-color: var(--hfx-amber-hover);
+  box-shadow: 0 8px 24px rgba(245, 165, 36, 0.25);
+}
+
+.hfx-fine {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--hfx-dim);
+}
+
+/* ---------- Wide screens: picture left, story right ---------- */
+@media (min-width: 1000px) {
+  .hfx { grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); }
+  .hfx-media { display: flex; flex-direction: column; }
+  .hfx-view { flex: 1; aspect-ratio: auto; min-height: 22rem; }
+  .hfx-body { padding: 2rem 2rem 1.75rem; justify-content: center; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 480px) {
+  .hfx-body { padding: 1.25rem 1rem; }
+  .hfx-stats dd { font-size: 1.125rem; }
+  .hfx-stats > div { padding-left: 0.6rem; }
+  .hfx-actions { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hfx-shot, .hfx-toggle button, .hfx-btn { transition: none; }
+  .hfx-view:hover .hfx-shot.is-active { transform: none; }
+  .hfx-dot { animation: none; }
+}
